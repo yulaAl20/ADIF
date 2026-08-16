@@ -1,0 +1,29 @@
+# ADIF core dependencies.
+#
+# This file alone runs EVERYTHING currently implemented: the whole test suite,
+# the REST API, the review UI, the CLI and the demo. Install it and nothing
+# else to start.
+#
+#     pip install -r requirements.txt
+#
+# The real sentence embedder and the evaluation plotting stack live in
+# requirements-optional.txt — roughly 2 GB, and not needed yet. See that file
+# for the install order, which matters.
+#
+# Version ranges here, exact pins later: after a clean install on your own
+# machine run `pip freeze > requirements.lock.txt` and cite THAT in your
+# appendix. Pinning versions that were never resolved on your platform would
+# be a reproducibility claim you cannot support.
+
+streamlit>=1.50,<2
+PyYAML>=6.0
+pandas>=2.2,<2.3
+openpyxl>=3.1,<3.2
+rapidfuzz>=3.6,<4
+jsonschema>=4.21,<5
+pydantic>=2.6,<3
+fastapi>=0.110,<0.116
+python-multipart>=0.0.9
+httpx>=0.27
+jinja2>=3.1,<4          # website templates (src/web)
+itsdangerous>=2.1,<3    # signed session cookies for the portal

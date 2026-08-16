@@ -1,0 +1,39 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Embedding model cache — ~80 MB of binary weights. Never commit it: the model
+# is identified in run records by its pinned revision hash (FR-5.5), which is
+# what makes a run reproducible. The bytes themselves are re-fetchable with
+# scripts/fetch_model.py.
+.model_cache/
+
+# Runtime state: uploaded files, the SQLite template store. Not research data.
+var/
+
+# Derived tunables. These are OUTPUTS of eval/grid_search.py and
+# eval/fit_calibration.py, not inputs. The authoritative values live in
+# config/default.yaml, committed by hand with a date, so a run record can
+# name the exact config that produced it.
+config/thresholds.yaml
+config/grid_trace.json
+config/calibrator.json
+decisions_freeze_record.json
+
+# Instrumented run records are kept, but exploratory ones are noise. Commit a
+# run record deliberately with `git add -f` once it is one you intend to cite.
+runs/*.json
+!runs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+.streamlit/secrets.toml

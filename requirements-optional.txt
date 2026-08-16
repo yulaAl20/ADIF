@@ -1,0 +1,24 @@
+# ADIF optional dependencies — NOT needed to run the tests, API, UI or demo.
+#
+# INSTALL ORDER MATTERS. Install the CPU wheel of PyTorch FIRST, from the CPU
+# index. If you let pip resolve torch on its own it may pull a multi-gigabyte
+# CUDA build this project never uses:
+#
+#     pip install torch --index-url https://download.pytorch.org/whl/cpu
+#     pip install -r requirements-optional.txt
+#
+# Then cache the model once (see docs/setup.md step 8) and record its revision
+# hash in config/default.yaml. An unpinned model is an unreproducible result.
+
+sentence-transformers>=2.7,<6   # Stage 3 real embedder (all-MiniLM-L6-v2)
+# Range widened 2026-10-08. The previous <3 cap was wrong: MiniLMEmbedder
+# is loaded through a signature check, so it works on 2.x and 3.x alike.
+# Record the version you actually resolved via `pip freeze`, not this range.
+scikit-learn>=1.4,<1.6          # evaluation harness (M14)
+matplotlib>=3.8,<3.10           # reliability diagrams (Metric 3)
+psutil>=5.9,<6                  # runtime/memory instrumentation (FR-14.4)
+
+# pyld is deliberately ABSENT. The JSON-LD @context is generated from the CDM
+# schema and serialised directly, so a full JSON-LD processor is not required.
+# Add it only if you implement round-trip expansion/compaction (FR-12.3).
+pyld>=2.0,<3        # JSON-LD processor for the ADIR interoperability check (eval/registry_eval.py, E5)
