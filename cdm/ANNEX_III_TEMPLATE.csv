@@ -1,0 +1,12 @@
+point,verbatim_text,cdm_field_name,granularity,cardinality,datatype,mandatory,notes
+a,,,,,,,
+b,"the unique product identifier",productIdentifier,variant,1,string,TRUE,"CONFIRMED via Art 10(1)(a) and Art 2(30) - verify wording"
+c,"the Global Trade Identification Number / commodity codes - standards per Annex III para 2",dataCarrierStandard,variant,1,string,TRUE,"CONFIRMED via Art 10(1)(c) - verify wording"
+d,,,,,,,
+e,,,,,,,
+f,,,,,,,
+g,"the unique operator identifier",operatorIdentifier,family,1,string,TRUE,"CONFIRMED via Art 12(1) - verify wording"
+h,"the unique operator identifier of other actors",otherOperatorIdentifier,family,0..n,string,FALSE,"CONFIRMED via Art 12(2) - verify wording"
+i,"the unique facility identifier",facilityIdentifier,family,0..n,string,FALSE,"CONFIRMED via Art 12(3) - verify wording"
+j,,,,,,,
+k,,,,,,,

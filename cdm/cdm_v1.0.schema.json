@@ -1,0 +1,513 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adif.example/cdm/v1.0",
+  "title": "ADIF Canonical Data Model v1.0 (apparel)",
+  "description": "Vendor-neutral canonical schema for apparel Digital Product Passports. Derived from ESPR (EU) 2024/1781 Annex III paragraph 1 points (a)-(k), expanded through Article 7(5) and Article 5(1) where point (a) refers out, plus Regulation (EU) 1007/2011 for fibre composition and the ADID identity dimensions. Each field carries its source clause in x-adif. EPCIS 2.0 event attributes and UNTP credential semantics are NOT yet incorporated - see cdm/EXTRACTION.md.",
+  "type": "object",
+  "required": [
+    "productFamily",
+    "productIdentifier",
+    "manufacturerOperatorId",
+    "fibreComposition"
+  ],
+  "properties": {
+    "productFamily": {
+      "type": "string",
+      "description": "product family or design name shared across all colour and size variants",
+      "x-adif": {
+        "source": "ADIF",
+        "clause": "ADID Layer 1",
+        "granularity": "family",
+        "note": "NO regulatory source. ESPR Art 9(2)(d) requires delegated acts to state whether a passport sits at model, batch or item level, but neither ESPR nor GS1 provides a family-level identifier. Supplying one is ADID's contribution, not a restatement of an existing standard."
+      }
+    },
+    "passportGranularity": {
+      "type": "string",
+      "description": "level at which this passport is established: model, batch or item",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(b); Art 9(2)(d); Art 10(1)(f)",
+        "granularity": "family",
+        "note": "Point (b) says the identifier is 'at the level indicated in the applicable delegated act'. Maps to ADID family/variant/instance. SYSTEM-ASSIGNED, not mapped from manufacturer input: ADID sets it from the level of the identifier it issues (family/variant/instance). Excluded from the mandatory input set for that reason.",
+        "assigned_by": "ADID"
+      }
+    },
+    "productIdentifier": {
+      "type": "string",
+      "description": "unique product identifier at the level set by the applicable delegated act",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(b); Art 2(30); Art 10(1)(a)",
+        "granularity": "variant"
+      }
+    },
+    "gtin": {
+      "type": "string",
+      "description": "Global Trade Item Number of the product or its parts, per ISO/IEC 15459-6 or equivalent",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(c)",
+        "granularity": "variant",
+        "note": "A GTIN identifies one colour-and-size combination. It sits at variant level and can never represent a family (decisions.md D9)."
+      }
+    },
+    "commodityCode": {
+      "type": "string",
+      "description": "relevant commodity code, such as a TARIC code",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(d)",
+        "granularity": "variant"
+      }
+    },
+    "complianceDocumentation": {
+      "type": "string",
+      "description": "compliance documentation required under this Regulation or other Union law",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(e)",
+        "granularity": "variant"
+      }
+    },
+    "declarationOfConformity": {
+      "type": "string",
+      "description": "declaration of conformity reference or document link",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(e)",
+        "granularity": "variant"
+      }
+    },
+    "conformityCertificate": {
+      "type": "string",
+      "description": "conformity certificate reference or document link",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(e)",
+        "granularity": "variant"
+      }
+    },
+    "userManual": {
+      "type": "string",
+      "description": "user manual or instructions for use",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(f)",
+        "granularity": "variant"
+      }
+    },
+    "safetyInformation": {
+      "type": "string",
+      "description": "warnings or safety information required by other applicable Union law",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(f)",
+        "granularity": "variant"
+      }
+    },
+    "careInstructions": {
+      "type": "string",
+      "description": "care, washing and maintenance instructions for the garment",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(f)",
+        "granularity": "variant",
+        "note": "Apparel-specific reading of point (f): care labelling is the garment sector's instructions-for-use."
+      }
+    },
+    "manufacturerName": {
+      "type": "string",
+      "description": "name of the manufacturer",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(g); Art 27(7)",
+        "granularity": "family"
+      }
+    },
+    "manufacturerOperatorId": {
+      "type": "string",
+      "description": "unique operator identifier of the manufacturer",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(g); Art 12(1)",
+        "granularity": "family"
+      }
+    },
+    "otherOperatorIdentifiers": {
+      "type": "string",
+      "description": "unique operator identifiers other than that of the manufacturer",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(h); Art 12(2)",
+        "granularity": "family"
+      }
+    },
+    "facilityIdentifiers": {
+      "type": "string",
+      "description": "unique facility identifiers for locations or buildings in the value chain",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(i); Art 12(3)",
+        "granularity": "family"
+      }
+    },
+    "importerName": {
+      "type": "string",
+      "description": "name of the importer",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(j); Art 29(3)",
+        "granularity": "family"
+      }
+    },
+    "importerEori": {
+      "type": "string",
+      "description": "Economic Operators Registration and Identification (EORI) number of the importer",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(j)",
+        "granularity": "family"
+      }
+    },
+    "euResponsibleName": {
+      "type": "string",
+      "description": "name of the economic operator established in the Union responsible for market surveillance tasks",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(k)",
+        "granularity": "family"
+      }
+    },
+    "euResponsibleContact": {
+      "type": "string",
+      "description": "contact details of the responsible Union-established economic operator",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(k)",
+        "granularity": "family"
+      }
+    },
+    "euResponsibleOperatorId": {
+      "type": "string",
+      "description": "unique operator identifier of the responsible Union-established economic operator",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(k)",
+        "granularity": "family"
+      }
+    },
+    "substanceIupacName": {
+      "type": "string",
+      "description": "IUPAC name of a substance of concern present in the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(a)(i)",
+        "granularity": "variant"
+      }
+    },
+    "substanceOtherNames": {
+      "type": "string",
+      "description": "other names of the substance of concern, including trade names",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(a)(ii)",
+        "granularity": "variant"
+      }
+    },
+    "substanceEcNumber": {
+      "type": "string",
+      "description": "EC number of the substance of concern",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(a)(iii)",
+        "granularity": "variant"
+      }
+    },
+    "substanceCasNumber": {
+      "type": "string",
+      "description": "CAS name and number of the substance of concern",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(a)(iv)",
+        "granularity": "variant"
+      }
+    },
+    "substanceLocation": {
+      "type": "string",
+      "description": "location of the substance of concern within the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(b)",
+        "granularity": "variant"
+      }
+    },
+    "substanceConcentration": {
+      "type": "string",
+      "description": "concentration or concentration range of the substance of concern",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(c)",
+        "granularity": "variant"
+      }
+    },
+    "substanceSafeUse": {
+      "type": "string",
+      "description": "instructions for safe use of the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(d)",
+        "granularity": "variant"
+      }
+    },
+    "substanceEndOfLife": {
+      "type": "string",
+      "description": "end-of-life information for disassembly, reuse or recycling",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 7(5)(e)",
+        "granularity": "variant"
+      }
+    },
+    "durability": {
+      "type": "string",
+      "description": "durability of the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(a)",
+        "granularity": "variant"
+      }
+    },
+    "reparability": {
+      "type": "string",
+      "description": "reparability of the product, such as a repairability score",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(e); Art 7(2)(b)(i)",
+        "granularity": "variant"
+      }
+    },
+    "recycledContent": {
+      "type": "string",
+      "description": "recycled content of the product, as a percentage",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(k)",
+        "granularity": "variant"
+      }
+    },
+    "recyclability": {
+      "type": "string",
+      "description": "recyclability of the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(m)",
+        "granularity": "variant"
+      }
+    },
+    "carbonFootprint": {
+      "type": "number",
+      "description": "carbon footprint in kilograms of CO2 equivalent",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(o); Art 2(25)",
+        "granularity": "variant"
+      }
+    },
+    "environmentalFootprint": {
+      "type": "string",
+      "description": "environmental footprint of the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(o)",
+        "granularity": "variant"
+      }
+    },
+    "expectedWasteGeneration": {
+      "type": "string",
+      "description": "expected generation of waste material from the product",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(a) via Art 5(1)(p)",
+        "granularity": "variant"
+      }
+    },
+    "fibreComposition": {
+      "type": "string",
+      "description": "fibre composition of the textile product by percentage of weight",
+      "x-adif": {
+        "source": "EU 1007/2011",
+        "clause": "Textile labelling Regulation Art 5, Art 9",
+        "granularity": "variant",
+        "note": "Apparel-sector mandatory labelling. Required independently of ESPR; the textile delegated act is not yet adopted, so this is the firmest available basis for composition data."
+      }
+    },
+    "colour": {
+      "type": "string",
+      "description": "colour of the garment variant",
+      "x-adif": {
+        "source": "ADIF",
+        "clause": "ADID variant dimension",
+        "granularity": "variant"
+      }
+    },
+    "size": {
+      "type": "string",
+      "description": "size designation of the garment variant",
+      "x-adif": {
+        "source": "ADIF",
+        "clause": "ADID variant dimension",
+        "granularity": "variant"
+      }
+    },
+    "countryOfOrigin": {
+      "type": "string",
+      "description": "country of manufacture, as an ISO 3166-1 alpha-2 code",
+      "x-adif": {
+        "source": "ESPR",
+        "clause": "Annex III 1(i) context; ISO 3166-1",
+        "granularity": "variant"
+      }
+    },
+    "batchNumber": {
+      "type": "string",
+      "description": "batch or lot number of the production run",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.batchNumber; EPCIS ILMD lot",
+        "granularity": "batch",
+        "note": "Introduces BATCH granularity, which ESPR Art 9(2)(d) names (model/batch/item) but ADID's three levels do not carry. See the alignment note in cdm/ALIGNMENT.md \u2014 this is a real gap, not an oversight."
+      }
+    },
+    "serialNumber": {
+      "type": "string",
+      "description": "serial number identifying one physical unit",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.serialNumber; EPCIS epcList (SGTIN)",
+        "granularity": "instance",
+        "note": "GTIN + serial = SGTIN = ADID instance level."
+      }
+    },
+    "productionDate": {
+      "type": "string",
+      "description": "date the product was manufactured",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.productionDate; EPCIS eventTime at commissioning",
+        "granularity": "batch"
+      }
+    },
+    "productCategory": {
+      "type": "string",
+      "description": "product classification, such as a UN-CPC or similar scheme code",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.productCategory",
+        "granularity": "family"
+      }
+    },
+    "netWeight": {
+      "type": "string",
+      "description": "net weight of the product, with UNECE unit",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.dimensions.weight",
+        "granularity": "variant"
+      }
+    },
+    "materialOriginCountry": {
+      "type": "string",
+      "description": "country of origin of a constituent material, as an ISO 3166-1 alpha-2 code",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.materialsProvenance.originCountry",
+        "granularity": "variant",
+        "note": "Distinct from countryOfOrigin, which is where the GARMENT was made. Fabric is routinely woven in one country and sewn in another \u2014 collapsing the two would misstate the supply chain."
+      }
+    },
+    "materialMassFraction": {
+      "type": "string",
+      "description": "mass fraction of a constituent material in the product",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.materialsProvenance.massFraction",
+        "granularity": "variant"
+      }
+    },
+    "emissionsDeclaredUnit": {
+      "type": "string",
+      "description": "declared unit the carbon footprint figure is expressed per",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.emissionsScorecard.declaredUnit",
+        "granularity": "variant",
+        "note": "A carbon figure without its declared unit is uninterpretable: 4.2 kg CO2e per garment and per kilogram are different claims."
+      }
+    },
+    "emissionsReportingStandard": {
+      "type": "string",
+      "description": "standard under which the emissions figure was calculated",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.emissionsScorecard.reportingStandard",
+        "granularity": "variant"
+      }
+    },
+    "conformityClaim": {
+      "type": "string",
+      "description": "claim of conformity against a named standard or regulation",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.conformityClaim",
+        "granularity": "variant",
+        "note": "UNTP's verification layer. Where ESPR Annex III 1(e) asks WHETHER compliance documentation exists, UNTP structures WHAT is claimed and who attests it."
+      }
+    },
+    "dueDiligenceDeclaration": {
+      "type": "string",
+      "description": "link to the supply chain due diligence declaration",
+      "x-adif": {
+        "source": "UNTP",
+        "clause": "DPP credentialSubject.dueDiligenceDeclaration",
+        "granularity": "family"
+      }
+    },
+    "productionFacilityLocation": {
+      "type": "string",
+      "description": "business location where production took place",
+      "x-adif": {
+        "source": "EPCIS 2.0",
+        "clause": "7.3.5 'where' dimension - bizLocation",
+        "granularity": "family",
+        "note": "Complements ESPR Annex III 1(i): the ESPR point mandates a facility IDENTIFIER, EPCIS supplies the location semantics around it."
+      }
+    },
+    "productionStage": {
+      "type": "string",
+      "description": "business process step the product has completed",
+      "x-adif": {
+        "source": "EPCIS 2.0",
+        "clause": "7.3.6 'why' dimension - bizStep",
+        "granularity": "batch"
+      }
+    },
+    "disposition": {
+      "type": "string",
+      "description": "business state of the product, such as in_transit or sellable",
+      "x-adif": {
+        "source": "EPCIS 2.0",
+        "clause": "7.3.6 'why' dimension - disposition",
+        "granularity": "batch"
+      }
+    },
+    "purchaseOrderReference": {
+      "type": "string",
+      "description": "business transaction reference, such as a purchase order number",
+      "x-adif": {
+        "source": "EPCIS 2.0",
+        "clause": "7.3.6 'why' dimension - bizTransactionList",
+        "granularity": "batch"
+      }
+    }
+  }
+}

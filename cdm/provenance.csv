@@ -1,0 +1,55 @@
+cdm_field,source_standard,source_clause,granularity,datatype,mandatory,status,notes
+productFamily,ADIF,ADID Layer 1,family,string,TRUE,ARTEFACT,"NO regulatory source. ESPR Art 9(2)(d) requires delegated acts to state whether a passport sits at model, batch or item level, but neither ESPR nor GS1 provides a family-level identifier. Supplying one is ADID's contribution, not a restatement of an existing standard."
+passportGranularity,ESPR,Annex III 1(b); Art 9(2)(d); Art 10(1)(f),family,string,FALSE,VERIFIED,"Point (b) says the identifier is 'at the level indicated in the applicable delegated act'. Maps to ADID family/variant/instance. SYSTEM-ASSIGNED, not mapped from manufacturer input: ADID sets it from the level of the identifier it issues (family/variant/instance). Excluded from the mandatory input set for that reason."
+productIdentifier,ESPR,Annex III 1(b); Art 2(30); Art 10(1)(a),variant,string,TRUE,VERIFIED,
+gtin,ESPR,Annex III 1(c),variant,string,FALSE,VERIFIED,A GTIN identifies one colour-and-size combination. It sits at variant level and can never represent a family (decisions.md D9).
+commodityCode,ESPR,Annex III 1(d),variant,string,FALSE,VERIFIED,
+complianceDocumentation,ESPR,Annex III 1(e),variant,string,FALSE,VERIFIED,
+declarationOfConformity,ESPR,Annex III 1(e),variant,string,FALSE,VERIFIED,
+conformityCertificate,ESPR,Annex III 1(e),variant,string,FALSE,VERIFIED,
+userManual,ESPR,Annex III 1(f),variant,string,FALSE,VERIFIED,
+safetyInformation,ESPR,Annex III 1(f),variant,string,FALSE,VERIFIED,
+careInstructions,ESPR,Annex III 1(f),variant,string,FALSE,VERIFIED,Apparel-specific reading of point (f): care labelling is the garment sector's instructions-for-use.
+manufacturerName,ESPR,Annex III 1(g); Art 27(7),family,string,FALSE,VERIFIED,
+manufacturerOperatorId,ESPR,Annex III 1(g); Art 12(1),family,string,TRUE,VERIFIED,
+otherOperatorIdentifiers,ESPR,Annex III 1(h); Art 12(2),family,string,FALSE,VERIFIED,
+facilityIdentifiers,ESPR,Annex III 1(i); Art 12(3),family,string,FALSE,VERIFIED,
+importerName,ESPR,Annex III 1(j); Art 29(3),family,string,FALSE,VERIFIED,
+importerEori,ESPR,Annex III 1(j),family,string,FALSE,VERIFIED,
+euResponsibleName,ESPR,Annex III 1(k),family,string,FALSE,VERIFIED,
+euResponsibleContact,ESPR,Annex III 1(k),family,string,FALSE,VERIFIED,
+euResponsibleOperatorId,ESPR,Annex III 1(k),family,string,FALSE,VERIFIED,
+substanceIupacName,ESPR,Annex III 1(a) via Art 7(5)(a)(i),variant,string,FALSE,VERIFIED,
+substanceOtherNames,ESPR,Annex III 1(a) via Art 7(5)(a)(ii),variant,string,FALSE,VERIFIED,
+substanceEcNumber,ESPR,Annex III 1(a) via Art 7(5)(a)(iii),variant,string,FALSE,VERIFIED,
+substanceCasNumber,ESPR,Annex III 1(a) via Art 7(5)(a)(iv),variant,string,FALSE,VERIFIED,
+substanceLocation,ESPR,Annex III 1(a) via Art 7(5)(b),variant,string,FALSE,VERIFIED,
+substanceConcentration,ESPR,Annex III 1(a) via Art 7(5)(c),variant,string,FALSE,VERIFIED,
+substanceSafeUse,ESPR,Annex III 1(a) via Art 7(5)(d),variant,string,FALSE,VERIFIED,
+substanceEndOfLife,ESPR,Annex III 1(a) via Art 7(5)(e),variant,string,FALSE,VERIFIED,
+durability,ESPR,Annex III 1(a) via Art 5(1)(a),variant,string,FALSE,VERIFIED,
+reparability,ESPR,Annex III 1(a) via Art 5(1)(e); Art 7(2)(b)(i),variant,string,FALSE,VERIFIED,
+recycledContent,ESPR,Annex III 1(a) via Art 5(1)(k),variant,string,FALSE,VERIFIED,
+recyclability,ESPR,Annex III 1(a) via Art 5(1)(m),variant,string,FALSE,VERIFIED,
+carbonFootprint,ESPR,Annex III 1(a) via Art 5(1)(o); Art 2(25),variant,number,FALSE,VERIFIED,
+environmentalFootprint,ESPR,Annex III 1(a) via Art 5(1)(o),variant,string,FALSE,VERIFIED,
+expectedWasteGeneration,ESPR,Annex III 1(a) via Art 5(1)(p),variant,string,FALSE,VERIFIED,
+fibreComposition,EU 1007/2011,"Textile labelling Regulation Art 5, Art 9",variant,string,TRUE,VERIFIED,"Apparel-sector mandatory labelling. Required independently of ESPR; the textile delegated act is not yet adopted, so this is the firmest available basis for composition data."
+colour,ADIF,ADID variant dimension,variant,string,FALSE,ARTEFACT,
+size,ADIF,ADID variant dimension,variant,string,FALSE,ARTEFACT,
+countryOfOrigin,ESPR,Annex III 1(i) context; ISO 3166-1,variant,string,FALSE,VERIFIED,
+batchNumber,UNTP,DPP credentialSubject.batchNumber; EPCIS ILMD lot,batch,string,FALSE,VERIFIED,"Introduces BATCH granularity, which ESPR Art 9(2)(d) names (model/batch/item) but ADID's three levels do not carry. See the alignment note in cdm/ALIGNMENT.md — this is a real gap, not an oversight."
+serialNumber,UNTP,DPP credentialSubject.serialNumber; EPCIS epcList (SGTIN),instance,string,FALSE,VERIFIED,GTIN + serial = SGTIN = ADID instance level.
+productionDate,UNTP,DPP credentialSubject.productionDate; EPCIS eventTime at commissioning,batch,string,FALSE,VERIFIED,
+productCategory,UNTP,DPP credentialSubject.productCategory,family,string,FALSE,VERIFIED,
+netWeight,UNTP,DPP credentialSubject.dimensions.weight,variant,string,FALSE,VERIFIED,
+materialOriginCountry,UNTP,DPP credentialSubject.materialsProvenance.originCountry,variant,string,FALSE,VERIFIED,"Distinct from countryOfOrigin, which is where the GARMENT was made. Fabric is routinely woven in one country and sewn in another — collapsing the two would misstate the supply chain."
+materialMassFraction,UNTP,DPP credentialSubject.materialsProvenance.massFraction,variant,string,FALSE,VERIFIED,
+emissionsDeclaredUnit,UNTP,DPP credentialSubject.emissionsScorecard.declaredUnit,variant,string,FALSE,VERIFIED,A carbon figure without its declared unit is uninterpretable: 4.2 kg CO2e per garment and per kilogram are different claims.
+emissionsReportingStandard,UNTP,DPP credentialSubject.emissionsScorecard.reportingStandard,variant,string,FALSE,VERIFIED,
+conformityClaim,UNTP,DPP credentialSubject.conformityClaim,variant,string,FALSE,VERIFIED,"UNTP's verification layer. Where ESPR Annex III 1(e) asks WHETHER compliance documentation exists, UNTP structures WHAT is claimed and who attests it."
+dueDiligenceDeclaration,UNTP,DPP credentialSubject.dueDiligenceDeclaration,family,string,FALSE,VERIFIED,
+productionFacilityLocation,EPCIS 2.0,7.3.5 'where' dimension - bizLocation,family,string,FALSE,VERIFIED,"Complements ESPR Annex III 1(i): the ESPR point mandates a facility IDENTIFIER, EPCIS supplies the location semantics around it."
+productionStage,EPCIS 2.0,7.3.6 'why' dimension - bizStep,batch,string,FALSE,VERIFIED,
+disposition,EPCIS 2.0,7.3.6 'why' dimension - disposition,batch,string,FALSE,VERIFIED,
+purchaseOrderReference,EPCIS 2.0,7.3.6 'why' dimension - bizTransactionList,batch,string,FALSE,VERIFIED,

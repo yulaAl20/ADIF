@@ -1,0 +1,12 @@
+point,verbatim_text,cdm_field_name,granularity,cardinality,datatype,mandatory,notes
+a,"information required under Article 7(2), point (b), and Article 7(5) or by other Union law applicable to the relevant product group",,,,,,
+b,the unique product identifier at the level indicated in the applicable delegated act adopted pursuant to Article 4,productIdentifier,variant,1,string,TRUE,CONFIRMED via Art 10(1)(a) and Art 2(30) - verify wording
+c,the Global Trade Identification Number as provided for in International Organization for Standardisation/International Electrotechnical Commission standard ISO/IEC 15459-6 or equivalent of products or their parts,dataCarrierStandard,variant,1,string,TRUE,CONFIRMED via Art 10(1)(c) - verify wording
+d,"relevant commodity codes, such as a TARIC code as defined in Regulation (EEC) No 2658/87",,,,,,
+e,"compliance documentation and information required under this Regulation or other Union law applicable to the product, such as the declaration of conformity, technical documentation or conformity certificates",,,,,,
+f,"user manuals, instructions, warnings or safety information, as required by other Union law applicable to the product",,,,,,
+g,"information related to the manufacturer, such as its unique operator identifier and the information referred to in Article 27(7)",operatorIdentifier,family,1,string,TRUE,CONFIRMED via Art 12(1) - verify wording
+h,unique operator identifiers other than that of the manufacturer,otherOperatorIdentifier,family,0..n,string,FALSE,CONFIRMED via Art 12(2) - verify wording
+i,unique facility identifiers,facilityIdentifier,family,0..n,string,FALSE,CONFIRMED via Art 12(3) - verify wording
+j,"information related to the importer, including the information referred to in Article 29(3) and its Economic Operators Registration and Identification (EORI) number",,,,,,
+k,"the name, contact details and unique operator identifier of the economic operator established in the Union responsible for carrying out the tasks set out in Article 4 of Regulation (EU) 2019/1020 or Article 15 of Regulation (EU) 2023/988, or similar tasks pursuant to other Union law applicable to the product",,,,,,

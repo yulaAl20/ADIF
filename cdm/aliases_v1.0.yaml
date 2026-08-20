@@ -1,0 +1,348 @@
+# ADIF alias vocabulary v1.0
+#
+# Maps manufacturer-side field names onto CDM fields for Stage 1 deterministic
+# lookup. Every key must exist in cdm_v1.0.schema.json; the registry refuses to
+# load otherwise (FR-3.6).
+#
+# SOURCING. These aliases are drawn from general apparel ERP, tech-pack and
+# trade-documentation vocabulary — the naming conventions a garment
+# manufacturer's own systems use. They are deliberately NOT derived from the
+# held-out evaluation schemas, and this file is frozen BEFORE those schemas are
+# constructed (project.md §11). Authoring aliases by looking at the schemas you
+# will be scored against is the circularity D3 exists to prevent.
+#
+# Aliases are normalised with the same function as incoming headers, so
+# separators, camelCase and capitalisation do not need separate entries:
+# "Fabric_Composition", "fabricComposition" and "FABRIC COMPOSITION" all
+# collapse to one key. List genuinely different WORDS, not spellings.
+
+productFamily:
+  - style name
+  - design code
+  - design name
+  - product name
+  - model
+  - article name
+  - style description
+  - product group
+
+productIdentifier:
+  - style no
+  - style number
+  - article no
+  - article number
+  - sku
+  - item code
+  - product code
+  - material no
+
+gtin:
+  - gtin
+  - ean
+  - ean13
+  - barcode
+  - upc
+  - gs1 code
+
+passportGranularity:
+  - passport level
+  - dpp level
+  - identifier level
+
+commodityCode:
+  - hs code
+  - taric
+  - taric code
+  - customs code
+  - tariff code
+  - commodity code
+
+complianceDocumentation:
+  - compliance docs
+  - compliance documents
+  - certification
+  - certificate reference
+
+declarationOfConformity:
+  - doc reference
+  - declaration of conformity
+  - conformity declaration
+
+conformityCertificate:
+  - conformity certificate
+  - test certificate
+  - oeko tex
+  - gots certificate
+
+userManual:
+  - instructions
+  - user guide
+  - usage instructions
+
+safetyInformation:
+  - safety info
+  - warnings
+  - hazard information
+
+careInstructions:
+  - care label
+  - care instructions
+  - wash care
+  - washing instructions
+  - laundry symbols
+
+manufacturerName:
+  - manufacturer
+  - supplier
+  - vendor
+  - factory
+  - producer
+  - made by
+
+manufacturerOperatorId:
+  - manufacturer id
+  - supplier code
+  - vendor code
+  - factory code
+  - gln
+  - supplier gln
+
+otherOperatorIdentifiers:
+  - subcontractor id
+  - agent code
+  - other operator
+
+facilityIdentifiers:
+  - facility id
+  - plant code
+  - site code
+  - factory location code
+  - production unit
+
+importerName:
+  - importer
+  - buyer
+  - consignee
+
+importerEori:
+  - eori
+  - eori number
+  - importer eori
+
+euResponsibleName:
+  - eu representative
+  - authorised representative
+  - responsible person
+
+euResponsibleContact:
+  - representative contact
+  - eu contact
+
+euResponsibleOperatorId:
+  - representative id
+  - eu operator id
+
+substanceIupacName:
+  - iupac name
+  - chemical name
+  - substance name
+
+substanceOtherNames:
+  - trade name
+  - substance trade name
+
+substanceEcNumber:
+  - ec number
+  - einecs
+
+substanceCasNumber:
+  - cas
+  - cas number
+  - cas no
+
+substanceLocation:
+  - substance location
+  - component location
+
+substanceConcentration:
+  - concentration
+  - substance concentration
+  - ppm
+
+substanceSafeUse:
+  - safe use
+  - handling instructions
+
+substanceEndOfLife:
+  - end of life
+  - disposal
+  - disposal instructions
+  - recycling instructions
+
+durability:
+  - durability
+  - expected lifetime
+  - service life
+  - pilling resistance
+
+reparability:
+  - repairability
+  - repairability score
+  - repair index
+  - reparability
+
+recycledContent:
+  - recycled content
+  - recycled percentage
+  - post consumer recycled
+  - pcr content
+
+recyclability:
+  - recyclability
+  - recyclable
+
+carbonFootprint:
+  - carbon footprint
+  - co2
+  - co2e
+  - ghg emissions
+  - emissions kg
+
+environmentalFootprint:
+  - environmental footprint
+  - water footprint
+  - lca score
+
+expectedWasteGeneration:
+  - waste generation
+  - expected waste
+  - cutting waste
+
+fibreComposition:
+  - fabric composition
+  - composition
+  - fibre content
+  - fiber content
+  - material composition
+  - fabric content
+  - material
+
+colour:
+  - color
+  - colour
+  - shade
+  - base colour
+  - colour name
+  - colourway
+
+size:
+  - size
+  - size code
+  - garment size
+  - size designation
+
+countryOfOrigin:
+  - country of origin
+  - origin
+  - made in
+  - coo
+  - manufacturing country
+  - sourcing country
+
+# --- EPCIS 2.0 and UNTP derived fields (added 2026-10-05) -----------------
+batchNumber:
+  - batch
+  - batch no
+  - lot
+  - lot number
+  - lot no
+  - cut ticket
+  - dye lot
+  - production lot
+
+serialNumber:
+  - serial
+  - serial no
+  - unit id
+  - piece id
+  - sgtin
+
+productionDate:
+  - production date
+  - mfg date
+  - manufacture date
+  - date of manufacture
+  - made on
+
+productCategory:
+  - category
+  - product category
+  - master category
+  - article type
+  - garment type
+  - classification
+
+netWeight:
+  - weight
+  - net weight
+  - garment weight
+  - unit weight
+  - gsm
+
+materialOriginCountry:
+  - fabric origin
+  - material origin
+  - yarn origin
+  - fabric source country
+
+materialMassFraction:
+  - mass fraction
+  - material percentage
+  - component weight share
+
+emissionsDeclaredUnit:
+  - declared unit
+  - functional unit
+  - emissions unit
+
+emissionsReportingStandard:
+  - reporting standard
+  - lca standard
+  - emissions methodology
+
+conformityClaim:
+  - conformity claim
+  - claim
+  - standard claimed
+  - certification claim
+
+dueDiligenceDeclaration:
+  - due diligence
+  - due diligence statement
+  - supply chain declaration
+
+productionFacilityLocation:
+  - production location
+  - factory address
+  - plant location
+  - manufacturing site
+
+productionStage:
+  - production stage
+  - process step
+  - operation
+  - stage
+
+disposition:
+  - status
+  - disposition
+  - goods status
+  - stock status
+
+purchaseOrderReference:
+  - po
+  - po number
+  - purchase order
+  - order no
+  - order reference
+  - buyer po
