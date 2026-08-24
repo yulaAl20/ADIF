@@ -1,0 +1,49 @@
+(* ADID v2 URI grammar — PROPOSED, POST-FREEZE (decisions.md D51).
+   The frozen v1.0 grammar (adid/grammar.ebnf, hash recorded in D30) is NOT
+   changed; it remains the specification that was evaluated.
+
+   v2 keeps v1.0's three levels and its depth rule (1 = family, 2 = variant,
+   3 = instance) and narrows two segment types:
+
+     family    v1.0: any segment (a style code)  ->  v2: a version-4 UUID
+     instance  v1.0: any segment (a serial)      ->  v2: a version-4 UUID
+     variant   unchanged: colour "_" size, issued once at registration
+
+   Compatibility: every v2 adid-path is also a valid v1.0 adid-path, because a
+   lowercase UUID matches v1.0's segment rule (alphanum, then alphanum or "-").
+   tests/unit/test_adid_v2.py checks this against the frozen v1.0 parser.
+
+   The one deliberate difference is the host. v1.0 fixed it as
+   "dpp." manufacturer; v2 lets it be any registry resolver host, because a
+   globally unique family UUID no longer needs the manufacturer's name to be
+   unambiguous.
+
+   Not claimed: GS1 Digital Link or EN 18219 conformance (unchanged from v1.0). *)
+
+adid-uri        = "https://" host adid-path ;
+host            = reg-name ;                                  (* RFC 3986 host *)
+
+adid-path       = "/adid/" family [ "/" variant [ "/" instance ] ] ;
+
+family          = uuid4 ;
+variant         = colour "_" size ;
+instance        = uuid4 ;
+
+colour          = segment ;
+size            = segment ;
+
+uuid4           = 8hex "-" 4hex "-" "4" 3hex "-" variant-nibble 3hex "-" 12hex ;
+variant-nibble  = "8" | "9" | "a" | "b" ;
+hex             = digit | "a" | "b" | "c" | "d" | "e" | "f" ;
+
+segment         = alphanum { alphanum | "-" } ;
+alphanum        = lowercase | digit ;
+lowercase       = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j"
+                | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t"
+                | "u" | "v" | "w" | "x" | "y" | "z" ;
+digit           = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+(* As in v1.0, descriptive attributes (material, origin, season, care) are
+   absent. In v2 the variant segment is issued from the colour and size at
+   registration and is immutable afterwards: a later correction changes the
+   record, not the segment. *)

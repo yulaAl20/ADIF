@@ -1,0 +1,42 @@
+(* ADID URI grammar — M11, FR-11.2.
+   Resolves the conflict between methodology.md (/adid/{family}/{colour}/{size})
+   and project.md FR-13.6-13.8 (/adid/{family}/{variant}/{instance}) by making
+   the variant a single composite segment. Path depth is then unambiguous:
+   1 = family, 2 = variant, 3 = instance.
+
+   OPEN — NOT YET VERIFIED against the GS1 Digital Link URI syntax
+   specification. methodology.md lists this conformance argument as outstanding.
+   Until checked, ADID is claimed as GS1 Digital Link *compatible*, an
+   extension, NOT *compliant*. Do not upgrade that claim without running the
+   grammar against GS1's own validator. *)
+
+adid-uri        = scheme "://" host adid-path ;
+scheme          = "https" ;
+host            = "dpp." manufacturer ;
+manufacturer    = segment ;
+
+adid-path       = "/adid/" family [ "/" variant [ "/" instance ] ] ;
+
+family          = segment ;
+variant         = colour "_" size ;
+instance        = serial ;
+
+colour          = segment ;
+size            = segment ;
+serial          = segment ;
+
+(* Hyphen is the intra-value separator, underscore joins the variant's two
+   dimensions. "navy-blue_xl" therefore splits unambiguously on the first
+   underscore, which "navy-blue-xl" would not. *)
+segment         = alphanum { alphanum | "-" } ;
+alphanum        = lowercase | digit ;
+lowercase       = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j"
+                | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t"
+                | "u" | "v" | "w" | "x" | "y" | "z" ;
+digit           = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+(* Descriptive attributes - material, origin, season, care instructions - are
+   deliberately ABSENT from this grammar. They describe an item; they do not
+   distinguish which item is being addressed. Placing them in the path would
+   mean a data correction changes the identifier, invalidating every printed
+   QR code. See decisions.md D9. *)
