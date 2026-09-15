@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADIF — Mapping Review</title>
+<style>
+  :root {
+    --ink: #1a1a1a; --muted: #6b6b6b; --rule: #e0ddd6; --paper: #faf9f6;
+    --accept: #2d6a4f; --review: #b8860b; --reject: #9b2226; --panel: #fff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  header { padding: 28px 32px 20px; border-bottom: 1px solid var(--rule); }
+  h1 { margin: 0 0 4px; font-size: 22px; font-weight: 650; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 13.5px; }
+  main { padding: 24px 32px 64px; max-width: 1180px; }
+  .banner {
+    background: #fff8e6; border: 1px solid #e8d9a8; border-left: 3px solid var(--review);
+    padding: 12px 16px; margin-bottom: 20px; font-size: 13.5px; border-radius: 3px;
+  }
+  .banner strong { display: block; margin-bottom: 4px; }
+  .banner ul { margin: 6px 0 0; padding-left: 18px; }
+  .row { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 22px; }
+  label { display: block; font-size: 12px; text-transform: uppercase;
+          letter-spacing: 0.06em; color: var(--muted); margin-bottom: 5px; }
+  input[type=text], input[type=file] {
+    padding: 8px 10px; border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--panel); font: inherit; font-size: 14px;
+  }
+  button {
+    padding: 9px 16px; border: 1px solid var(--ink); background: var(--ink);
+    color: var(--paper); border-radius: 3px; font: inherit; font-size: 14px; cursor: pointer;
+  }
+  button.ghost { background: var(--panel); color: var(--ink); }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel);
+          border: 1px solid var(--rule); font-size: 14px; }
+  th { text-align: left; font-size: 11.5px; text-transform: uppercase;
+       letter-spacing: 0.06em; color: var(--muted); font-weight: 600;
+       padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+  td { padding: 9px 12px; border-bottom: 1px solid #f0eee8; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  code { font: 13px ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  select { padding: 5px 7px; border: 1px solid var(--rule); border-radius: 3px;
+           font: inherit; font-size: 13.5px; background: var(--panel); max-width: 220px; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 10px;
+          font-size: 11.5px; font-weight: 600; letter-spacing: .02em; }
+  .s-alias    { background: #e3f0e8; color: var(--accept); }
+  .s-fuzzy    { background: #fdf3dc; color: var(--review); }
+  .s-semantic { background: #e6ecf5; color: #29477a; }
+  .s-value    { background: #efe6f5; color: #5a2a7a; }
+  .s-template { background: #e8e8e8; color: #444; }
+  .s-none     { background: #f7e3e3; color: var(--reject); }
+  .flag { font-size: 12px; color: var(--reject); }
+  .stats { display: flex; gap: 26px; flex-wrap: wrap; margin: 18px 0 6px;
+           font-size: 13.5px; color: var(--muted); }
+  .stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .empty { color: var(--muted); padding: 36px 0; text-align: center; }
+  pre { background: var(--panel); border: 1px solid var(--rule); padding: 14px;
+        overflow-x: auto; font-size: 12.5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>ADIF — Mapping Review</h1>
+  <div class="sub">Confirm or correct proposed CDM mappings. Confirmed mappings are stored as a reusable manufacturer template.</div>
+</header>
+
+<main>
+  <div class="banner" id="banner" hidden></div>
+
+  <div class="row">
+    <div>
+      <label for="mfr">Manufacturer ID</label>
+      <input type="text" id="mfr" value="demo-manufacturer" size="24">
+    </div>
+    <div>
+      <label for="file">Manufacturer export (.csv, .xlsx, flat .json)</label>
+      <input type="file" id="file" accept=".csv,.xlsx,.json">
+    </div>
+    <button id="up">Upload and map</button>
+  </div>
+
+  <div id="out"><div class="empty">Upload a file to begin.</div></div>
+</main>
+
+<script>
+// Deliberately dependency-free vanilla JS. A research artefact that needs npm,
+// a bundler and a lockfile to open is a research artefact an examiner cannot run.
+const $ = id => document.getElementById(id);
+let uploadId = null, cdmFields = [];
+
+function showWarnings(list) {
+  if (!list || !list.length) { $('banner').hidden = true; return; }
+  $('banner').hidden = false;
+  $('banner').innerHTML = '<strong>This is a demonstration, not an evaluation.</strong><ul>'
+    + list.map(w => '<li>' + w + '</li>').join('') + '</ul>';
+}
+
+function pill(stage) {
+  return '<span class="pill s-' + stage + '">' + stage + '</span>';
+}
+
+function optionsFor(selected) {
+  return ['NO_MAPPING'].concat(cdmFields).map(f =>
+    '<option value="' + f + '"' + (f === selected ? ' selected' : '') + '>' + f + '</option>'
+  ).join('');
+}
+
+async function upload() {
+  const input = $('file');
+  if (!input.files.length) { alert('Choose a file first.'); return; }
+  const body = new FormData();
+  body.append('file', input.files[0]);
+  $('up').disabled = true;
+  try {
+    const res = await fetch('/upload?manufacturer_id=' + encodeURIComponent($('mfr').value), { method: 'POST', body });
+    const data = await res.json();
+    if (!res.ok) { $('out').innerHTML = '<div class="empty">' + (data.detail || 'Upload failed.') + '</div>'; return; }
+    uploadId = data.upload_id;
+    showWarnings(data.warnings);
+    await loadMapping();
+  } finally { $('up').disabled = false; }
+}
+
+async function loadMapping() {
+  const data = await (await fetch('/mapping/' + uploadId)).json();
+  cdmFields = data.cdm_fields || [];
+  const rows = data.records.map(r => `
+    <tr>
+      <td><code>${r.raw_header}</code></td>
+      <td><code>${r.normalised_header}</code></td>
+      <td>${pill(r.deciding_stage)}</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums">${r.raw_score.toFixed(1)}</td>
+      <td>${r.confidence === null ? '<span class="flag">uncalibrated</span>' : r.confidence.toFixed(3)}</td>
+      <td><select data-header="${r.raw_header}">${optionsFor(r.target_field)}</select></td>
+      <td class="flag">${r.conflict_flagged ? 'conflict' : (r.review_required ? 'review' : '')}</td>
+    </tr>`).join('');
+
+  $('out').innerHTML = `
+    <div class="stats">
+      <span>Columns <b>${data.records.length}</b></span>
+      <span>Need review <b>${data.review_required_count}</b></span>
+      <span>Unmapped <b>${data.unmapped_columns.length}</b></span>
+      <span>Mandatory unfilled <b>${data.unpopulated_mandatory.length}</b></span>
+      <span>Stage hits <b>${JSON.stringify(data.stage_hits)}</b></span>
+    </div>
+    <table>
+      <thead><tr>
+        <th>Source column</th><th>Normalised</th><th>Stage</th>
+        <th style="text-align:right">Score</th><th>Confidence</th>
+        <th>CDM field</th><th>Flag</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="row" style="margin-top:18px">
+      <button id="save">Confirm mappings and save template</button>
+      <button id="gen" class="ghost">Generate DPP for row 0</button>
+    </div>
+    <div id="dpp"></div>`;
+
+  $('save').onclick = confirmMappings;
+  $('gen').onclick = generate;
+}
+
+async function confirmMappings() {
+  const corrections = [...document.querySelectorAll('select[data-header]')]
+    .map(s => ({ raw_header: s.dataset.header, cdm_field: s.value }));
+  const res = await fetch('/mapping/' + uploadId + '/confirm', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(corrections)
+  });
+  const data = await res.json();
+  alert(res.ok
+    ? `Saved template v${data.template_version} with ${data.template_entries} entries.`
+    : (data.detail || 'Save failed.'));
+  if (res.ok) await loadMapping();
+}
+
+async function generate() {
+  const res = await fetch('/dpp/' + uploadId + '?row=0', { method: 'POST' });
+  const data = await res.json();
+  $('dpp').innerHTML = res.ok
+    ? `<h3 style="margin:22px 0 8px;font-size:15px">Generated DPP record</h3>
+       <div class="stats">
+         <span>ADID <b><code>${data.adid}</code></b></span>
+         <span>Level <b>${data.level}</b></span>
+         <span>Valid <b>${data.validation.valid}</b></span>
+         <span>Mandatory match rate <b>${(data.mandatory_match_rate * 100).toFixed(0)}%</b></span>
+       </div>
+       <pre>${JSON.stringify(data.document, null, 2)}</pre>`
+    : `<div class="empty">${data.detail}</div>`;
+}
+
+$('up').onclick = upload;
+fetch('/health').then(r => r.json()).then(h => showWarnings(h.warnings));
+</script>
+</body>
+</html>
