@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TEST FIXTURE CDM \u2014 NOT THE REAL CANONICAL DATA MODEL",
+  "description": "Six invented fields used only to exercise the matching pipeline. This file lives under tests/fixtures/ precisely so it can never be mistaken for cdm/cdm_v1.0.schema.json or accidentally frozen. The real CDM is derived from ESPR Annex III, EPCIS 2.0 and UNTP via cdm/EXTRACTION.md.",
+  "type": "object",
+  "required": [
+    "productFamily",
+    "productIdentifier",
+    "fibreComposition"
+  ],
+  "properties": {
+    "productFamily": {
+      "type": "string",
+      "description": "product family or design name, shared across all colours and sizes"
+    },
+    "productIdentifier": {
+      "type": "string",
+      "description": "unique product identifier"
+    },
+    "fibreComposition": {
+      "type": "string",
+      "description": "fibre composition by percentage weight"
+    },
+    "countryOfOrigin": {
+      "type": "string",
+      "description": "country of manufacture"
+    },
+    "colour": {
+      "type": "string",
+      "description": "colour of the garment"
+    },
+    "size": {
+      "type": "string",
+      "description": "size designation"
+    },
+    "carbonFootprint": {
+      "type": "number",
+      "description": "product carbon footprint in kilograms of CO2 equivalent"
+    }
+  }
+}

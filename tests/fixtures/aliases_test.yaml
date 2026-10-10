@@ -1,0 +1,8 @@
+# TEST FIXTURE alias vocabulary — not the real vocabulary.
+productFamily: ["style_name", "design", "product_name", "Design_Code", "model"]
+productIdentifier: ["GTIN", "style_no", "Style Number", "SKU"]
+fibreComposition: ["Fabric_Composition", "fabric comp", "composition"]
+countryOfOrigin: ["Country_of_Origin", "origin", "made in"]
+colour: ["baseColour", "color", "shade"]
+size: ["SIZE", "size_code"]
+carbonFootprint: ["co2", "carbon_footprint_kg"]
