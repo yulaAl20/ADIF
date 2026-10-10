@@ -1,0 +1,11 @@
+Design_Code,SKU,Barcode No,Shade / Tone,Sz,Fibre Mix,Care Instr.,Origin,Made In,Col_K,Net Weight (kg),Batch No,Buyer PO,Factory,Unit Price (USD),Stock On Hand,Last Updated,Internal Ref,Recycled %
+TS-1000,TS-1000-NAV-M,5941234000013,Navy,M,100% Cotton,"Machine wash cold, tumble dry low",LK,Sri Lanka,61091000,0.180,DL-7700,PO-2026-4410,Demo Knit Works Pvt Ltd,14.90,47,2026-09-11,zz0001,0
+TS-1000,TS-1000-NAV-L,5941234010029,Navy,L,100% Cotton,"Machine wash cold, tumble dry low",LK,Sri Lanka,61091000,0.180,DL-7701,PO-2026-4410,Demo Knit Works Pvt Ltd,14.90,54,2026-09-12,zz0002,30
+TS-1000,TS-1000-SAN-M,5941234020035,Sand,M,100% Cotton,"Machine wash cold, tumble dry low",LK,Sri Lanka,61091000,0.180,DL-7702,PO-2026-4410,Demo Knit Works Pvt Ltd,14.90,61,2026-09-13,zz0003,50
+TS-1000,TS-1000-SAN-L,5941234030041,Sand,L,100% Cotton,"Machine wash cold, tumble dry low",LK,Sri Lanka,61091000,0.180,DL-7703,PO-2026-4410,Demo Knit Works Pvt Ltd,14.90,68,2026-09-14,zz0004,0
+HD-2000,HD-2000-NAV-M,5941234100058,Navy,M,80% Cotton 20% Polyester,"Machine wash cold, tumble dry low",LK,Sri Lanka,61102000,0.520,DL-7710,PO-2026-4411,Demo Knit Works Pvt Ltd,39.90,75,2026-09-11,zz0005,30
+HD-2000,HD-2000-NAV-L,5941234110064,Navy,L,80% Cotton 20% Polyester,"Machine wash cold, tumble dry low",LK,Sri Lanka,61102000,0.520,DL-7711,PO-2026-4411,Demo Knit Works Pvt Ltd,39.90,82,2026-09-12,zz0006,50
+HD-2000,HD-2000-SAN-M,5941234120070,Sand,M,80% Cotton 20% Polyester,"Machine wash cold, tumble dry low",LK,Sri Lanka,61102000,0.520,DL-7712,PO-2026-4411,Demo Knit Works Pvt Ltd,39.90,89,2026-09-13,zz0007,0
+HD-2000,HD-2000-SAN-L,5941234130086,Sand,L,80% Cotton 20% Polyester,"Machine wash cold, tumble dry low",LK,Sri Lanka,61102000,0.520,DL-7713,PO-2026-4411,Demo Knit Works Pvt Ltd,39.90,96,2026-09-14,zz0008,30
+PL-3000,PL-3000-NAV-M,5941234200093,Navy,M,95% Cotton 5% Elastane,"Machine wash cold, tumble dry low",LK,Sri Lanka,61051000,0.240,DL-7720,PO-2026-4412,Demo Knit Works Pvt Ltd,22.50,103,2026-09-11,zz0009,50
+PL-3000,PL-3000-NAV-L,5941234210108,Navy,L,95% Cotton 5% Elastane,"Machine wash cold, tumble dry low",LK,Sri Lanka,61051000,0.240,DL-7721,PO-2026-4412,Demo Knit Works Pvt Ltd,22.50,110,2026-09-12,zz0010,0
