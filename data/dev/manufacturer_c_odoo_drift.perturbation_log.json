@@ -1,0 +1,34 @@
+{
+  "source": "data/dev/manufacturer_c_odoo.csv",
+  "level": "drift",
+  "seed": 23,
+  "generated_on": "2026-10-05",
+  "perturbation_rate_target": 0.2,
+  "headers_renamed": [
+    {
+      "original": "default_code",
+      "new": "defaultCode",
+      "transform": "camelCase"
+    },
+    {
+      "original": "categ_id",
+      "new": "categId",
+      "transform": "camelCase"
+    },
+    {
+      "original": "description_sale",
+      "new": "descript",
+      "transform": "truncated"
+    },
+    {
+      "original": "x_studio_lot",
+      "new": "x_stud",
+      "transform": "truncated"
+    }
+  ],
+  "headers_dropped": [
+    "name"
+  ],
+  "distractors_added": [],
+  "_warning": "Do NOT give this log to the second rater checking ground truth. A rater who can see which columns were renamed is reading the answer key, not independently verifying the mapping."
+}

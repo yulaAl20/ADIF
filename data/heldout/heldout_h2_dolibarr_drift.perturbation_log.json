@@ -1,0 +1,39 @@
+{
+  "source": "data/heldout/heldout_h2_dolibarr.csv",
+  "level": "drift",
+  "seed": 7,
+  "generated_on": "2026-10-10",
+  "perturbation_rate_target": 0.2,
+  "headers_renamed": [
+    {
+      "original": "label",
+      "new": "LABEL",
+      "transform": "SPACED CAPS"
+    },
+    {
+      "original": "fk_product_type",
+      "new": "FK PRODUCT TYPE",
+      "transform": "SPACED CAPS"
+    },
+    {
+      "original": "customcode",
+      "new": "customcd",
+      "transform": "abbreviated"
+    },
+    {
+      "original": "weight",
+      "new": "weig",
+      "transform": "truncated"
+    },
+    {
+      "original": "accountancy_code_sell",
+      "new": "ACCOUNTANCY CODE SELL",
+      "transform": "SPACED CAPS"
+    }
+  ],
+  "headers_dropped": [
+    "weight_units"
+  ],
+  "distractors_added": [],
+  "_warning": "Do NOT give this log to the second rater checking ground truth. A rater who can see which columns were renamed is reading the answer key, not independently verifying the mapping."
+}

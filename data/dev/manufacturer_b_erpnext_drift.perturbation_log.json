@@ -1,0 +1,34 @@
+{
+  "source": "data/dev/manufacturer_b_erpnext.csv",
+  "level": "drift",
+  "seed": 23,
+  "generated_on": "2026-10-05",
+  "perturbation_rate_target": 0.2,
+  "headers_renamed": [
+    {
+      "original": "item_code",
+      "new": "itemCode",
+      "transform": "camelCase"
+    },
+    {
+      "original": "item_group",
+      "new": "itemGroup",
+      "transform": "camelCase"
+    },
+    {
+      "original": "has_serial_no",
+      "new": "has_se",
+      "transform": "truncated"
+    },
+    {
+      "original": "co2e_kg",
+      "new": "co2e",
+      "transform": "truncated"
+    }
+  ],
+  "headers_dropped": [
+    "item_name"
+  ],
+  "distractors_added": [],
+  "_warning": "Do NOT give this log to the second rater checking ground truth. A rater who can see which columns were renamed is reading the answer key, not independently verifying the mapping."
+}

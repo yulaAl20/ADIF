@@ -1,0 +1,6 @@
+item_code,item_name,item_group,variant_of,brand,stock_uom,country_of_origin,customs_tariff_number,has_batch_no,has_serial_no,weight_per_unit,weight_uom,description,shelf_life_in_days,fabric_composition,colour_name,size_code,care_instructions,co2e_kg,recycled_pct,buyer_po,supplier_gln
+TSH-1001,Crew Neck Tee,Knitwear,TSH-1000,Aurora,Nos,LK,610910,1,1,0.180,Kg,Single jersey crew neck,0,95% Cotton 5% Elastane,Navy,M,Machine wash 30C,4.20,20,PO-88412,9312345000019
+TSH-1002,Crew Neck Tee,Knitwear,TSH-1000,Aurora,Nos,LK,610910,1,1,0.195,Kg,Single jersey crew neck,0,95% Cotton 5% Elastane,Navy,L,Machine wash 30C,4.45,20,PO-88412,9312345000019
+PLO-2010,Pique Polo,Knitwear,PLO-2000,Aurora,Nos,LK,610590,1,1,0.240,Kg,Pique knit polo,0,100% Cotton,Olive,S,Machine wash 40C,5.10,0,PO-88500,9312345000019
+PLO-2011,Pique Polo,Knitwear,PLO-2000,Aurora,Nos,IN,610590,1,1,0.255,Kg,Pique knit polo,0,100% Cotton,Olive,M,Machine wash 40C,5.35,0,PO-88500,9312345000019
+DEN-3005,Slim Jean,Woven,DEN-3000,Aurora,Nos,BD,620342,1,1,0.620,Kg,5-pocket slim denim,0,98% Cotton 2% Elastane,Indigo,32,Wash inside out,12.80,35,PO-88733,9312345000019

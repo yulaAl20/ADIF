@@ -1,0 +1,39 @@
+{
+  "source": "data/heldout/heldout_h3_techpack.csv",
+  "level": "drift",
+  "seed": 7,
+  "generated_on": "2026-10-10",
+  "perturbation_rate_target": 0.2,
+  "headers_renamed": [
+    {
+      "original": "Style Name",
+      "new": "STYLE NAME",
+      "transform": "SPACED CAPS"
+    },
+    {
+      "original": "Fabric Content",
+      "new": "FABRIC CONTENT",
+      "transform": "SPACED CAPS"
+    },
+    {
+      "original": "Factory ID",
+      "new": "FACTORY ID",
+      "transform": "SPACED CAPS"
+    },
+    {
+      "original": "Care Instructions",
+      "new": "Care Ins",
+      "transform": "truncated"
+    },
+    {
+      "original": "Approved By",
+      "new": "APPROVED BY",
+      "transform": "SPACED CAPS"
+    }
+  ],
+  "headers_dropped": [
+    "Main Label"
+  ],
+  "distractors_added": [],
+  "_warning": "Do NOT give this log to the second rater checking ground truth. A rater who can see which columns were renamed is reading the answer key, not independently verifying the mapping."
+}

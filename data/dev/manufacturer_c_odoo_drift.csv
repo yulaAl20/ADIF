@@ -1,0 +1,5 @@
+defaultCode,categId,barcode,uom_id,weight,volume,standard_price,list_price,descript,type,sale_ok,x_studio_fiber_comp,x_studio_shade,x_studio_sz,x_studio_coo,x_studio_wash,x_studio_ghg,x_stud,x_studio_po_ref,x_studio_hs,x_studio_vendor_gln
+TSH-1001,All / Apparel / Knit,9312345000019,Units,0.180,0.0012,3.10,11.90,Single jersey crew neck,product,True,95% Cotton 5% Elastane,Navy,M,LK,Machine wash 30C,4.20,DL-7781,PO-88412,610910,9312345000019
+TSH-1002,All / Apparel / Knit,9312345000026,Units,0.195,0.0013,3.10,11.90,Single jersey crew neck,product,True,95% Cotton 5% Elastane,Navy,L,LK,Machine wash 30C,4.45,DL-7781,PO-88412,610910,9312345000019
+PLO-2010,All / Apparel / Knit,9312345000033,Units,0.240,0.0018,4.40,18.50,Pique knit polo,product,True,100% Cotton,Olive,S,LK,Machine wash 40C,5.10,DL-7802,PO-88500,610590,9312345000019
+DEN-3005,All / Apparel / Woven,9312345000040,Units,0.620,0.0041,9.90,39.00,5-pocket slim denim,product,True,98% Cotton 2% Elastane,Indigo,32,BD,Wash inside out,12.80,DL-7811,PO-88733,620342,9312345000019
