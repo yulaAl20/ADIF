@@ -1,0 +1,22 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+itemCode,string,TSH-1001 | TSH-1002 | PLO-2010,productIdentifier,"Renamed from 'item_code'; contents unchanged, so same mapping. Variant-level style codes (TSH-1001, TSH-1002), unique per row: identifies the sellable item. R4.2: variant_of holds the design level instead."
+itemGroup,string,Knitwear | Knitwear | Knitwear,productCategory,"Renamed from 'item_group'; contents unchanged, so same mapping. Constant category label (Knitwear) classifying the product. Judgement call, R4.2: confirm against the productCategory description in the schema. If that field is a controlled delegated-act category list, switch to NO_MAPPING under R4.3."
+variant_of,string,TSH-1000 | TSH-1000 | PLO-2000,productFamily,"Holds TSH-1000 / PLO-2000, the design-level code that variants point to. R3.4, R4.2."
+brand,string,Aurora | Aurora | Aurora,NO_MAPPING,"Brand name (Aurora) is a trade name, not the manufacturer operator. R4.3: no CDM field for brand; manufacturerName is the legal entity, so mapping would be a guess."
+stock_uom,string,Nos | Nos | Nos,NO_MAPPING,"Holds Nos, a stock-counting unit. R3.2 / R2.2."
+country_of_origin,string,LK | LK | LK,countryOfOrigin,"ISO alpha-2 code (LK). Direct match, R3.4."
+customs_tariff_number,integer,610910 | 610910 | 610590,commodityCode,"6-digit HS codes (610910, 610590). R3.4: decided on contents."
+has_batch_no,integer,1 | 1 | 1,NO_MAPPING,"1/0 flag meaning batch-tracked, not a batch number. R3.1."
+has_se,integer,1 | 1 | 1,NO_MAPPING,"Renamed from 'has_serial_no'; contents unchanged, so same mapping. 1/0 flag meaning serial-tracked, not a serial number. R3.1."
+weight_per_unit,float,0.180 | 0.195 | 0.240,netWeight,"Decimal weights (0.180); unit sits in weight_uom, so this is the quantity column. R3.2."
+weight_uom,string,Kg | Kg | Kg,NO_MAPPING,"Holds Kg, the unit for weight_per_unit. R3.2."
+description,string,Single jersey crew neck | Single jersey crew neck | Pique knit polo,NO_MAPPING,Marketing copy (Single jersey crew neck). R3.3.
+shelf_life_in_days,integer,0 | 0 | 0,NO_MAPPING,"Integer days, all 0; ERP storage shelf life, not product durability. R2.2. If durability is defined in days in the schema, revisit under R4.2."
+fabric_composition,string,95% Cotton 5% Elastane | 95% Cotton 5% Elastane | 100% Cotton,fibreComposition,Percentage fibre blends. R3.4.
+colour_name,string,Navy | Navy | Olive,colour,Navy / Olive. R3.4.
+size_code,mixed,M | L | S,size,M / L / S. R3.4.
+care_instructions,string,Machine wash 30C | Machine wash 30C | Machine wash 40C,careInstructions,Machine wash 30C is a care instruction. R3.4.
+co2e,float,4.20 | 4.45 | 5.10,carbonFootprint,"Renamed from 'co2e_kg'; contents unchanged, so same mapping. Decimals in kg CO2e per unit (4.20). R4.1: carbonFootprint is more specific than environmentalFootprint."
+recycled_pct,integer,20 | 20 | 0,recycledContent,"Integer percentages (20, 0) of recycled content. R3.4."
+buyer_po,string,PO-88412 | PO-88412 | PO-88500,purchaseOrderReference,PO-88412 style purchase order numbers. R3.4.
+supplier_gln,integer,9312345000019 | 9312345000019 | 9312345000019,NO_MAPPING,"13-digit party identifier (GLN) for the supplier. R4.3: genuinely ambiguous between manufacturerOperatorId, otherOperatorIdentifiers and facilityIdentifiers, and a supplier need not be the manufacturer. Revisit if the schema descriptions settle it."

@@ -1,0 +1,16 @@
+{
+  "schema": "manufacturer_b_erpnext",
+  "fraction_requested": 0.25,
+  "columns_total": 22,
+  "columns_sampled": 6,
+  "fraction_actual": 0.2727,
+  "seed": 2026,
+  "sampled_headers": [
+    "variant_of",
+    "customs_tariff_number",
+    "weight_per_unit",
+    "size_code",
+    "recycled_pct",
+    "supplier_gln"
+  ]
+}

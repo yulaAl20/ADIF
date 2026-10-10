@@ -1,0 +1,24 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+Style No,string,BR-5531 | BR-5531 | BR-5531,productIdentifier,"Style number is the manufacturer's identifier for the product model; it repeats across colour and size rows, while gtin carries the variant level code."
+Style Name,string,Boxy Tee | Boxy Tee | Boxy Tee,NO_MAPPING,Marketing name of the style; the CDM has no product name field.
+Season,string,SS27 | SS27 | SS27,NO_MAPPING,Merchandising season (SS27); not passport data.
+Gender,string,Womens | Womens | Womens,NO_MAPPING,Target consumer segment; the CDM has no field for it.
+Fabric Content,string,60% Organic Cotton 40% Recycled Polyester | 60% Organic Cotton 40% Recycled Polyester | 60% Organic Cotton 40% Recycled Polyester,fibreComposition,"Fibre content with percentages (60% organic cotton, 40% recycled polyester)."
+Fabric Wt (gsm),integer,190 | 190 | 190,NO_MAPPING,"Fabric areal density in g/m2; netWeight is the weight of the finished product, so it does not match."
+Colour,string,Sage | Sage | Sand,colour,Colour of the garment variant.
+Size,string,S | M | M,size,Size of the garment variant.
+Country of Origin,string,Sri Lanka | Sri Lanka | Sri Lanka,countryOfOrigin,Country where the product was made.
+Factory,string,Lanka Knit Apparels (Pvt) Ltd | Lanka Knit Apparels (Pvt) Ltd | Lanka Knit Apparels (Pvt) Ltd,manufacturerName,Legal name of the company that makes the garment.
+Factory ID,string,LKA-0412 | LKA-0412 | LKA-0412,facilityIdentifiers,Identifier code of the production facility (LKA-0412).
+HTS Code,string,6109.10.0012 | 6109.10.0012 | 6109.10.0012,commodityCode,Customs tariff classification for the product.
+Care Instructions,string,Machine wash cold; tumble dry low; do not bleach | Machine wash cold; tumble dry low; do not bleach | Machine wash cold; tumble dry low; do not bleach,careInstructions,Washing and drying instructions.
+Main Label,string,Woven neck label | Woven neck label | Woven neck label,NO_MAPPING,Describes the type of label sewn into the garment (woven neck label); not a CDM attribute.
+UPC/EAN,integer,5941235531011 | 5941235531028 | 5941235531127,gtin,"13 digit values with EAN-13 structure, one per variant, which is a GTIN-13."
+Carton Qty,integer,48 | 48 | 48,NO_MAPPING,Packing quantity per carton; logistics data.
+FOB Price (USD),float,5.85 | 5.85 | 5.85,NO_MAPPING,Commercial price; outside the passport scope.
+Lead Time (days),integer,75 | 75 | 75,NO_MAPPING,Production lead time; commercial planning data.
+PO No,string,PO-884201 | PO-884201 | PO-884201,purchaseOrderReference,Purchase order number.
+Rev,string,R3 | R3 | R3,NO_MAPPING,"Revision number of the tech pack document, not the product."
+Approved By,string,J. Alvarez | J. Alvarez | J. Alvarez,NO_MAPPING,Internal approver name for the tech pack; no matching CDM field.
+Comments,string,Wash test pass 2026-08-14 | Wash test pass 2026-08-14 | Shade band approved,NO_MAPPING,"Free text QC and approval notes (wash test, shade band); not a structured conformity declaration."
+Recycled Fibre (%),integer,40 | 40 | 40,recycledContent,"Share of recycled fibre in the product (40%), consistent with the 40% recycled polyester in Fabric Content."

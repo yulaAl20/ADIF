@@ -1,0 +1,32 @@
+{
+  "schema": "kaggle_styles",
+  "frozen_at": "2026-10-10",
+  "rater": "YulaniA",
+  "rulebook_version": "1.0",
+  "cdm_schema_sha256": "357698a9f230c127e09563107b708c7f539fbf87486f15c42ed71f3aefcb2e54",
+  "mappings": {
+    "id": "NO_MAPPING",
+    "gender": "NO_MAPPING",
+    "masterCategory": "NO_MAPPING",
+    "subCategory": "NO_MAPPING",
+    "articleType": "productCategory",
+    "baseColour": "colour",
+    "season": "NO_MAPPING",
+    "year": "NO_MAPPING",
+    "usage": "NO_MAPPING",
+    "productDisplayName": "NO_MAPPING"
+  },
+  "rationales": {
+    "id": "Sample values are numeric row-like IDs (15970, 39386, 59263); they do not establish a product identifier such as a GTIN or another defined product identifier. Avoid mapping by resemblance alone (R3.4).",
+    "gender": "Values describe wearer gender (Men, Women), and CDM_FIELDS.txt contains no gender field. No semantically equivalent CDM field is available.",
+    "masterCategory": "Values such as Apparel and Accessories are broad source taxonomy labels. The CDM has productCategory, but mapping this broad hierarchy level would be ambiguous alongside subCategory and articleType; do not guess between levels (R3.3, R4.1\u2013R4.3).",
+    "subCategory": "Values such as Topwear, Bottomwear, and Watches are an intermediate taxonomy level. With masterCategory and articleType also present and only one productCategory field listed, the intended taxonomy level is ambiguous (R3.3, R4.1\u2013R4.3).",
+    "articleType": "Sample values Shirts, Jeans, and Watches directly identify the kind of product, which best matches productCategory. The values are labels, not measurements or flags, and are single-valued (R3.3, R3.2, R1.3).",
+    "baseColour": "Sample values Navy Blue, Blue, and Silver are explicit product colour values, directly matching colour. These are labels rather than flags or units (R3.3, R3.1\u2013R3.2).",
+    "season": "Values Fall, Summer, and Winter describe a fashion season. CDM_FIELDS.txt has no season field; mapping to productionStage or another field would be a semantic guess.",
+    "year": "Values are bare years (2011, 2012, 2016), but the samples do not establish whether this is production, launch, or catalogue year. productionDate requires a date, not an unqualified year; do not infer a date or map by resemblance (R3.2, R3.4, R4.1\u2013R4.3).",
+    "usage": "Values such as Casual describe intended style/use, not product disposition or care instructions. No equivalent field is listed in CDM_FIELDS.txt; mapping by loose resemblance would be unsafe (R3.4).",
+    "productDisplayName": "Sample values are composite display titles containing multiple attributes (e.g., product type, wearer, colour). This is a multi-attribute label, not a single CDM field or proven productFamily value; do not split or map the combined value without an explicit rule (R1.3, R3.3, R4.1\u2013R4.3)."
+  },
+  "rulebook_rules_cited": {}
+}

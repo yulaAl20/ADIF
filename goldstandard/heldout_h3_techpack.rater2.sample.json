@@ -1,0 +1,16 @@
+{
+  "schema": "heldout_h3_techpack",
+  "fraction_requested": 0.25,
+  "columns_total": 23,
+  "columns_sampled": 6,
+  "fraction_actual": 0.2609,
+  "seed": 2026,
+  "sampled_headers": [
+    "Gender",
+    "Size",
+    "Factory ID",
+    "FOB Price (USD)",
+    "Approved By",
+    "Recycled Fibre (%)"
+  ]
+}

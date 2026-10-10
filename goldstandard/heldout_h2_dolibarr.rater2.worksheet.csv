@@ -1,0 +1,9 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+note_public,string,"Pre-washed, ships flat packed | Pre-washed, ships flat packed | Pre-washed, ships flat packed",NO_MAPPING,"This is a general public note about the product, not a specific field in the available CDM field list."
+tobatch,integer,1 | 1 | 1,NO_MAPPING,"The value 1 looks like a batch-related setting or flag, rather than an actual batch number. I would not map it to batchNumber without clearer evidence."
+customcode,integer,61091000 | 61091000 | 61091000,commodityCode,"The sample value 61091000 looks like a commodity/customs classification code, so commodityCode is the closest matching CDM field."
+height,integer,3 | 3 | 3,NO_MAPPING,"This appears to be a product height value, but the available CDM field list does not include a specific product-dimensions field."
+price,float,14.90000000 | 14.90000000 | 14.90000000,NO_MAPPING,This is a selling price. The provided CDM field list does not have a field for product price.
+accountancy_code_sell,integer,707000 | 707000 | 707000,NO_MAPPING,"This looks like an internal sales accounting code, which does not match a field in the provided CDM list."
+options_composition,string,100% Cotton | 100% Cotton | 100% Cotton,fibreComposition,The sample value '100% Cotton' describes the fibres/material composition of the product.
+options_size,string,M | L | M,size,"The values S, M and L describe product sizes, matching the CDM size field."

@@ -1,0 +1,11 @@
+{
+  "schema": "heldout_h3_techpack",
+  "primary_rater": "YulaniA",
+  "rulebook_version": "1.0",
+  "compared": 6,
+  "agreed": 6,
+  "agreement_rate": 1.0,
+  "target": 0.9,
+  "meets_target": true,
+  "disagreements": []
+}

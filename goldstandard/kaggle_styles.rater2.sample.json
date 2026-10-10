@@ -1,0 +1,13 @@
+{
+  "schema": "kaggle_styles",
+  "fraction_requested": 0.3,
+  "columns_total": 10,
+  "columns_sampled": 3,
+  "fraction_actual": 0.3,
+  "seed": 2026,
+  "sampled_headers": [
+    "gender",
+    "baseColour",
+    "productDisplayName"
+  ]
+}

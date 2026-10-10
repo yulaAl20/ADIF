@@ -1,0 +1,11 @@
+{
+  "schema": "kaggle_styles",
+  "primary_rater": "YulaniA",
+  "rulebook_version": "1.0",
+  "compared": 3,
+  "agreed": 3,
+  "agreement_rate": 1.0,
+  "target": 0.9,
+  "meets_target": true,
+  "disagreements": []
+}

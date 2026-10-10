@@ -1,0 +1,11 @@
+{
+  "schema": "heldout_h2_dolibarr",
+  "primary_rater": "YulaniA",
+  "rulebook_version": "1.0",
+  "compared": 8,
+  "agreed": 8,
+  "agreement_rate": 1.0,
+  "target": 0.9,
+  "meets_target": true,
+  "disagreements": []
+}

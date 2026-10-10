@@ -1,0 +1,12 @@
+{
+  "schema": "manufacturer_a",
+  "fraction_requested": 0.25,
+  "columns_total": 7,
+  "columns_sampled": 2,
+  "fraction_actual": 0.2857,
+  "seed": 2026,
+  "sampled_headers": [
+    "Design_Code",
+    "baseColour"
+  ]
+}

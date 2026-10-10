@@ -1,0 +1,4 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+gender,string,Men | Men | Women,NO_MAPPING,Gender is not a defined CDM field and does not identify a product or compliance attribute.
+baseColour,string,Navy Blue | Blue | Silver,colour,"Values are garment colour names, matching the CDM colour field for the variant."
+productDisplayName,string,Turtle Check Men Navy Blue Shirt | Peter England Men Party Blue Jeans | Titan Women Silver Watch,NO_MAPPING,"Display names are descriptive labels combining product details, not a defined CDM field or product-family identifier."

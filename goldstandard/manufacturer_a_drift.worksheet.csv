@@ -1,0 +1,7 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+Design_Code,string,TOP-A | TOP-A | TOP-B,productFamily,"Repeats across rows (TOP-A, TOP-A) and is shared by variants: the design/family code. R4.1/R4.2: family level, not the sellable item."
+Style_No,integer,0012345678905 | 0012345678912 | 0012345678929,gtin,"13-digit zero-padded values that all pass the GTIN-13 check digit, one per row: a trade-item barcode number. R4.1: gtin is more specific than productIdentifier, and R3.4 says decide on contents. Same shape as Odoo barcode in schema C, so it must be treated the same way (R1 consistency). Alternative: productIdentifier, see note."
+basecolour,string,Navy | Red | Black,colour,"Renamed from 'baseColour'; contents unchanged, so same mapping. Navy / Red / Black are colour names. R3.4, name and contents agree."
+SIZE,string,M | L | S,size,M / L / S are garment sizes. R3.4.
+Fabric_Composition,string,80% Cotton 20% Polyester | 100% Cotton | 95% Cotton 5% Elastane,fibreComposition,Percentage fibre blends (80% Cotton 20% Polyester). R3.4.
+col_7,string,LK | IN | BD,countryOfOrigin,"ISO 3166-1 alpha-2 codes (LK, IN, BD); header is uninformative. R3.4. No separate garment-origin column exists in this schema, so R4.1 does not push it to materialOriginCountry."

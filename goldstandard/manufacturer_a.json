@@ -1,0 +1,34 @@
+{
+  "schema": "manufacturer_a",
+  "frozen_at": "2026-10-08",
+  "rater": "GDYDA",
+  "rulebook_version": "1.0",
+  "cdm_schema_sha256": "357698a9f230c127e09563107b708c7f539fbf87486f15c42ed71f3aefcb2e54",
+  "mappings": {
+    "Design_Code": "productFamily",
+    "Style_No": "gtin",
+    "baseColour": "colour",
+    "SIZE": "size",
+    "Fabric_Composition": "fibreComposition",
+    "col_7": "countryOfOrigin",
+    "junk_ref": "NO_MAPPING"
+  },
+  "rationales": {
+    "Design_Code": "Repeats across rows (TOP-A, TOP-A) and is shared by variants: the design/family code. R4.1/R4.2: family level, not the sellable item.",
+    "Style_No": "13-digit zero-padded values that all pass the GTIN-13 check digit, one per row: a trade-item barcode number. R4.1: gtin is more specific than productIdentifier, and R3.4 says decide on contents. Same shape as Odoo barcode in schema C, so it must be treated the same way (R1 consistency). Alternative: productIdentifier, see note.",
+    "baseColour": "Navy / Red / Black are colour names. R3.4, name and contents agree.",
+    "SIZE": "M / L / S are garment sizes. R3.4.",
+    "Fabric_Composition": "Percentage fibre blends (80% Cotton 20% Polyester). R3.4.",
+    "col_7": "ISO 3166-1 alpha-2 codes (LK, IN, BD); header is uninformative. R3.4. No separate garment-origin column exists in this schema, so R4.1 does not push it to materialOriginCountry.",
+    "junk_ref": "Opaque internal reference (zz1, zz2), no CDM counterpart. R2.1/R2.2: recorded explicitly."
+  },
+  "rulebook_rules_cited": {
+    "Design_Code": "R4.1 / R4.2",
+    "Style_No": "R4.1 / R4.2",
+    "baseColour": "R3.4",
+    "SIZE": "R3.4",
+    "Fabric_Composition": "R3.4",
+    "col_7": "R3.4",
+    "junk_ref": "R2.1 / R2.2"
+  }
+}

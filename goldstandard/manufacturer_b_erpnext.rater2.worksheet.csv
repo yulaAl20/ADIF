@@ -1,0 +1,7 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+variant_of,string,TSH-1000 | TSH-1000 | PLO-2000,,
+customs_tariff_number,integer,610910 | 610910 | 610590,,
+weight_per_unit,float,0.180 | 0.195 | 0.240,,
+size_code,mixed,M | L | S,,
+recycled_pct,integer,20 | 20 | 0,,
+supplier_gln,integer,9312345000019 | 9312345000019 | 9312345000019,,

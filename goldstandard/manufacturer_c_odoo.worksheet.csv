@@ -1,0 +1,23 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+default_code,string,TSH-1001 | TSH-1002 | PLO-2010,productIdentifier,"Variant-level style codes (TSH-1001), unique per row. R4.2."
+name,string,Crew Neck Tee | Crew Neck Tee | Pique Polo,NO_MAPPING,"Free-text product name repeated across variants. R3.3, same call as ERPNext item_name."
+categ_id,string,All / Apparel / Knit | All / Apparel / Knit | All / Apparel / Knit,productCategory,"Constant category path (All / Apparel / Knit). Same judgement as item_group in schema B, must stay consistent with it."
+barcode,integer,9312345000019 | 9312345000026 | 9312345000033,gtin,"13-digit barcode values, one per variant. R3.4 / R4.1. The check digits are not valid, so the data is synthetic; the mapping rests on meaning, not validity."
+uom_id,string,Units | Units | Units,NO_MAPPING,"Holds Units, a unit of measure. R3.2 / R2.2."
+weight,float,0.180 | 0.195 | 0.240,netWeight,"Decimal weights (0.180), same values as ERPNext weight_per_unit. R3.4. Odoo exports weight in kg by default."
+volume,float,0.0012 | 0.0013 | 0.0018,NO_MAPPING,"Decimal volume (0.0012), no CDM volume field. R2.2."
+standard_price,float,3.10 | 3.10 | 4.40,NO_MAPPING,"Cost price. R3.4 / R2.2: reads clearly, maps to nothing."
+list_price,float,11.90 | 11.90 | 18.50,NO_MAPPING,Sales price. R2.2.
+description_sale,string,Single jersey crew neck | Single jersey crew neck | Pique knit polo,NO_MAPPING,Sales marketing copy. R3.3.
+type,string,product | product | product,NO_MAPPING,Odoo product type flag (product). R2.2: workflow field.
+sale_ok,boolean,True | True | True,NO_MAPPING,Boolean sellable flag. R3.1 / R2.2.
+x_studio_fiber_comp,string,95% Cotton 5% Elastane | 95% Cotton 5% Elastane | 100% Cotton,fibreComposition,Percentage fibre blends. R3.4.
+x_studio_shade,string,Navy | Navy | Olive,colour,Navy / Olive. R3.4.
+x_studio_sz,mixed,M | L | S,size,M / L / S. R3.4.
+x_studio_coo,string,LK | LK | LK,countryOfOrigin,LK; the R3.4 example for this exact header.
+x_studio_wash,string,Machine wash 30C | Machine wash 30C | Machine wash 40C,careInstructions,Machine wash 30C. R3.4.
+x_studio_ghg,float,4.20 | 4.45 | 5.10,carbonFootprint,Decimals in kg CO2e (4.20). R4.1.
+x_studio_lot,string,DL-7781 | DL-7781 | DL-7802,batchNumber,"DL-7781 is an actual batch value, not a flag. R3.1 contrast case."
+x_studio_po_ref,string,PO-88412 | PO-88412 | PO-88500,purchaseOrderReference,PO-88412. R3.4.
+x_studio_hs,integer,610910 | 610910 | 610590,commodityCode,6-digit HS codes. R3.4.
+x_studio_vendor_gln,integer,9312345000019 | 9312345000019 | 9312345000019,NO_MAPPING,"13-digit GLN of the vendor. R4.3, same call as supplier_gln in schema B."

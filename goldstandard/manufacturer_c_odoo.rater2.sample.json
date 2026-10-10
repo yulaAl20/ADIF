@@ -1,0 +1,16 @@
+{
+  "schema": "manufacturer_c_odoo",
+  "fraction_requested": 0.25,
+  "columns_total": 22,
+  "columns_sampled": 6,
+  "fraction_actual": 0.2727,
+  "seed": 2026,
+  "sampled_headers": [
+    "barcode",
+    "standard_price",
+    "type",
+    "x_studio_wash",
+    "x_studio_po_ref",
+    "x_studio_vendor_gln"
+  ]
+}

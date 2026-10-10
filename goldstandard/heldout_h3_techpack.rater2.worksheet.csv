@@ -1,0 +1,7 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+Gender,string,Womens | Womens | Womens,NO_MAPPING,"Gender is a product variant attribute, but there is no gender-specific field in the supplied CDM field list."
+Size,string,S | M | M,size,"The values S and M represent garment sizes, matching the CDM size field."
+Factory ID,string,LKA-0412 | LKA-0412 | LKA-0412,facilityIdentifiers,"The value looks like an identifier for a factory or production facility, so facilityIdentifiers is the closest match."
+FOB Price (USD),float,5.85 | 5.85 | 5.85,NO_MAPPING,"This is a price/cost value, and the supplied CDM field list does not include a price field."
+Approved By,string,J. Alvarez | J. Alvarez | J. Alvarez,NO_MAPPING,"This identifies the person who approved the item, but the supplied CDM fields do not contain a specific approver or approval-person field."
+Recycled Fibre (%),integer,40 | 40 | 40,recycledContent,"The percentage indicates how much recycled fibre the product contains, which matches recycledContent."

@@ -1,0 +1,7 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+barcode,integer,9312345000019 | 9312345000026 | 9312345000033,,
+standard_price,float,3.10 | 3.10 | 4.40,,
+type,string,product | product | product,,
+x_studio_wash,string,Machine wash 30C | Machine wash 30C | Machine wash 40C,,
+x_studio_po_ref,string,PO-88412 | PO-88412 | PO-88500,,
+x_studio_vendor_gln,integer,9312345000019 | 9312345000019 | 9312345000019,,

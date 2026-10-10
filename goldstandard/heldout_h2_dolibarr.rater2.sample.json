@@ -1,0 +1,18 @@
+{
+  "schema": "heldout_h2_dolibarr",
+  "fraction_requested": 0.3,
+  "columns_total": 26,
+  "columns_sampled": 8,
+  "fraction_actual": 0.3077,
+  "seed": 2026,
+  "sampled_headers": [
+    "note_public",
+    "tobatch",
+    "customcode",
+    "height",
+    "price",
+    "accountancy_code_sell",
+    "options_composition",
+    "options_size"
+  ]
+}
