@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Registry operator{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <div class="page-head"><h1 style="font-size:2.2rem">Registry operator</h1><p>Approve manufacturer accounts and create authority accounts. This is prototype governance for the demonstration, not official accreditation.</p></div>
+  <div class="stats">{% for k in ['family','variant','instance'] %}<div class="stat"><b>{{ counts[k] }}</b><span>{{ kind_plural[k] }}</span></div>{% endfor %}</div>
+  <div class="panel" style="margin-top:24px">
+    <h2 style="font-size:1.2rem">Waiting for approval</h2>
+    {% if pending %}
+    <table class="table"><tr><th>Company</th><th>Manufacturer ID</th><th>Contact</th><th>Requested</th><th></th></tr>
+    {% for a in pending %}<tr><td>{{ a.organisation }}</td><td class="mono">{{ a.registrar_id }}</td><td>{{ a.display_name }}<br><span class="small muted">{{ a.username }}</span></td><td class="small">{{ a.created_at[:10] }}</td>
+      <td class="row-actions">{% for act, cls in [('approve','btn-thread'),('reject','btn-quiet')] %}<form method="post" action="/admin/accounts/{{ a.username }}/{{ act }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn {{ cls }} btn-s">{{ act|capitalize }}</button></form>{% endfor %}</td></tr>{% endfor %}
+    </table>
+    {% else %}<p class="empty">No requests waiting.</p>{% endif %}
+  </div>
+  <div class="cols" style="margin-top:20px">
+    <div class="panel"><h2 style="font-size:1.2rem">All accounts</h2>
+      <table class="table"><tr><th>Account</th><th>Role</th><th>Status</th><th></th></tr>
+      {% for a in all_accounts %}<tr><td>{{ a.organisation }}<br><span class="small muted">{{ a.username }}</span></td><td>{{ a.role.value }}</td><td>{{ a.status }}</td>
+        <td>{% if a.username != user.username and a.status in ('active','suspended') %}<form method="post" action="/admin/accounts/{{ a.username }}/{{ 'suspend' if a.status == 'active' else 'reactivate' }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn btn-quiet btn-s">{{ 'Suspend' if a.status == 'active' else 'Reactivate' }}</button></form>{% endif %}</td></tr>{% endfor %}
+      </table></div>
+    <form class="panel" method="post" action="/admin/authority">
+      <h2 style="font-size:1.2rem">Add an authority</h2>
+      <p class="small muted">Customs or market-surveillance staff. They can see restricted sections and list everything recorded under one lot.</p>
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <label for="ao">Organisation</label><input type="text" id="ao" name="organisation" required>
+      <label for="an">Contact name</label><input type="text" id="an" name="display_name" required>
+      <label for="au">Email</label><input type="email" id="au" name="username" required>
+      <label for="ap">Temporary password</label><input type="password" id="ap" name="password" minlength="10" required>
+      <button class="btn btn-thread" style="margin-top:16px">Create authority account</button>
+    </form>
+  </div>
+  <div class="panel" style="margin-top:20px"><h2 style="font-size:1.2rem">Frozen research artefacts (evaluated version v1.0)</h2>
+    <p class="small muted">Recomputed now against the hashes recorded at tag freeze-v1.0 (decisions.md D30). The website does not edit these files.</p>
+    <table class="table"><tr><th>File</th><th>Status</th><th>Recorded</th><th>Now</th></tr>
+    {% for f in frozen %}<tr><td class="mono small">{{ f.file }}</td><td>{% if f.status == 'match' %}<span class="pill ok">Matches</span>{% elif f.status == 'match_line_endings' %}<span class="pill ok" title="{{ f.note }}">Same content (line endings)</span>{% elif f.status == 'differs' %}<span class="pill bad">Differs</span>{% else %}<span class="pill warn">Missing</span>{% endif %}</td><td class="mono small">{{ f.expected[:12] }}</td><td class="mono small">{{ (f.actual or '')[:12] }}</td></tr>{% endfor %}
+    </table>
+    {% if frozen|selectattr('status','equalto','match_line_endings')|list %}<p class="small muted" style="margin-top:12px">"Same content (line endings)": the recorded hash was taken on the Windows machine that froze the study, where the file had CRLF line endings; this copy has LF. The content is identical (decision D58).</p>{% endif %}
+    {% if frozen|selectattr('status','in',['differs','missing'])|list %}<p class="note" style="margin-top:12px">At least one frozen file has changed or is missing. Record the cause in the decision log before citing results.</p>{% endif %}
+  </div>
+  <div class="panel" style="margin-top:20px"><h2 style="font-size:1.2rem">Matching configuration in use</h2>
+    <p class="small muted">What the portal's mapping step actually runs, so it can be compared with an evaluation run. A different fingerprint means a different configuration.</p>
+    {% if matching.error %}<p class="note">The matching engine could not start: {{ matching.error }}</p>{% else %}
+    <table class="table">
+      <tr><th>Decision rule</th><td>{% if matching.decision == 'rerank' %}Evidence-aware reranking (second design iteration, D54 &mdash; not yet evaluated on held-out data){% else %}Strict cascade (evaluated v1.0){% endif %}</td></tr>
+      <tr><th>Stages</th><td>{{ matching.stages|join(' &rarr; ')|safe }}</td></tr>
+      <tr><th>Semantic model</th><td>{% if matching.semantic_is_real %}{{ matching.embedder }}{% else %}<span class="pill warn">Off</span> <span class="small muted">the language model is not available here, so the four-stage evaluation figures do not describe this deployment</span>{% endif %}</td></tr>
+      <tr><th>Overlay</th><td class="mono small">{{ matching.overlay }}</td></tr>
+      <tr><th>Fingerprint</th><td class="mono small">{{ matching.sha256[:16] }}</td></tr>
+    </table>{% endif %}
+  </div>
+  <div class="panel" style="margin-top:20px"><h2 style="font-size:1.2rem">Access log</h2>
+    <p class="small muted">Sign-ins, failed sign-ins, uploads, registrations and account decisions, newest first. Append-only. Changes to records are logged separately in each record's hash-chained history.</p>
+    {% if audit_events %}<table class="table"><tr><th>When (UTC)</th><th>Who</th><th>Action</th><th>Target</th><th>Outcome</th></tr>
+    {% for e in audit_events %}<tr><td class="mono small">{{ e.at }}</td><td>{{ e.actor }}</td><td>{{ e.action }}</td><td class="small">{{ e.target }}</td><td>{% if e.outcome == 'ok' %}<span class="pill ok">ok</span>{% else %}<span class="pill warn">{{ e.outcome }}</span>{% endif %}</td></tr>{% endfor %}
+    </table>{% else %}<p class="small muted">No events yet.</p>{% endif %}
+  </div>
+  <div class="panel" style="margin-top:20px"><h2 style="font-size:1.2rem">Registry nodes</h2>
+    <table class="table"><tr><th>Node</th><th>Operator</th><th>Address</th></tr>{% for n in nodes %}<tr><td class="mono">{{ n.node_id }}</td><td>{{ n.operator }}</td><td class="mono small">{{ n.base_url }}</td></tr>{% endfor %}</table></div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Templates{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <div class="page-head"><h1 style="font-size:2.2rem">Templates</h1><p>Your saved column choices. Saving under an existing name adds a revision, and restoring an old revision copies it forward rather than overwriting. Other manufacturers can't see these.</p></div>
+  {% include "portal/_nav.html" %}
+  {% if templates_list %}
+  <div class="panel"><table class="table"><tr><th>Name</th><th>Latest version</th><th>Columns</th><th>Saved</th></tr>
+  {% for t, n in templates_list %}<tr><td><a href="/portal/templates/{{ t.name|urlencode }}">{{ t.name }}</a></td><td>v{{ n }}</td><td>{{ t.mappings|length }}</td><td class="small">{{ t.created_at[:16].replace('T',' ') }} by {{ t.created_by }}</td></tr>{% endfor %}
+  </table></div>
+  {% else %}<p class="empty">No templates yet. Name one when you confirm the matches for a file.</p>{% endif %}
+</div></section>
+{% endblock %}

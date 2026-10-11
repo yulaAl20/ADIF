@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Check the matches{% endblock %}
+{% block main %}
+{% set stagenames = {'alias':'Known column name','fuzzy':'Similar spelling','semantic':'Similar meaning','value':'Looks like the values','template':'Your template or choice','none':'No match found'} %}
+<section class="page"><div class="wrap">
+  <div class="page-head">
+    <h1 style="font-size:2.2rem">Check the matches</h1>
+    <p><span class="mono">{{ item.session.filename }}</span>: {{ row_count }} rows, {{ rows|length }} columns. {% if to_review %}<b>{{ to_review }}</b> column{{ '' if to_review == 1 else 's' }} need{{ 's' if to_review == 1 else '' }} your check.{% else %}Nothing is flagged, but please look over every row.{% endif %}</p>
+    {% if item.template_used and reuse %}<p class="note">Template "{{ item.template_used }}" re-applied to {{ reuse.reused|length }} column{{ '' if reuse.reused|length == 1 else 's' }}.{% if reuse.new_columns %} New or renamed: {{ reuse.new_columns|join(', ') }}.{% endif %}{% if reuse.drifted_missing %} No longer in the file: {{ reuse.drifted_missing|join(', ') }}.{% endif %}</p>{% endif %}
+    {% if not semantic_on %}<p class="small muted">Matching by meaning is off on this server, so a few unusual column names may need your help.</p>{% endif %}
+  </div>
+  {% include "portal/_nav.html" %}
+  <form method="post" action="/portal/review/{{ item.token }}">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <div class="panel" style="overflow-x:auto">
+      <table class="table">
+        <tr><th style="width:24%">Your column</th><th style="width:30%">Passport field</th><th>How it was matched</th><th>Confidence</th><th></th></tr>
+        {% for r in rows %}
+        <tr>
+          <td><b>{{ r.header }}</b><div class="samples">{{ r.samples|join(' | ') }}</div></td>
+          <td><label class="sr-only" for="map_{{ r.i }}">Passport field for {{ r.header }}</label>
+            <select id="map_{{ r.i }}" name="map_{{ r.i }}">
+              <option value="{{ no_mapping }}" {% if r.target == no_mapping %}selected{% endif %}>No match: leave out</option>
+              {% for f in fields %}<option value="{{ f }}" {% if r.target == f %}selected{% endif %}>{{ f }}</option>{% endfor %}
+            </select></td>
+          <td class="small">{{ stagenames.get(r.stage, r.stage) }}{% if r.conflict %}<br><span class="muted">Another column claimed the same field</span>{% endif %}</td>
+          <td class="small">{% if r.stage == 'template' %}<span class="muted">Confirmed before</span>{% elif r.confidence is not none %}{{ '%.0f'|format(r.confidence * 100) }}%{% else %}<span class="muted">n/a</span>{% endif %}</td>
+          <td>{% if r.review %}<span class="pill warn">Check</span>{% elif r.target != no_mapping %}<span class="pill ok">Sure</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="panel" style="max-width:640px">
+      <h2 style="font-size:1.1rem">Confirm</h2>
+      <label for="template_name" style="margin-top:0">Save these choices as a template <span class="hint">(optional)</span></label>
+      <input type="text" id="template_name" name="template_name" value="{{ item.template_used or '' }}" placeholder="e.g. Spring export">
+      <p class="small muted" style="margin:6px 0 0">Using an existing name saves a new revision of it. Earlier revisions are kept and can be restored.</p>
+      <label for="template_note">Note <span class="hint">(optional)</span></label>
+      <input type="text" id="template_note" name="template_note" placeholder="What changed this season">
+      <button class="btn btn-thread" type="submit" style="margin-top:16px">Confirm matches</button>
+    </div>
+  </form>
+
+  {% if item.confirm_summary %}
+  <div class="panel" id="register" style="max-width:640px">
+    <h2 style="font-size:1.1rem">Register the products</h2>
+    <p>Matches confirmed: you kept {{ item.confirm_summary.kept }} of {{ item.confirm_summary.total }} and changed {{ item.confirm_summary.changed }}.{% if item.saved_template %} Saved as template {{ item.saved_template }}.{% endif %}</p>
+    <p class="muted small">Each family, variant and serialised item in the {{ row_count }} rows receives its ADID. Products already registered keep their ADIDs; changed details are saved as new revisions. Batch numbers are stored as passport data.</p>
+    <form method="post" action="/portal/register/{{ item.token }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn btn-thread">Register {{ row_count }} rows</button></form>
+  </div>
+  {% endif %}
+</div></section>
+{% endblock %}

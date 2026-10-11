@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Request received{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap" style="max-width:640px">
+  <h1 style="font-size:2rem">Request received</h1>
+  <p>{{ account.organisation }} is waiting for the registry operator's approval. Once approved, sign in with <span class="mono">{{ account.username }}</span>.</p>
+  <p class="muted">Your products will be registered under the manufacturer ID <span class="mono">{{ account.registrar_id }}</span>.</p>
+  <p><a class="btn btn-quiet" href="/">Back to the home page</a></p>
+</div></section>
+{% endblock %}

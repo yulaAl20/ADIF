@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Registered{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <div class="page-head"><h1 style="font-size:2.2rem">Registered</h1><p><span class="mono">{{ item.session.filename }}</span>, {{ rep.rows }} rows.</p></div>
+  {% include "portal/_nav.html" %}
+  <div class="stats">
+    {% for k in ['family','variant','instance'] %}
+    <div class="stat"><b>{{ rep.created.get(k, 0) }}</b><span>new {{ kind_plural[k]|lower }}{% if rep.updated.get(k) %}, {{ rep.updated[k] }} updated{% endif %}{% if rep.unchanged.get(k) %}, {{ rep.unchanged[k] }} already registered{% endif %}</span></div>
+    {% endfor %}
+  </div>
+  {% for s in rep.skipped + rep.conflicts %}<p class="note" style="margin-top:14px">Row {{ (s.row + 1) if s.row is defined and s.row is not none else '?' }}: {{ s.reason or s.error }}</p>{% endfor %}
+  <div class="panel" style="margin-top:24px;overflow-x:auto">
+    <h2 style="font-size:1.1rem">Addresses to print</h2>
+    <p class="small muted">One per row: the instance if the row has a serial number, otherwise its variant.</p>
+    <table class="table"><tr><th>Row</th><th>Product</th><th>Address for the QR code</th><th></th></tr>
+    {% for r in rows %}<tr><td>{{ r.row }}</td><td><a href="{{ r.target|href }}">{{ r.label }}</a><div class="small muted">{{ kind_names.get(r.kind, '') }}</div></td><td class="mono small">{{ r.uri }}</td><td><button class="btn btn-quiet btn-s" type="button" data-copy="{{ r.uri }}">Copy</button></td></tr>{% endfor %}
+    </table>
+  </div>
+</div></section>
+{% endblock %}

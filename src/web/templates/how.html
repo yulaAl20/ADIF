@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}How it works{% endblock %}
+{% block main %}
+<section class="page">
+  <div class="wrap" style="max-width:980px">
+    <div class="page-head">
+      <h1>How it works</h1>
+      <p class="lead muted" style="font-size:1.1rem">ADIF has three research contributions: an identity model (ADID), a canonical data model (CDM) and a hybrid interoperability gateway. This website is a demonstration built on top of them.</p>
+    </div>
+
+    <div class="panel" id="adid">
+      <h2>1. ADID: identity and hierarchical resolution</h2>
+      <p>An ADID addresses one of three levels, and the path depth gives the level.</p>
+      <table class="kv">
+        <tr><th>Family (the garment design)</th><td class="mono small">/adid/{familyUUID}</td></tr>
+        <tr><th>Variant (one colour and size)</th><td class="mono small">/adid/{familyUUID}/white_xs</td></tr>
+        <tr><th>Instance (one physical garment)</th><td class="mono small">/adid/{familyUUID}/white_xs/{instanceUUID}</td></tr>
+      </table>
+      <p style="margin-top:14px">The family and instance segments are random version-4 UUIDs, so they are globally unique and carry no product details. The variant segment is the colour and size, issued at registration and unique within its family. The variant also has its own UUID, kept in its record.</p>
+      <p>Each ADID is issued once and is not reassigned. A later correction to colour, size or any other detail creates a new revision of the record, and the address stays the same. Barcodes (GTIN, and GTIN plus serial) are stored as other names for the same record and open it through <span class="mono">/01/{gtin}</span>. Batch numbers are passport data rather than part of the address. The manufacturer and authorities can list everything recorded under one lot.</p>
+      <p class="small muted">Status: this is ADID v2, a proposed post-freeze design. The evaluated specification is v1.0 (style code, colour and size, serial), and its grammar file is unchanged. Every v2 address is also valid under the v1.0 path grammar.</p>
+    </div>
+
+    <div class="panel" id="cdm">
+      <h2>2. CDM: canonical product data</h2>
+      <p>The CDM has 54 passport fields drawn from the EU Ecodesign Regulation (2024/1781, Annex III and Articles 5 and 7), GS1 EPCIS 2.0, the UN Transparency Protocol and the EU textile-labelling regulation (1007/2011). Each field records the clause it comes from. Four are required: style, product identifier, manufacturer operator ID and fibre composition. The vocabulary is versioned and governed separately; manufacturers cannot change it from this site.</p>
+      <p>Passports are written as JSON-LD. A variant's passport includes its family's details, and an instance's passport includes its family's and variant's details.</p>
+    </div>
+
+    <div class="panel" id="gateway">
+      <h2>3. Gateway: from a factory's spreadsheet to the CDM</h2>
+      <p>Each column in an upload passes through up to four matching stages, stopping at the first that is confident enough.</p>
+      <ol class="steps" style="grid-template-columns:repeat(4,1fr)">
+        <li><h3>Known names</h3><p>An exact match against a curated list of column names factories use for each field.</p></li>
+        <li><h3>Similar spelling</h3><p>Typos and reordered words, accepted at a score of 85 or more out of 100.</p></li>
+        <li><h3>Similar meaning</h3><p>A small offline language model, accepted at 85 or more. Switched off on copies without the model.</p></li>
+        <li><h3>Looks like the values</h3><p>Country codes, barcodes, customs codes and fibre names, accepted at 75 or more.</p></li>
+      </ol>
+      <p style="margin-top:18px">Each match gets a confidence calibrated on example files with known answers, and anything below 0.96 is flagged for a person to check. Confirmed choices can be saved as a template; saving under an existing name adds a revision and keeps the earlier ones.</p>
+    </div>
+
+    <div class="panel" id="evaluation">
+      <h2>What has been measured</h2>
+      <h3>The gateway (held-out files, evaluated version v1.0, frozen 10 October 2026)</h3>
+      <p>Column-matching accuracy (F1) rose from 0.54 with spelling similarity alone to 0.63 with all four stages. Confidence calibration error was 0.054, against a target of 0.10. The accuracy target of 0.85 was not met; that is reported as a finding. Two of the three test files were compiled rather than taken from a factory, and none came from a Sri Lankan manufacturer. The evaluation is controlled and synthetic: it shows that the prototype works and how the matching methods compare, not how it would perform in real Sri Lankan factories.</p>
+      <h3 style="margin-top:22px">ADID v2 resolution (synthetic catalogue, 3,632 records, 12 October 2026)</h3>
+      <table class="table">
+        <tr><th>What was tested</th><th>Result</th></tr>
+        <tr><td>Printed addresses unchanged after colour or size corrections</td><td>704 of 704 v2 addresses, against 0 of 528 v1.0 addresses</td></tr>
+        <tr><td>Addresses, barcodes and serials that opened the right record, on either of two registry nodes</td><td>All of those tested</td></tr>
+        <tr><td>Colour and size matches found despite inconsistent spelling</td><td>97% found, against 28% for exact matching</td></tr>
+        <tr><td>Restricted details shown in public views</td><td>None in 3,632 views</td></tr>
+        <tr><td>Edits made outside the registry detected by the revision seals</td><td>200 of 200, with no false alarms</td></tr>
+        <tr><td>Search time at about 38,000 records</td><td>About 2 milliseconds</td></tr>
+      </table>
+      <p class="small muted" style="margin-top:12px">Several of these results follow from the design and confirm that the software behaves as specified: random IDs do not collide, a hash chain catches edits, and v1.0 addresses change because they contain colour and size. The catalogue is generated, not factory data. The spelling variations were written by the same person who wrote the matching, so the 97% shows that capitals, spaces and hyphens are handled, not every spelling. "Grey" and "Gray" are still missed. Timings are from a development machine.</p>
+    </div>
+
+    <div class="panel">
+      <h2>What this prototype does not claim</h2>
+      <ul>
+        <li>It is not a legally designated DPP service, registry or authority, and it is not an official standard. <span class="mono">id.adir.example</span> is an example host.</li>
+        <li>It does not imply certification or compliance with any regulation. The textile delegated act under the Ecodesign Regulation is not yet adopted.</li>
+        <li>Matching is not fully accurate, and a high confidence score does not guarantee that a match is correct. The workflow is human-assisted: the system proposes, a person confirms. The measured accuracy is reported above, including the targets that were not met.</li>
+        <li>This registry is a research registry and resolver. It is not the EU digital product passport registry set up under Implementing Regulation (EU) 2026/1778, and registering a product here is not registration with the EU.</li>
+        <li>The harmonised DPP standards EN 18216 and EN 18219 to EN 18223 (Implementing Decision (EU) 2026/1736) define the horizontal DPP infrastructure. ADIF does not replace them; it studies an apparel-specific mapping workflow and product grouping that those standards do not themselves provide.</li>
+        <li>The four required passport fields used here are a minimum set defined for this study, not a legal list. Textile-specific requirements will come from a delegated act that has not been adopted.</li>
+        <li>No conformance with EN 18219 (DPP unique identifiers) or GS1 Digital Link is claimed. Barcodes are supported as linked identifiers.</li>
+        <li>Account approval on this site is prototype governance, not official accreditation. Passwords and API keys are used, not digital signatures. The revision seals detect edits; they do not stop an operator with database access from rewriting a whole history consistently.</li>
+        <li>The site has prototype safeguards (hashed passwords, form tokens, sign-in throttling, upload limits, expiring uploads and an access log). It has not had a security assessment and is not presented as secure for production use.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

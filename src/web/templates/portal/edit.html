@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ label }}{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap" style="max-width:860px">
+  <nav class="crumbs"><a href="{{ entity.adid|href }}">Back to the record</a></nav>
+  <h1 style="font-size:2.2rem">Edit details: {{ label }}</h1>
+  <p class="muted">Saving creates revision {{ entity.version + 1 }}. Revision {{ entity.version }} stays in the history, and the ADID below does not change.</p>
+  <form method="post" action="/portal/edit/{{ entity.adid }}">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <div class="panel">
+      <h2 style="font-size:1.1rem">Identity <span class="muted" style="font-weight:400">· cannot be changed</span></h2>
+      <label for="adid" style="margin-top:0">ADID</label><input type="text" id="adid" value="{{ entity.path or entity.adid }}" readonly>
+      {% for f in fields if f in locked and entity.metadata.get(f) %}
+      <label for="l-{{ f }}">{{ f }}</label><input type="text" id="l-{{ f }}" value="{{ entity.metadata.get(f) }}" readonly>
+      {% endfor %}
+      <p class="small muted" style="margin:10px 0 0">These bind uploads and barcodes to this record. If one is wrong, use the documented procedure: withdraw this record and register a corrected one, linked as its replacement.</p>
+    </div>
+    <div class="panel">
+      <h2 style="font-size:1.1rem">Details</h2>
+      {% for f in fields if f not in locked %}
+      <label for="f-{{ f }}">{{ f }} <span class="hint">· {{ policy.tier_of(f) }}</span></label>
+      <input type="text" id="f-{{ f }}" name="f_{{ f }}" value="{{ entity.metadata.get(f, '') }}">
+      {% endfor %}
+      <p class="small muted" style="margin-top:12px">"public" details are shown to anyone; "registrant" details only to you and to authorities. Clearing a box removes that detail in the new version.</p>
+      <button class="btn btn-thread" type="submit" style="margin-top:12px">Save as revision {{ entity.version + 1 }}</button>
+    </div>
+  </form>
+</div></section>
+{% endblock %}

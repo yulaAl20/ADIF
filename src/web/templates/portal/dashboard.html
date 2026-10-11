@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}My products{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <div class="page-head"><h1 style="font-size:2.2rem">{{ user.organisation }}</h1><p>Manufacturer ID <span class="mono">{{ user.registrar_id }}</span>. Only you can change the records registered under it.</p></div>
+  {% include "portal/_nav.html" %}
+  <div class="stats">
+    {% for k in ['family','variant','instance'] %}<div class="stat"><b>{{ counts[k] }}</b><span>{{ kind_plural[k] }}</span></div>{% endfor %}
+  </div>
+  <div class="cols" style="margin-top:28px">
+    <div class="panel">
+      <h2 style="font-size:1.2rem">Recent families</h2>
+      {% if models %}
+      <table class="table"><tr><th>Style</th><th>Variants</th><th>Family UUID</th></tr>
+      {% for m in models %}<tr><td><a href="{{ m.adid|href }}">{{ m.metadata.get('productFamily', m.adid[:8]) }}</a></td><td>{{ versions[m.adid] }}</td><td class="mono small">{{ m.adid[:8] }}…</td></tr>{% endfor %}
+      </table>
+      {% else %}
+      <p class="empty">Nothing registered yet. Upload your product sheet to issue ADIDs for your products.</p>
+      <p><a class="btn btn-thread" href="/portal/upload">Upload a file</a></p>
+      {% endif %}
+    </div>
+    <div class="panel">
+      <h2 style="font-size:1.2rem">Templates</h2>
+      {% if templates_list %}<ul class="idlist">{% for t, n in templates_list %}<li><a href="/portal/templates/{{ t.name|urlencode }}">{{ t.name }}</a> <span class="muted">version {{ n }}</span></li>{% endfor %}</ul>
+      {% else %}<p class="empty">Save your column choices as a template when you confirm a file, and reuse them next season.</p>{% endif %}
+    </div>
+  </div>
+</div></section>
+{% endblock %}

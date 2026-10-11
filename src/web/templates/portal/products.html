@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}My products{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <div class="page-head"><h1 style="font-size:2.2rem">My products</h1></div>
+  {% include "portal/_nav.html" %}
+  <form method="get" class="row-actions" style="margin-bottom:20px"><label class="sr-only" for="pq">Filter by style</label><input type="text" id="pq" name="q" value="{{ q }}" placeholder="Filter by style code" style="max-width:280px"><button class="btn btn-quiet btn-s">Filter</button></form>
+  {% if models %}
+  {% for m in models %}
+  <div class="panel">
+    <div class="row-actions" style="justify-content:space-between"><h2 style="font-size:1.2rem;margin:0"><a href="{{ m.family.adid|href }}">{{ m.family.metadata.get('productFamily', m.family.adid[:8]) }}</a> <span class="muted" style="font-weight:400">{{ m.family.metadata.get('productCategory', '') }}</span></h2><span class="mono small muted">{{ m.family.adid }}</span></div>
+    {% if m.variants %}<div class="tags" style="margin-top:12px;opacity:1">{% for v in m.variants %}<a href="{{ v.adid|href }}">{{ v.metadata.get('colour', '?') }} / {{ v.metadata.get('size', '?') }}</a>{% endfor %}</div>{% endif %}
+  </div>
+  {% endfor %}
+  {% else %}
+  <p class="empty">{% if q %}No style matches "{{ q }}".{% else %}Nothing registered yet. <a href="/portal/upload">Upload a file</a> to start.{% endif %}</p>
+  {% endif %}
+</div></section>
+{% endblock %}

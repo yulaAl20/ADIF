@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <div class="formcard">
+    <h1 style="font-size:2rem">Sign in</h1>
+    <p class="muted">For manufacturers registering products, and for authorities.</p>
+    {% if error %}<div class="flash error" role="alert">{{ error }}</div>{% endif %}
+    <form method="post" action="/login" class="panel">
+      <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="next" value="{{ next }}">
+      <label for="username" style="margin-top:0">Email or username</label>
+      <input type="text" id="username" name="username" value="{{ username or '' }}" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+      <button class="btn btn-thread" type="submit">Sign in</button>
+    </form>
+    <p class="small" style="margin-top:18px">No account yet? <a href="/signup">Request one for your company</a>. The registry operator approves new manufacturers before they can register products.</p>
+  </div>
+</div></section>
+{% endblock %}

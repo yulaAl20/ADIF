@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Version {{ version }}{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap" style="max-width:860px">
+  <nav class="crumbs"><a href="{{ adid|href }}">Back to the current record</a></nav>
+  <h1>Version {{ version }} of {{ latest }}</h1>
+  <p class="muted">{% if entry %}{{ entry.action }} by {{ entry.actor }}, {{ entry.at[:19].replace('T',' ') }} UTC{% endif %}. The ADID was the same in every revision.</p>
+  {% if changed %}
+  <div class="panel"><h2 style="font-size:1.1rem">Changed in this version</h2>
+    <table class="kv">{% for k, pair in changed.items() %}<tr><th>{{ k }}</th><td><span class="diff-old">{{ pair[0] if pair[0] is not none else 'empty' }}</span> &nbsp; <span class="diff-new">{{ pair[1] if pair[1] is not none else 'removed' }}</span></td></tr>{% endfor %}</table>
+  </div>
+  {% endif %}
+  <div class="panel"><h2 style="font-size:1.1rem">Details as recorded in version {{ version }}</h2>
+    <table class="kv">{% for k, v in snap.metadata.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}</table>
+  </div>
+  {% if entry %}<p class="small muted mono" style="margin-top:14px">hash {{ entry.hash }}<br>previous {{ entry.prev_hash }}</p>{% endif %}
+</div></section>
+{% endblock %}

@@ -1,0 +1,5 @@
+<nav class="row-actions" aria-label="Portal" style="margin-bottom:26px">
+  {% for href, text in [('/portal','Overview'),('/portal/upload','Upload a file'),('/portal/products','My products'),('/portal/templates','Templates'),('/portal/lot','Lots')] %}
+  <a class="btn btn-s {% if path == href %}btn-line{% else %}btn-quiet{% endif %}" href="{{ href }}">{{ text }}</a>
+  {% endfor %}
+</nav>

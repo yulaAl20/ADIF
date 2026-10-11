@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% set kname = kind_names[record.kind] %}
+{% block title %}{{ label }} · {{ kname }}{% endblock %}
+{% block main %}
+{% set fieldnames = {'productFamily':'Style code','productCategory':'Category','productIdentifier':'Product code','gtin':'Barcode (GTIN)','colour':'Colour','size':'Size','fibreComposition':'Fibre composition','countryOfOrigin':'Country of origin','careInstructions':'Care instructions','netWeight':'Net weight','manufacturerName':'Manufacturer','commodityCode':'Customs (HS) code','serialNumber':'Serial number','batchNumber':'Batch number','purchaseOrderReference':'Purchase order','facilityIdentifiers':'Factory ID','productionDate':'Production date','recycledContent':'Recycled content','manufacturerOperatorId':'Manufacturer operator ID','variantId':'Variant UUID'} %}
+{% set sectionnames = {'product':'Product','sustainability':'Sustainability','compliance':'Compliance','substances':'Substances of concern','item':'This item','supply_chain':'Supply chain','production':'Production','other':'Other details','identity':'Identity'} %}
+<section class="page">
+  <div class="wrap">
+    {% if near and near.up %}
+    <nav class="crumbs" aria-label="Where this sits">{% for u in near.up %}<a href="{{ u.adid|href }}">{{ kind_names[u.kind] }}: {{ u.label }}</a><span aria-hidden="true">/</span>{% endfor %}<span>{{ kname }}</span></nav>
+    {% endif %}
+    <div class="page-head">
+      <p class="row-actions" style="margin-bottom:10px"><span class="pill kind">{{ kname }}</span>
+        {% if record.status == 'active' %}<span class="pill ok">Active</span>{% elif record.status == 'deprecated' %}<span class="pill warn">Replaced</span>{% else %}<span class="pill bad">{{ record.status|capitalize }}</span>{% endif %}
+        <span class="small muted">Registered by {{ record.registrar }}{% if record.version %}, revision {{ record.version }}{% endif %}</span></p>
+      <h1>{{ label }}</h1>
+      {% if record.tombstone %}<p class="note">{{ record.tombstone }}</p>{% endif %}
+      {% if record.replaced_by %}<p class="note">This record has been replaced. <a href="{{ record.replaced_by.adid|href }}">Open the replacement</a>. Labels with this ID still open this page.</p>{% endif %}
+    </div>
+
+    <div class="cols">
+      <div class="stack">
+        <div class="panel">
+          <h2 class="small muted" style="font-weight:600;margin-bottom:8px">This product's address</h2>
+          <div class="idbox"><span style="flex:1">{{ record.identifiers.uri }}</span><button class="btn btn-quiet btn-s" type="button" data-copy="{{ record.identifiers.uri }}">Copy</button></div>
+          {% set parts = record.identifiers.get('parts') %}
+          {% if parts %}
+          <table class="kv" style="margin-top:12px">
+            <tr><th>Family</th><td class="mono small">{{ parts.family }}</td></tr>
+            {% if parts.variant %}<tr><th>Variant segment</th><td class="mono small">{{ parts.variant }}</td></tr>{% endif %}
+            {% if parts.instance %}<tr><th>Instance</th><td class="mono small">{{ parts.instance }}</td></tr>{% endif %}
+          </table>
+          {% endif %}
+          <p class="small muted" style="margin:10px 0 0">This ADID is issued once and is not reassigned. Corrections update the record below; the address stays the same.</p>
+        </div>
+
+        {% for section, values in record.sections.items() if values %}
+        <div class="panel">
+          <h2 style="font-size:1.1rem">{{ sectionnames.get(section, section) }}</h2>
+          <table class="kv">{% for k, v in values.items() %}<tr><th>{{ fieldnames.get(k, k) }}</th><td>{{ v }}</td></tr>{% endfor %}</table>
+        </div>
+        {% endfor %}
+        {% if record.withheld_sections %}
+        <p class="small muted">Also on record but not shown to you: {{ record.withheld_sections|map('replace', '_', ' ')|join(', ') }}. These are visible to the manufacturer and to authorities.</p>
+        {% endif %}
+
+        {% if near %}
+        <div class="panel">
+          <h2 style="font-size:1.1rem">Related products</h2>
+          <p class="small muted">Found from registry links and shared passport data. The address shows the family and variant; everything else comes from the registry.</p>
+          <div class="near">
+            {% for title, items in [('Belongs to', near.up), ('Contains', near.down), ('Same family', near.siblings), ('Same lot', near.lot.members if near.lot else [])] %}
+            <div><h3>{{ title }}</h3>
+              {% if items %}<ul>{% for i in items[:8] %}<li><a href="{{ i.adid|href }}">{{ i.label }}</a><small>{{ kind_names[i.kind] }}</small></li>{% endfor %}{% if items|length > 8 %}<li class="small muted">and {{ items|length - 8 }} more</li>{% endif %}</ul>
+              {% else %}<p class="empty">None{% if title == 'Same lot' and not near.lot %}, or visible only to the manufacturer and authorities{% endif %}.</p>{% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          {% if near.similar.results %}
+          <h3 style="margin-top:22px;font-size:.95rem">Similar from other families <span class="muted" style="font-weight:400">· same {{ near.similar.matched_on.keys()|map('replace','productCategory','category')|join(' and ') }}</span></h3>
+          <div class="tags" style="opacity:1">{% for s in near.similar.results %}<a href="{{ s.adid|href }}">{{ s.design }} {{ s.label }} <span class="muted">({{ s.manufacturer }})</span></a>{% endfor %}</div>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+
+      <aside class="stack">
+        <div class="panel">
+          <h2 style="font-size:1.1rem">Other names for this product</h2>
+          <ul class="idlist">
+            <li><span class="k">Record UUID</span>{{ record.identifiers.urn }}</li>
+            {% for g in record.identifiers.get('gtin', []) %}<li><span class="k">Barcode (GTIN-14)</span>{{ g }}</li>{% endfor %}
+            {% for g in record.identifiers.get('gs1DigitalLink', []) %}<li><span class="k">GS1 Digital Link</span>{{ g }}</li>{% endfor %}
+            {% for a in record.identifiers.get('alias', []) %}<li><span class="k">Readable name (may change)</span>{{ a }}</li>{% endfor %}
+            {% for k, vals in record.identifiers.items() if k not in ('urn','uri','gtin','gs1DigitalLink','alias','path','parts') %}{% for v in vals %}<li><span class="k">{{ k }}</span>{{ v }}</li>{% endfor %}{% endfor %}
+          </ul>
+        </div>
+        {% if record.status != 'withdrawn' %}
+        <div class="panel">
+          <h2 style="font-size:1.1rem">Passport and data</h2>
+          <p class="row-actions"><a class="btn btn-thread btn-s" href="{{ record.adid|href }}?view=dpp">Passport (JSON-LD)</a><a class="btn btn-quiet btn-s" href="{{ record.adid|href }}?view=json">Record (JSON)</a></p>
+          <p class="small muted" style="margin:0">Machines asking this same address for JSON-LD get the passport directly.</p>
+        </div>
+        {% endif %}
+        <div class="panel">
+          <h2 style="font-size:1.1rem">Record history</h2>
+          {% if verify.ok %}<p><span class="pill ok">Verified</span> <span class="small">{{ verify.versions }} revision{{ '' if verify.versions == 1 else 's' }}, each sealed with a hash of the one before.</span></p>
+          {% else %}<p><span class="pill bad">Verification failed</span></p><ul class="small">{% for p in verify.problems %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
+          {% if history %}
+          <table class="table"><tr><th>Revision</th><th>Change</th><th>By</th></tr>
+          {% for h in history|reverse %}<tr><td><a href="/id/{{ record.adid }}/v/{{ h.version }}">v{{ h.version }}</a></td><td>{{ h.action.replace('add_alt_id:', 'added ').replace('relate:', 'linked ').replace('status:', 'status ') }}</td><td class="small">{{ h.actor }}<br><span class="muted">{{ h.at[:16].replace('T', ' ') }}</span></td></tr>{% endfor %}
+          </table>
+          {% else %}<p class="small muted" style="margin:0">Earlier revisions are visible to the manufacturer and to authorities.</p>{% endif %}
+        </div>
+        {% if can_edit %}
+        <div class="panel">
+          <h2 style="font-size:1.1rem">Manage</h2>
+          <p class="row-actions"><a class="btn btn-line btn-s" href="/portal/edit/{{ record.adid }}">Edit details</a></p>
+          <p class="small muted">Edits are saved as a new revision. The ADID stays the same.</p>
+          <form method="post" action="/portal/status/{{ record.adid }}" data-confirm="Mark this record as replaced? Its address will keep working and point people to the replacement.">
+            <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="action" value="deprecated">
+            <label for="rb">Replaced by <span class="hint">(optional ADID)</span></label>
+            <input type="text" id="rb" name="replaced_by" placeholder="ADID address or UUID of the replacement">
+            <button class="btn btn-quiet btn-s" style="margin-top:10px">Mark as replaced</button>
+          </form>
+          <form method="post" action="/portal/status/{{ record.adid }}" style="margin-top:14px" data-confirm="Withdraw this record? Use this only for a registration made in error. The ADID is retired and is not reassigned.">
+            <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="action" value="withdrawn">
+            <button class="btn btn-danger btn-s">Withdraw (registered in error)</button>
+          </form>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}

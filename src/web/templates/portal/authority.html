@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Authority access{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap" style="max-width:760px">
+  <h1 style="font-size:2.2rem">Authority access</h1>
+  <p>Signed in as {{ user.organisation }}. On any product page you now also see supply-chain and production details, individual items, and everything recorded under the same lot, which is what a recall needs.</p>
+  <form class="lookup" action="/registry" method="get" style="margin:24px 0"><label class="sr-only" for="aq">ID or barcode</label><input id="aq" name="q" placeholder="ADID or barcode"><button class="btn btn-thread">Look up</button></form>
+  <form class="lookup" action="/portal/lot" method="get" style="margin:0 0 24px"><label class="sr-only" for="lq">Batch number</label><input id="lq" name="batch" placeholder="Batch or lot number, e.g. DL-7700"><button class="btn btn-thread">List the lot</button></form>
+  <p class="small muted">Authorities can read but not change records. Changes are made by the manufacturer that registered the product.</p>
+</div></section>
+{% endblock %}

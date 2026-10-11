@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Request a manufacturer account{% endblock %}
+{% block main %}
+{% set v = values or {} %}
+<section class="page"><div class="wrap">
+  <div class="formcard">
+    <h1 style="font-size:2rem">Request a manufacturer account</h1>
+    <p class="muted">The registry operator reviews each company before it can register products. This is prototype governance for the demonstration, not official accreditation.</p>
+    {% if error %}<div class="flash error" role="alert">{{ error }}</div>{% endif %}
+    <form method="post" action="/signup" class="panel">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <label for="organisation" style="margin-top:0">Company name</label>
+      <input type="text" id="organisation" name="organisation" value="{{ v.organisation or '' }}" required>
+      <label for="display_name">Your name</label>
+      <input type="text" id="display_name" name="display_name" value="{{ v.display_name or '' }}" required>
+      <label for="username">Work email <span class="hint">(your sign-in name)</span></label>
+      <input type="email" id="username" name="username" value="{{ v.username or '' }}" autocomplete="username" required>
+      <label for="password">Password <span class="hint">(at least 10 characters)</span></label>
+      <input type="password" id="password" name="password" autocomplete="new-password" minlength="10" required>
+      <label for="password2">Password again</label>
+      <input type="password" id="password2" name="password2" autocomplete="new-password" minlength="10" required>
+      <button class="btn btn-thread" type="submit">Request account</button>
+    </form>
+  </div>
+</div></section>
+{% endblock %}

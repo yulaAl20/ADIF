@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Template {{ name }}{% endblock %}
+{% block main %}
+<section class="page"><div class="wrap">
+  <nav class="crumbs"><a href="/portal/templates">Templates</a></nav>
+  <h1 style="font-size:2.2rem">{{ name }}</h1>
+  <p class="muted">{{ versions|length }} version{{ '' if versions|length == 1 else 's' }}, newest first.</p>
+  {% for v in versions %}
+  <details class="panel" {% if loop.first %}open{% endif %}>
+    <summary><b>Version {{ v.version }}</b>{% if loop.first %} <span class="pill ok">Current</span>{% endif %} <span class="small muted">{{ v.created_at[:16].replace('T',' ') }}, {{ v.created_by }}{% if v.source_file %}, from {{ v.source_file }}{% endif %}{% if v.note %}: {{ v.note }}{% endif %}</span></summary>
+    <table class="kv" style="margin-top:12px">{% for h, f in v.mappings.items() %}<tr><th>{{ h }}</th><td class="mono small">{{ f }}</td></tr>{% endfor %}</table>
+    {% if not loop.first %}
+    <form method="post" action="/portal/templates/{{ name|urlencode }}/restore/{{ v.version }}" style="margin-top:12px"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn btn-quiet btn-s">Restore as version {{ versions[0].version + 1 }}</button></form>
+    {% endif %}
+  </details>
+  {% endfor %}
+</div></section>
+{% endblock %}

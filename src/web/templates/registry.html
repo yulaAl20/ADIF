@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Registry{% endblock %}
+{% block main %}
+<section class="strip">
+  <div class="wrap">
+    <span class="mono">Look up by ADID, barcode (GTIN) or style code such as demoknit/ts-1000</span>
+    <form class="lookup" action="/registry" method="get" role="search">
+      <label class="sr-only" for="q">ID, barcode or style code</label>
+      <input id="q" name="q" value="{{ q }}" placeholder="Paste an ID or type a barcode">
+      <button class="btn btn-thread" type="submit">Look up</button>
+    </form>
+    {% if not_found %}<p class="small" style="margin:14px auto 0;max-width:540px;color:var(--thread-deep)">Nothing is registered under "{{ q }}". Check the number, or search by details below.</p>{% endif %}
+  </div>
+</section>
+<section class="page">
+  <div class="wrap">
+    <form method="get" action="/registry" class="panel" aria-label="Search by details">
+      <div class="filters">
+        <div><label for="kind">Show</label><select id="kind" name="kind"><option value="family" {% if kind=='family' %}selected{% endif %}>Families</option><option value="variant" {% if kind=='variant' %}selected{% endif %}>Variants (colour and size)</option></select></div>
+        <div><label for="manufacturer">Manufacturer ID</label><input type="text" id="manufacturer" name="manufacturer" value="{{ manufacturer }}" placeholder="e.g. demoknit"></div>
+        {% for f in facet_fields %}
+        <div><label for="f-{{ f }}">{{ {'productFamily':'Style code','productCategory':'Category','colour':'Colour','size':'Size','countryOfOrigin':'Country of origin','fibreComposition':'Fibre','manufacturerName':'Manufacturer name'}.get(f, f) }}</label><input type="text" id="f-{{ f }}" name="{{ f }}" value="{{ filters.get(f, '') }}"></div>
+        {% endfor %}
+      </div>
+      <div class="row-actions" style="margin-top:16px"><button class="btn btn-thread btn-s" type="submit">Search</button><a class="small" href="/registry">Clear</a><span class="small muted">Spelling of capitals, spaces and hyphens doesn't matter. Individual items are not listed publicly.</span></div>
+    </form>
+
+    <div class="section-head" style="margin-top:40px"><h2>{{ results|length }} {{ 'famil' if kind=='family' else 'variant' }}{{ ('y' if results|length == 1 else 'ies') if kind=='family' else ('' if results|length == 1 else 's') }}</h2><p>At most 50 shown.</p></div>
+    {% if results %}
+    <div class="grid3">
+      {% for r in results %}
+      <article>
+        <a class="shot" href="{{ r.adid|href }}" style="display:flex;flex-direction:column;justify-content:space-between;padding:20px;aspect-ratio:auto;min-height:150px;text-decoration:none;color:inherit">
+          <span class="mono small" style="color:var(--denim);word-break:break-all">{{ r.path or r.adid }}</span>
+          <span style="font-size:1.5rem;font-weight:600;letter-spacing:-.02em">{{ r.design or r.label }}{% if r.kind == 'variant' %} <span class="muted" style="font-weight:400">{{ r.label }}</span>{% endif %}</span>
+        </a>
+        <div class="card-meta"><div><h3>{{ r.category or 'Uncategorised' }}</h3><div class="tags"><span>{{ r.manufacturer }}</span>{% if r.versions is not none %}<span>{{ r.versions }} version{{ '' if r.versions == 1 else 's' }}</span>{% endif %}{% if r.fibre %}<span>{{ r.fibre }}</span>{% endif %}</div></div></div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">No records match. Try fewer details, or <a href="/registry">clear the search</a>.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
