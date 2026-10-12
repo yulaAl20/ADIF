@@ -1,0 +1,10 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+prod_ref,string,WID-4401 | WID-4402 | WID-4510,,
+prod_title,string,Canvas Tote Bag | Canvas Tote Bag | Canvas Backpack,,
+shade_desc,string,Sand | Charcoal | Sand,,
+uom_code,string,Nos | Nos | Nos,,
+is_serialised,integer,1 | 1 | 1,,
+net_kg,float,0.340 | 0.345 | 0.620,,
+ctry_mfg,string,LK | LK | IN,,
+wash_sym,string,Hand wash only | Hand wash only | Hand wash only,,
+internal_key,string,q7x-001 | q7x-002 | q7x-003,,

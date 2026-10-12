@@ -1,0 +1,10 @@
+raw_header,datatype,sample_values,cdm_field,rationale
+prod_ref,string,WID-4401 | WID-4402 | WID-4510,productIdentifier,"Values are style-code shaped (WID-4401) and unique per row; identifies the sellable item, not the design. R4.2: schema description for productIdentifier says 'unique product identifier at the level set by the delegated act'."
+prod_title,string,Canvas Tote Bag | Canvas Tote Bag | Canvas Backpack,productFamily,"Repeats across rows that differ only by shade ('Canvas Tote Bag' twice, two shades). Constant across variants is the family test. R4.1: more specific than a generic description field."
+shade_desc,string,Sand | Charcoal | Sand,colour,"Sand / Charcoal are colour names. Direct match, R3.4."
+uom_code,string,Nos | Nos | Nos,NO_MAPPING,"Holds 'Nos' — a unit of measure for stock counting. R3.2: a unit is not a quantity, and the CDM has no field for a counting unit. R2.2 applies: operationally real, outside the CDM."
+is_serialised,integer,1 | 1 | 1,NO_MAPPING,"Holds 1/0 — a boolean flag meaning 'this item is serial-tracked'. R3.1: a flag is not a value. It is not serialNumber, which would hold an actual serial."
+net_kg,float,0.340 | 0.345 | 0.620,netWeight,"Decimal weights in kg, column name states the unit. Maps to netWeight. Note the unit lives in the header here rather than in a separate column, so R3.2 does not bite."
+ctry_mfg,string,LK | LK | IN,countryOfOrigin,"ISO 3166-1 alpha-2 codes (LK, IN). Header abbreviation is uninformative but the values are decisive. R3.4: decide on contents, not resemblance."
+wash_sym,string,Hand wash only | Hand wash only | Hand wash only,careInstructions,'Hand wash only' is a care instruction. ESPR Annex III 1(f) covers instructions for use; the CDM field careInstructions is the apparel reading of that point.
+internal_key,string,q7x-001 | q7x-002 | q7x-003,NO_MAPPING,"Opaque internal identifier (q7x-001), no CDM counterpart. R2.1: recorded explicitly as NO_MAPPING rather than omitted, so the system pays for mapping it wrongly."
