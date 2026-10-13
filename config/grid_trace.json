@@ -1,0 +1,7988 @@
+[
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 50.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.571739
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.569823
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 55.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.565881
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.574038
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.607127
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 60.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.588654
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.564088
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.57609
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.624122
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.624122
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.624122
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.624122
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.624122
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.624122
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.60407
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.60407
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.60407
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.60407
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.60407
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.627446
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 65.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.607147
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.585952
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.599489
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.659032
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.659032
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.659032
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.659032
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.659032
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.659032
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.640779
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.640779
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.640779
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.640779
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.640779
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.652146
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.652146
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.652146
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.652146
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.652146
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.652146
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.631615
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.631615
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.631615
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.631615
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.631615
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 70.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.592897
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.606681
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.666223
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.666223
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.666223
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.666223
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.666223
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.666223
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.647971
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.647971
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.647971
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.647971
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.647971
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.659338
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.638807
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.667027
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.646496
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.675268
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.675268
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.675268
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.675268
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.675268
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.675268
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.654737
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.654737
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.654737
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.654737
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.654737
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.667468
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 75.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.646937
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.533747
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.545613
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.664303
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.664303
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.664303
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.664303
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.664303
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.664303
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.644559
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.644559
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.644559
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.644559
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.644559
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.655139
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.655139
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.655139
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.655139
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.655139
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.655139
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.632741
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.632741
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.632741
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.632741
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.632741
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.662282
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.662282
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.662282
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.662282
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.662282
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.662282
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.639884
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.639884
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.639884
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.639884
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.639884
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.685681
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.685681
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.685681
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.685681
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.685681
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.685681
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.663283
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.663283
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.663283
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.663283
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.663283
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.694195
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.694195
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.694195
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.694195
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.694195
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.694195
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.671797
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.671797
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.671797
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.671797
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.671797
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.686259
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 80.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.663861
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.736565
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.736565
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.736565
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.736565
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.736565
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.736565
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.716147
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.716147
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.716147
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.716147
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.716147
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.759964
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.759964
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.759964
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.759964
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.759964
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.759964
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.739546
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.739546
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.739546
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.739546
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.739546
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.768478
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.768478
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.768478
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.768478
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.768478
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.768478
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.74806
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.74806
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.74806
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.74806
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.74806
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.760542
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 85.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.740124
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 90.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 95.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 50.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 50.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 55.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 60.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 65.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 70.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 75.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 80.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 85.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 90.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 95.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 55.0,
+    "value": 100.0,
+    "macro_f1": 0.537813
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 50.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 55.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 60.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 65.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 70.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 75.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 80.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 85.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 90.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 95.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 60.0,
+    "value": 100.0,
+    "macro_f1": 0.55028
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 50.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 55.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 60.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 65.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 70.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 75.0,
+    "macro_f1": 0.671781
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 80.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 85.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 90.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 95.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 65.0,
+    "value": 100.0,
+    "macro_f1": 0.651516
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 50.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 55.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 60.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 65.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 70.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 75.0,
+    "macro_f1": 0.667373
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 80.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 85.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 90.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 95.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 70.0,
+    "value": 100.0,
+    "macro_f1": 0.643924
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 50.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 55.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 60.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 65.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 70.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 75.0,
+    "macro_f1": 0.748196
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 80.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 85.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 90.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 95.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 75.0,
+    "value": 100.0,
+    "macro_f1": 0.727778
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 50.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 55.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 60.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 65.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 70.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 75.0,
+    "macro_f1": 0.756743
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 80.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 85.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 90.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 95.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 80.0,
+    "value": 100.0,
+    "macro_f1": 0.736325
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 50.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 55.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 60.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 65.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 70.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 75.0,
+    "macro_f1": 0.765974
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 80.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 85.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 90.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 95.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 85.0,
+    "value": 100.0,
+    "macro_f1": 0.745556
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 90.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 95.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 50.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 55.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 60.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 65.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 70.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 75.0,
+    "macro_f1": 0.757085
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 80.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 85.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 90.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 95.0,
+    "macro_f1": 0.736667
+  },
+  {
+    "fuzzy": 100.0,
+    "semantic": 100.0,
+    "value": 100.0,
+    "macro_f1": 0.736667
+  }
+]

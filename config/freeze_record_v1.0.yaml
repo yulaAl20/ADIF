@@ -1,0 +1,14 @@
+# Frozen research artefacts at tag freeze-v1.0 (2026-10-10), as recorded in
+# decisions.md D30. The website's /admin page recomputes these hashes so anyone
+# can see whether the evaluated version is intact (D53). Do not edit these
+# values to make a mismatch disappear: record the cause in decisions.md instead.
+tag: freeze-v1.0
+commit: d8576689eca7aa0ab9759a548ceb6c32c4a33e89
+artefacts:
+  cdm/cdm_v1.0.schema.json: 357698a9f230c127e09563107b708c7f539fbf87486f15c42ed71f3aefcb2e54
+  cdm/cdm_v1.0.context.jsonld: 5ddaa0828ba69867546824225a8fb10eb8d3e8394dad64ec2b8c4fa7d923f6e3
+  cdm/aliases_v1.0.yaml: 76d33e551f752dc8f8b7d75a57425b6b94a422050026bbbab108b903faf8931e
+  adid/grammar.ebnf: 92090c1c58e96efbbcc26d5f34c809114f88b6bb8e1c041dfba1f050a4f271a7
+  config/default.yaml: 3faa492bfc75c9928be50e9335fb464332f1ca2b9f65c421a05e4542d84695f8
+  cdm/vocabularies/signatures.yaml: 3f43e180c363b9e47f8498d2f75f820d989f5253f741398418ef61e27efee579
+  config/calibrator.json: d8677181573884d7317a96c6359fcdc8402d003b04762d23087375c837b3e7eb

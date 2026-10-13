@@ -1,0 +1,9 @@
+# Ablation condition (d) — complete gateway including Stage 4 value-based
+# matching (M6). Isolates what the value stage adds over the header cascade.
+# Requires B11. See decisions.md D19.
+matching:
+  stages:
+    alias:    {enabled: true}
+    fuzzy:    {enabled: true}
+    semantic: {enabled: true}
+    value:    {enabled: true}

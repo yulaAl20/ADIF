@@ -1,0 +1,22 @@
+# CONTINGENCY ONLY (D64). Prepared, NOT run.
+#
+# A minimal deterministic one-to-one baseline: exact lookup of the normalised
+# header in the frozen v1.0 alias table, nothing else. It is the closest
+# reading of the proposal's "simple one to one mapping-based system" (O5).
+#
+# Decision D64: fuzzy-only remains the primary computational baseline, subject
+# to the supervisor's written approval. Run this ONLY if the supervisor requires
+# a deterministic baseline, and then report it as a supplementary condition
+# added after the main evaluation (it has no tunable parameter, so running it
+# on the held-out schemas cannot have been tuned to them):
+#
+#   python -m eval.run_ablation --schemas data/heldout --status EVALUATION \
+#       --conditions alias_only_baseline
+#
+# Do not change the existing ablation results (0.541 fuzzy-only, 0.628 full).
+matching:
+  stages:
+    alias:    {enabled: true}
+    fuzzy:    {enabled: false}
+    semantic: {enabled: false}
+    value:    {enabled: false}

@@ -1,0 +1,22 @@
+{
+  "coefficients": {
+    "fuzzy": [
+      -0.146208246915851,
+      -0.11892393417436248
+    ],
+    "alias": [
+      0.9487001456596388,
+      0.9487001456596388
+    ],
+    "semantic": [
+      1.7159571258327544,
+      2.0027838057960254
+    ],
+    "value": [
+      1.7885904052154524,
+      1.8578182322147212
+    ]
+  },
+  "fitted_on": "fuzzy_only:manufacturer_a.csv@2026-10-08; fuzzy_only:manufacturer_a_drift.csv@2026-10-08; fuzzy_only:manufacturer_b_erpnext.csv@2026-10-08; fuzzy_only:manufacturer_b_erpnext_drift.csv@2026-10-08; fuzzy_only:manufacturer_c_odoo.csv@2026-10-08; fuzzy_only:manufacturer_c_odoo_drift.csv@2026-10-08; alias_fuzzy:manufacturer_a.csv@2026-10-08; alias_fuzzy:manufacturer_a_drift.csv@2026-10-08; alias_fuzzy:manufacturer_b_erpnext.csv@2026-10-08; alias_fuzzy:manufacturer_b_erpnext_drift.csv@2026-10-08; alias_fuzzy:manufacturer_c_odoo.csv@2026-10-08; alias_fuzzy:manufacturer_c_odoo_drift.csv@2026-10-08; full_cascade:manufacturer_a.csv@2026-10-08; full_cascade:manufacturer_a_drift.csv@2026-10-08; full_cascade:manufacturer_b_erpnext.csv@2026-10-08; full_cascade:manufacturer_b_erpnext_drift.csv@2026-10-08; full_cascade:manufacturer_c_odoo.csv@2026-10-08; full_cascade:manufacturer_c_odoo_drift.csv@2026-10-08; full_cascade_value:manufacturer_a.csv@2026-10-08; full_cascade_value:manufacturer_a_drift.csv@2026-10-08; full_cascade_value:manufacturer_b_erpnext.csv@2026-10-08; full_cascade_value:manufacturer_b_erpnext_drift.csv@2026-10-08; full_cascade_value:manufacturer_c_odoo.csv@2026-10-08; full_cascade_value:manufacturer_c_odoo_drift.csv@2026-10-08",
+  "sample_size": 182
+}

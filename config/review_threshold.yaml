@@ -1,0 +1,7 @@
+_derived_by: eval/fit_calibration.py
+_rule: lowest calibrated confidence at which accuracy >= 90% on scratch data (in-sample)
+_accuracy_at_threshold: 1.0
+_accepted: 18/182
+confidence:
+  bands:
+    review: 0.960806

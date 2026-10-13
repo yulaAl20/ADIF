@@ -1,0 +1,47 @@
+# What kind of VALUE each CDM field holds — second design iteration (D54).
+#
+# Read only by the evidence-aware reranker (src/matching/rerank.py). Not part
+# of the frozen v1.0 artefacts. The kinds encode the annotation rulebook
+# (goldstandard/RULEBOOK.md, R3) as checks the matcher can run:
+#
+#   quantity  R3.2 "A unit is not a quantity." Values must be numbers (an
+#             optional trailing unit is allowed: "0.18 kg", "20%"). A column
+#             of "Kg" is a unit and is rejected.
+#   code      R3.3 "A label is not an identifier." Values must look like codes,
+#             not prose. "Single jersey crew neck" is rejected for productFamily.
+#   unit      The only fields a unit-of-measure column (values "kg", "pcs")
+#             may map to. Every other field rejects a unit column (R3.2).
+#   text      No value check beyond the flag rule below.
+#
+# Every field, whatever its kind, rejects a boolean flag column
+# (R3.1 "A flag is not a value": has_batch_no = 1 is not a batch number).
+#
+# Fields not listed default to `text`. Changing this file changes the
+# decision logic, so it is hashed into the effective-config fingerprint and
+# must be frozen with the rest of v2 before any held-out evaluation.
+
+quantity:
+  - netWeight
+  - carbonFootprint
+  - recycledContent
+  - materialMassFraction
+  - substanceConcentration
+
+code:
+  - productFamily
+  - productIdentifier
+  - gtin
+  - commodityCode
+  - batchNumber
+  - serialNumber
+  - purchaseOrderReference
+  - manufacturerOperatorId
+  - otherOperatorIdentifiers
+  - facilityIdentifiers
+  - importerEori
+  - euResponsibleOperatorId
+  - substanceEcNumber
+  - substanceCasNumber
+
+unit:
+  - emissionsDeclaredUnit

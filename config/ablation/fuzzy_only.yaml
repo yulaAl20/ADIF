@@ -1,0 +1,8 @@
+# Ablation condition (a) — RapidFuzz alone. No alias table, no embeddings.
+# decisions.md D10. Overlay: merged over config/default.yaml by the batch runner.
+matching:
+  stages:
+    alias:    {enabled: false}
+    fuzzy:    {enabled: true}
+    semantic: {enabled: false}
+    value:    {enabled: false}

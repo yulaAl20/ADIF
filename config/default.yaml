@@ -1,0 +1,95 @@
+# ADIF — default configuration
+#
+# NFR-6: EVERY threshold, weight, stage toggle and path lives here.
+# Nothing under src/ may hardcode a tunable value.
+#
+# D11 (decisions.md): matching thresholds and confidence bands are `null` on
+# purpose. They are derived by grid search on scratch schemas once the
+# prototype exists (Phase 4), and only then written here. Reading a null
+# tunable raises UnsetTunable — it never silently defaults. Do not fill these
+# in with plausible-looking numbers.
+#
+# §11: this file is FROZEN at the freeze gate. After that, changes are a new
+# version with a logged reason and re-executed evaluation runs.
+
+version: "0.1.0-dev"
+
+paths:
+  cdm_schema: cdm/cdm_v1.0.schema.json
+  cdm_context: cdm/cdm_v1.0.context.jsonld
+  cdm_provenance: cdm/provenance.csv
+  alias_vocabulary: cdm/aliases_v1.0.yaml
+  adid_grammar: adid/grammar.ebnf
+  embedding_cache: .model_cache
+  upload_store: var/uploads
+  template_db: var/adif.sqlite
+  run_records: runs
+  heldout_dir: data/heldout   # SEALED — declared so guards can refuse it
+
+ingestion:
+  max_file_size_mb: 25          # FR-1.7
+  max_rows: 100000              # FR-1.7
+  sample_values_per_column: 20  # FR-2.2
+  encodings: ["utf-8", "utf-8-sig", "latin-1"]   # FR-1.4
+  csv_delimiters: [",", ";", "\t", "|"]          # FR-1.5
+
+analysis:                       # FR-2.3, FR-2.4
+  # Share of sampled values that must agree before a column is given that type.
+  # Below this the column is reported as "mixed" rather than guessed.
+  type_inference_agreement: 0.9
+  date_formats: ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%Y/%m/%d", "%d-%m-%Y", "%Y%m%d"]
+  boolean_true: ["true", "yes", "y", "t"]
+  boolean_false: ["false", "no", "n", "f"]
+
+normalisation:                  # FR-2.6
+  case_fold: true
+  strip_separators: ["_", "-", ".", "/", " "]
+  split_camel_case: true        # ERP exports use productName, baseColour
+  collapse_whitespace: true
+  stopwords: []                 # domain stopwords — populated during CDM work
+  abbreviations: {}             # e.g. {qty: quantity} — populated during CDM work
+
+matching:
+  # D17: strict fallback cascade with early exit, not parallel weighted fusion.
+  arbitration: cascade
+  stage_order: ["alias", "fuzzy", "semantic", "value"]
+  stages:
+    alias:                      # M3
+      enabled: true
+    fuzzy:                      # M4
+      enabled: true
+      threshold: 85.0          
+      top_k: 5                  # FR-4.3
+      scorers: ["ratio", "token_sort_ratio", "partial_ratio"]   # FR-4.2
+      combine: max              # open decision §13 — max vs weighted mean
+      # partial_ratio scores ANY short string found inside a longer one at 100.
+      # The alias "po" sits inside "fabric compostion", so without this guard
+      # purchase-order aliases capture fabric-composition columns at full
+      # confidence. Partial matching is skipped when either string is shorter
+      # than this, or when one is less than partial_min_length_ratio of the other.
+      partial_min_length: 5
+      partial_min_length_ratio: 0.5
+    semantic:                   # M5
+      enabled: true
+      threshold: 85.0           
+      top_k: 5
+      model: "sentence-transformers/all-MiniLM-L6-v2"
+      model_revision: "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    value:                      # M6 - Stage 4, invoked only when every
+      enabled: false            # header-based stage returned nothing (FR-6.3).
+      threshold: 75.0          
+      top_k: 5
+      signatures: cdm/vocabularies/signatures.yaml
+confidence:                     # M7
+  calibration: platt            # D6. Isotonic needs more data than this study has.
+  bands:                        # FR-8.4 visual bands / FR-7.4 rejection
+    auto_accept: null           # UNSET
+    review: 0.9608                
+    reject: null                # UNSET
+
+determinism:                    # NFR-5
+  random_seed: 42
+  torch_num_threads: 1
+
+runtime:
+  offline: true                 # NFR-1 — no outbound calls after setup

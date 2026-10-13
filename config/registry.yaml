@@ -1,0 +1,70 @@
+# ADID v2 registry configuration (decisions.md D41-D53; ADID v2 = D51, proposed post-freeze).
+# NOT part of the frozen set (D30): the registry is identity layer v2 and is
+# evaluated separately from the matching cascade.
+
+node:
+  node_id: lk-1                 # this registry node
+  operator: "Demo registry operator (Sri Lanka)"
+  base_url: http://127.0.0.1:8100
+  db: var/adir_node_lk-1.sqlite
+
+root:
+  # The stable resolver host printed in QR codes. Nodes behind it may change.
+  resolver: https://id.adir.example
+  index_db: var/adir_root.sqlite
+
+search:
+  public_kinds: [family, variant]   # instances are never publicly enumerable
+  max_page_size: 50
+
+# Information sections and who may read them.
+#   public      anyone
+#   registrant  the registrar that owns the entity, plus authorities
+#   authority   market-surveillance / customs authorities only
+# A CDM field not listed here falls into section "other" at tier "registrant":
+# privacy by default — a new field is never published by accident.
+sections:
+  identity:
+    tier: public                  # the variant's own UUID (ADID v2 exposes it as metadata, D51)
+    fields: [variantId]
+  product:
+    tier: public
+    fields: [productFamily, productCategory, productIdentifier, gtin, colour, size,
+             fibreComposition, countryOfOrigin, careInstructions, netWeight,
+             manufacturerName, materialOriginCountry, materialMassFraction, commodityCode]
+  sustainability:
+    tier: public
+    fields: [durability, reparability, recycledContent, recyclability, carbonFootprint,
+             environmentalFootprint, expectedWasteGeneration, emissionsDeclaredUnit,
+             emissionsReportingStandard]
+  compliance:
+    tier: public
+    fields: [complianceDocumentation, declarationOfConformity, conformityCertificate,
+             conformityClaim, userManual, safetyInformation, manufacturerOperatorId,
+             euResponsibleName, euResponsibleContact, euResponsibleOperatorId,
+             importerName, passportGranularity]
+  substances:
+    tier: public                  # ESPR Art. 7(5): substances-of-concern information is consumer-facing
+    fields: [substanceIupacName, substanceOtherNames, substanceEcNumber, substanceCasNumber,
+             substanceLocation, substanceConcentration, substanceSafeUse, substanceEndOfLife]
+  item:
+    tier: public                  # visible only on direct resolution of the item itself
+    fields: [serialNumber]
+  supply_chain:
+    tier: registrant
+    fields: [facilityIdentifiers, productionFacilityLocation, otherOperatorIdentifiers,
+             importerEori, dueDiligenceDeclaration, purchaseOrderReference]
+  production:
+    tier: registrant
+    fields: [batchNumber, productionDate, productionStage, disposition]
+
+web:
+  # Website and manufacturer portal (src/web, D48). Accounts and named
+  # templates live in their own file so the registry node stays data-only.
+  accounts_db: var/adir_web.sqlite
+  templates_db: var/adir_web.sqlite
+  secret_key_file: var/secret_key   # or set ADIR_SECRET_KEY
+  audit_db: var/adir_web.sqlite     # append-only access log (D61)
+  # HTTPS-only session cookie. Turn on for any deployment served over HTTPS
+  # (or set ADIR_SECURE_COOKIES=1). Off only for the local http:// demo.
+  secure_cookies: false

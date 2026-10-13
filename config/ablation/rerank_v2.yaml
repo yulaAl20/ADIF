@@ -1,0 +1,54 @@
+# Second design-science iteration (D54) — evidence-aware reranking.
+#
+# Same four stages, same thresholds, same CDM and alias vocabulary as the
+# full_cascade_value condition. Only the DECISION RULE differs:
+#
+#   cascade (v1, frozen): accept the first stage whose top candidate clears its
+#       threshold; later stages never see the column; conflict losers are
+#       dropped to NO_MAPPING.
+#   rerank  (v2, this file): collect candidates from every stage, check each
+#       against the column's values (flag, unit, prose, signature
+#       contradiction), rank the survivors, then assign columns to CDM fields
+#       one-to-one with NO_MAPPING allowed, so a column that loses its first
+#       choice can take its next valid one.
+#
+# STATUS: designed on data/dev only. Not evaluated on held-out data. Freeze
+# this file, config/rerank/field_expectations.yaml and src/matching/rerank.py
+# (tag freeze-v2.0) before any held-out run.
+matching:
+  arbitration: rerank
+  stages:
+    alias:    {enabled: true}
+    fuzzy:    {enabled: true}
+    semantic: {enabled: true}
+    value:    {enabled: true}
+  rerank:
+    expectations: config/rerank/field_expectations.yaml
+    # A header score below its stage threshold, but at or above this floor,
+    # may be accepted only when the values corroborate it (matching value
+    # signature, or numeric values for a quantity field). Always flagged for
+    # review. Set on development data.
+    header_floor: 70.0
+    # A header-suggested field whose own value signature scores at or below
+    # this, while another field's signature clears the value threshold, is
+    # contradicted by the data and rejected (Style_No holding GTINs).
+    contradiction_ceiling: 20.0
+    flag_values: ["0", "1", "true", "false", "yes", "no", "y", "n", "t", "f"]
+    # Median words per value at or above which a column is prose, not a code.
+    prose_min_words: 3
+    # Documented ERP custom-field prefixes, as normalised tokens: Odoo Studio
+    # (x_studio_), Odoo custom (x_), ERPNext v15 custom fields (custom_).
+    erp_prefixes: [["x", "studio"], ["x"], ["custom"]]
+    # Unit tokens stripped from the END of a header, only for numeric columns
+    # (co2e_kg -> co2e). "uom" is deliberately absent: it names a unit column.
+    unit_suffixes: ["kg", "g", "pct", "percent"]
+    # Values that are units of measure (R3.2). A column holding only these is
+    # a unit column and maps to nothing except a field of kind `unit`.
+    # "m", "l" and "s" are deliberately absent: they are also garment sizes.
+    # Without this, "Kg" passes as an ISO country code (Kyrgyzstan).
+    unit_values: [kg, kgs, g, gr, gm, lb, lbs, oz, cm, mm, ml, pcs, pc, nos, "no", units, unit, each, ea, dozen, pair, pairs]
+    # "enriched" builds the semantic query from the cleaned header, datatype
+    # and sample values instead of the header alone (improvement 5). Needs
+    # the real all-MiniLM-L6-v2 model to evaluate; leave "header" until that
+    # experiment has been run on your machine.
+    semantic_query: header

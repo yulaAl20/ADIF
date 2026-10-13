@@ -1,0 +1,26 @@
+# Second design iteration (D54) WITH the corrected alias vocabulary (D65).
+#
+# Identical to rerank_v2.yaml except paths.alias_vocabulary. Kept as a separate
+# condition so that eval/compare_decision.py attributes each change on its own:
+#   cascade  -> rerank             : the decision rule
+#   rerank   -> rerank + v1.1 alias: the vocabulary correction
+# STATUS: development only; not evaluated on held-out data.
+paths:
+  alias_vocabulary: cdm/aliases_v1.1.yaml
+matching:
+  arbitration: rerank
+  stages:
+    alias:    {enabled: true}
+    fuzzy:    {enabled: true}
+    semantic: {enabled: true}
+    value:    {enabled: true}
+  rerank:
+    expectations: config/rerank/field_expectations.yaml
+    header_floor: 70.0
+    contradiction_ceiling: 20.0
+    flag_values: ["0", "1", "true", "false", "yes", "no", "y", "n", "t", "f"]
+    prose_min_words: 3
+    erp_prefixes: [["x", "studio"], ["x"], ["custom"]]
+    unit_suffixes: ["kg", "g", "pct", "percent"]
+    unit_values: [kg, kgs, g, gr, gm, lb, lbs, oz, cm, mm, ml, pcs, pc, nos, "no", units, unit, each, ea, dozen, pair, pairs]
+    semantic_query: header

@@ -1,0 +1,8 @@
+# Ablation condition (c) — header cascade, Stages 1-3, calibrated confidence.
+# decisions.md D10.
+matching:
+  stages:
+    alias:    {enabled: true}
+    fuzzy:    {enabled: true}
+    semantic: {enabled: true}
+    value:    {enabled: false}

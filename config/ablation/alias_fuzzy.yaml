@@ -1,0 +1,8 @@
+# Ablation condition (b) — Stages 1-2. Semantic stage disabled.
+# decisions.md D10.
+matching:
+  stages:
+    alias:    {enabled: true}
+    fuzzy:    {enabled: true}
+    semantic: {enabled: false}
+    value:    {enabled: false}

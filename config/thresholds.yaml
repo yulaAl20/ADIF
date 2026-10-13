@@ -1,0 +1,19 @@
+_derived_by: eval/grid_search.py
+_derived_on:
+- manufacturer_a.csv
+- manufacturer_a_drift.csv
+- manufacturer_b_erpnext.csv
+- manufacturer_b_erpnext_drift.csv
+- manufacturer_c_odoo.csv
+- manufacturer_c_odoo_drift.csv
+_gold_frozen_at:
+- '2026-10-08'
+_macro_f1: 0.768478
+matching:
+  stages:
+    fuzzy:
+      threshold: 85.0
+    semantic:
+      threshold: 85.0
+    value:
+      threshold: 75.0

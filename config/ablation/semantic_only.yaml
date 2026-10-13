@@ -1,0 +1,10 @@
+# Supplementary condition — Stage 3 alone. decisions.md D20 (ratified 2026-10-09).
+# NOT a rung on the cumulative ladder: report it separately, never inside the
+# ΔF1 sequence, or the per-stage attribution stops meaning anything.
+# Answers one question: would embedding similarity alone have sufficed?
+matching:
+  stages:
+    alias:    {enabled: false}
+    fuzzy:    {enabled: false}
+    semantic: {enabled: true}
+    value:    {enabled: false}
