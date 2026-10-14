@@ -1,0 +1,281 @@
+{
+  "status": "EVALUATION",
+  "written_at": "2026-10-10T07:11:20+00:00",
+  "metrics": [
+    {
+      "schema": "heldout_h2_dolibarr",
+      "condition": "semantic_only",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mandatory_match_rate": 0.0,
+      "mandatory_coverage_ceiling": 0.5,
+      "ece": null,
+      "template_reuse_rate": null,
+      "review_burden": 1.0,
+      "mean_reciprocal_rank": 0.291667,
+      "mapped": 0,
+      "total_columns": 26
+    },
+    {
+      "schema": "heldout_h2_dolibarr_drift",
+      "condition": "semantic_only",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mandatory_match_rate": 0.0,
+      "mandatory_coverage_ceiling": 0.5,
+      "ece": null,
+      "template_reuse_rate": null,
+      "review_burden": 1.0,
+      "mean_reciprocal_rank": 0.2125,
+      "mapped": 0,
+      "total_columns": 25
+    },
+    {
+      "schema": "heldout_h3_techpack",
+      "condition": "semantic_only",
+      "precision": 1.0,
+      "recall": 0.083333,
+      "f1": 0.153846,
+      "mandatory_match_rate": 0.0,
+      "mandatory_coverage_ceiling": 0.5,
+      "ece": null,
+      "template_reuse_rate": null,
+      "review_burden": 0.956522,
+      "mean_reciprocal_rank": 0.347222,
+      "mapped": 1,
+      "total_columns": 23
+    },
+    {
+      "schema": "heldout_h3_techpack_drift",
+      "condition": "semantic_only",
+      "precision": 1.0,
+      "recall": 0.083333,
+      "f1": 0.153846,
+      "mandatory_match_rate": 0.0,
+      "mandatory_coverage_ceiling": 0.5,
+      "ece": null,
+      "template_reuse_rate": null,
+      "review_burden": 0.954545,
+      "mean_reciprocal_rank": 0.347222,
+      "mapped": 1,
+      "total_columns": 22
+    },
+    {
+      "schema": "kaggle_styles",
+      "condition": "semantic_only",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mandatory_match_rate": 1.0,
+      "mandatory_coverage_ceiling": 0.0,
+      "ece": null,
+      "template_reuse_rate": null,
+      "review_burden": 1.0,
+      "mean_reciprocal_rank": 0.25,
+      "mapped": 0,
+      "total_columns": 10
+    }
+  ],
+  "ablation_deltas": [
+    {
+      "from": "semantic_only",
+      "to": "semantic_only",
+      "schema": "heldout_h2_dolibarr_drift",
+      "delta_f1": 0.0,
+      "delta_review_burden": 0.0
+    },
+    {
+      "from": "semantic_only",
+      "to": "semantic_only",
+      "schema": "heldout_h3_techpack",
+      "delta_f1": 0.153846,
+      "delta_review_burden": -0.043478
+    },
+    {
+      "from": "semantic_only",
+      "to": "semantic_only",
+      "schema": "heldout_h3_techpack_drift",
+      "delta_f1": 0.0,
+      "delta_review_burden": -0.001977
+    },
+    {
+      "from": "semantic_only",
+      "to": "semantic_only",
+      "schema": "kaggle_styles",
+      "delta_f1": -0.153846,
+      "delta_review_burden": 0.045455
+    },
+    {
+      "from": "semantic_only",
+      "to": "semantic_only",
+      "schema": "kaggle_styles",
+      "delta_f1": 0.0,
+      "delta_review_burden": 0.0
+    }
+  ],
+  "provenance": {
+    "captured_at": "2026-10-10T07:11:19+00:00",
+    "git_commit": "ef89aa757a446426ad85da4cc4cdbc08cbe4385f",
+    "config_version": "0.1.0-dev",
+    "config_path": "config\\default.yaml",
+    "config_sha256": "3faa492bfc75c9928be50e9335fb464332f1ca2b9f65c421a05e4542d84695f8",
+    "cdm_schema_sha256": "357698a9f230c127e09563107b708c7f539fbf87486f15c42ed71f3aefcb2e54",
+    "cdm_context_sha256": "5ddaa0828ba69867546824225a8fb10eb8d3e8394dad64ec2b8c4fa7d923f6e3",
+    "alias_vocabulary_sha256": "76d33e551f752dc8f8b7d75a57425b6b94a422050026bbbab108b903faf8931e",
+    "adid_grammar_sha256": "92090c1c58e96efbbcc26d5f34c809114f88b6bb8e1c041dfba1f050a4f271a7",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "enabled_stages": [
+      "alias",
+      "fuzzy",
+      "semantic"
+    ],
+    "unset_tunables": [
+      "confidence.bands.auto_accept",
+      "confidence.bands.reject"
+    ],
+    "python_version": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "run_facts": {
+      "semantic_only/heldout_h2_dolibarr": {
+        "schema_file": "data\\heldout\\heldout_h2_dolibarr.csv",
+        "rows": 5,
+        "columns": 26,
+        "source_format": "csv",
+        "stage_costs": {
+          "semantic": {
+            "calls": 26,
+            "seconds": 0.376131,
+            "mean_ms": 14.4666,
+            "peak_kib": 0.0
+          }
+        },
+        "total_seconds": 0.376131,
+        "surviving_stage_hits": {},
+        "raw_stage_hits": {
+          "alias": 0,
+          "fuzzy": 0,
+          "semantic": 0,
+          "value": 0
+        },
+        "gold_frozen_at": "2026-10-10",
+        "gold_rater": "YulaniA"
+      },
+      "semantic_only/heldout_h2_dolibarr_drift": {
+        "schema_file": "data\\heldout\\heldout_h2_dolibarr_drift.csv",
+        "rows": 5,
+        "columns": 25,
+        "source_format": "csv",
+        "stage_costs": {
+          "semantic": {
+            "calls": 25,
+            "seconds": 0.299164,
+            "mean_ms": 11.9666,
+            "peak_kib": 0.0
+          }
+        },
+        "total_seconds": 0.299164,
+        "surviving_stage_hits": {},
+        "raw_stage_hits": {
+          "alias": 0,
+          "fuzzy": 0,
+          "semantic": 0,
+          "value": 0
+        },
+        "gold_frozen_at": "2026-10-10",
+        "gold_rater": "YulaniA"
+      },
+      "semantic_only/heldout_h3_techpack": {
+        "schema_file": "data\\heldout\\heldout_h3_techpack.csv",
+        "rows": 5,
+        "columns": 23,
+        "source_format": "csv",
+        "stage_costs": {
+          "semantic": {
+            "calls": 23,
+            "seconds": 0.313711,
+            "mean_ms": 13.6396,
+            "peak_kib": 0.0
+          }
+        },
+        "total_seconds": 0.313711,
+        "surviving_stage_hits": {
+          "semantic": 1
+        },
+        "raw_stage_hits": {
+          "alias": 0,
+          "fuzzy": 0,
+          "semantic": 1,
+          "value": 0
+        },
+        "gold_frozen_at": "2026-10-10",
+        "gold_rater": "YulaniA"
+      },
+      "semantic_only/heldout_h3_techpack_drift": {
+        "schema_file": "data\\heldout\\heldout_h3_techpack_drift.csv",
+        "rows": 5,
+        "columns": 22,
+        "source_format": "csv",
+        "stage_costs": {
+          "semantic": {
+            "calls": 22,
+            "seconds": 0.395345,
+            "mean_ms": 17.9702,
+            "peak_kib": 0.0
+          }
+        },
+        "total_seconds": 0.395345,
+        "surviving_stage_hits": {
+          "semantic": 1
+        },
+        "raw_stage_hits": {
+          "alias": 0,
+          "fuzzy": 0,
+          "semantic": 1,
+          "value": 0
+        },
+        "gold_frozen_at": "2026-10-10",
+        "gold_rater": "YulaniA"
+      },
+      "semantic_only/kaggle_styles": {
+        "schema_file": "data\\heldout\\kaggle_styles.csv",
+        "rows": 44446,
+        "columns": 10,
+        "source_format": "csv",
+        "stage_costs": {
+          "semantic": {
+            "calls": 10,
+            "seconds": 0.114298,
+            "mean_ms": 11.4298,
+            "peak_kib": 0.0
+          }
+        },
+        "total_seconds": 0.114298,
+        "surviving_stage_hits": {},
+        "raw_stage_hits": {
+          "alias": 0,
+          "fuzzy": 0,
+          "semantic": 0,
+          "value": 0
+        },
+        "gold_frozen_at": "2026-10-10",
+        "gold_rater": "YulaniA"
+      }
+    },
+    "using_fixture_cdm": false,
+    "calibrator_fitted_on": "fuzzy_only:manufacturer_a.csv@2026-10-08; fuzzy_only:manufacturer_a_drift.csv@2026-10-08; fuzzy_only:manufacturer_b_erpnext.csv@2026-10-08; fuzzy_only:manufacturer_b_erpnext_drift.csv@2026-10-08; fuzzy_only:manufacturer_c_odoo.csv@2026-10-08; fuzzy_only:manufacturer_c_odoo_drift.csv@2026-10-08; alias_fuzzy:manufacturer_a.csv@2026-10-08; alias_fuzzy:manufacturer_a_drift.csv@2026-10-08; alias_fuzzy:manufacturer_b_erpnext.csv@2026-10-08; alias_fuzzy:manufacturer_b_erpnext_drift.csv@2026-10-08; alias_fuzzy:manufacturer_c_odoo.csv@2026-10-08; alias_fuzzy:manufacturer_c_odoo_drift.csv@2026-10-08; full_cascade:manufacturer_a.csv@2026-10-08; full_cascade:manufacturer_a_drift.csv@2026-10-08; full_cascade:manufacturer_b_erpnext.csv@2026-10-08; full_cascade:manufacturer_b_erpnext_drift.csv@2026-10-08; full_cascade:manufacturer_c_odoo.csv@2026-10-08; full_cascade:manufacturer_c_odoo_drift.csv@2026-10-08; full_cascade_value:manufacturer_a.csv@2026-10-08; full_cascade_value:manufacturer_a_drift.csv@2026-10-08; full_cascade_value:manufacturer_b_erpnext.csv@2026-10-08; full_cascade_value:manufacturer_b_erpnext_drift.csv@2026-10-08; full_cascade_value:manufacturer_c_odoo.csv@2026-10-08; full_cascade_value:manufacturer_c_odoo_drift.csv@2026-10-08",
+    "uncalibrated_stages": []
+  },
+  "ece": 0.02886,
+  "reliability_bins": [
+    {
+      "bin_lower": 0.8,
+      "bin_upper": 1.0,
+      "count": 2,
+      "mean_confidence": 0.97114,
+      "accuracy": 1.0
+    }
+  ]
+}

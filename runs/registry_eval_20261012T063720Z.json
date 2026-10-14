@@ -1,0 +1,211 @@
+{
+  "status": "REGISTRY-EVALUATION (synthetic data; identity layer v2; not the frozen matching evaluation)",
+  "started_at": "2026-10-12T06:37:20+00:00",
+  "parameters": {
+    "seed": 2026,
+    "models": 20,
+    "serials": 3,
+    "sizes": [
+      1000,
+      10000,
+      50000
+    ],
+    "out": "runs"
+  },
+  "data": "Synthetic catalogue: 5 registrars on 2 nodes, seeded; surface-noised colour/size values; ground truth from the generator.",
+  "results": {
+    "load": {
+      "rows": 2649,
+      "entities_created": {
+        "model": 100,
+        "variant": 883,
+        "batch": 147,
+        "instance": 2649
+      },
+      "seconds": 3.17,
+      "conflicts": 0,
+      "skipped": 0
+    },
+    "E1_uniqueness": {
+      "adids": 3779,
+      "duplicate_adids": 0,
+      "all_version_4": true,
+      "gtins": 883,
+      "gtins_bound_to_distinct_variants": true,
+      "birthday_bound_collision_probability_at_1e12": 9.4039548065783e-14,
+      "birthday_bound_collision_probability_at_this_n": 1.3429638336393046e-30
+    },
+    "E2_resolvability": {
+      "adid_resolution_rate": 1.0,
+      "adids": 3779,
+      "gtin_resolution_rate": 1.0,
+      "sgtin_resolution_rate": 1.0,
+      "http_sample": 286,
+      "http_local_and_cross_node_ok_rate": 1.0,
+      "http_local_ms_p50": 4.28,
+      "http_local_ms_p95": 6.13,
+      "http_cross_node_ms_p50": 8.31,
+      "http_cross_node_ms_p95": 11.49
+    },
+    "E3_discovery": {
+      "Q1_variants_of_model": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 883,
+        "fp": 0,
+        "fn": 0
+      },
+      "Q4_units_in_lot_authority": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 2649,
+        "fp": 0,
+        "fn": 0
+      },
+      "Q2_colour_size_within_registrar": {
+        "adir": {
+          "precision": 1.0,
+          "recall": 0.973,
+          "f1": 0.9863,
+          "tp": 720,
+          "fp": 0,
+          "fn": 20
+        },
+        "exact_string_baseline": {
+          "precision": 1.0,
+          "recall": 0.2689,
+          "f1": 0.4239,
+          "tp": 199,
+          "fp": 0,
+          "fn": 541
+        },
+        "queries": 200
+      },
+      "Q3_category_across_registrars_and_nodes": {
+        "adir": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 883,
+          "fp": 0,
+          "fn": 0
+        },
+        "exact_string_baseline": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 883,
+          "fp": 0,
+          "fn": 0
+        },
+        "queries": 6
+      }
+    },
+    "E5_interoperability": {
+      "passports_checked": 145,
+      "jsonld_processor": "pyld",
+      "jsonld_to_rdf_errors": 0,
+      "rdf_triples_per_passport_median": 19,
+      "gs1_digital_links": 144,
+      "gs1_digital_link_syntax_ok_rate": 1.0,
+      "cdm_type_or_format_error_rate": 0.0,
+      "passports_missing_a_mandatory_field": 1.0,
+      "mandatory_note": "Synthetic rows carry no manufacturerOperatorId or non-GTIN productIdentifier, so this reflects the generator, not the registry.",
+      "canonical_form": "urn:uuid (RFC 9562)"
+    },
+    "E7_privacy": {
+      "public_views_checked": 3632,
+      "restricted_field_or_relation_leaks": 0,
+      "batches_refused_to_public": 147,
+      "public_instance_search_blocked": true,
+      "public_search_results_exposing_items": 0,
+      "random_guess_hits": 0,
+      "random_guesses": 10000,
+      "guess_success_probability_per_try": 7.107509042811879e-34,
+      "identifier_carries_timestamp_or_attributes": false
+    },
+    "E4_stability": {
+      "corrected_variants": 176,
+      "variant_records_updated": 176,
+      "adir_identifier_unchanged_rate": 1.0,
+      "v1_path_identifier_unchanged_rate": 0.0,
+      "v1_identifiers_compared": 528,
+      "old_adir_label_resolves_to_corrected_record": 1.0,
+      "old_v1_path_resolves_via_retained_alias": 1.0,
+      "entities_moved_between_nodes": 223,
+      "printed_uri_unchanged_after_move_and_rehost": 1.0,
+      "resolvable_after_move_and_rehost": 1.0,
+      "moved_entities_history_verifies": 1.0
+    },
+    "E8_governance": {
+      "clean_entities_checked": 500,
+      "false_positive_rate": 0.0,
+      "tamper_detection": {
+        "metadata_edit": {
+          "tried": 40,
+          "detected": 40,
+          "rate": 1.0
+        },
+        "alt_id_rebind": {
+          "tried": 40,
+          "detected": 40,
+          "rate": 1.0
+        },
+        "relation_removed": {
+          "tried": 40,
+          "detected": 40,
+          "rate": 1.0
+        },
+        "history_rewritten": {
+          "tried": 40,
+          "detected": 40,
+          "rate": 1.0
+        },
+        "history_row_deleted": {
+          "tried": 40,
+          "detected": 40,
+          "rate": 1.0
+        }
+      },
+      "overall_detection_rate": 1.0,
+      "note": "Detects edits made outside the registry API. Does not prevent an operator with database access from rewriting a whole chain consistently; anchoring head hashes externally (signed checkpoints, EN 18246 scope) is future work."
+    },
+    "E6_scalability": [
+      {
+        "entities": 834,
+        "registration_seconds": 0.64,
+        "registrations_per_second": 1297.2,
+        "resolve_ms_p50": 0.104,
+        "resolve_ms_p95": 0.336,
+        "search_ms_p50": 0.16,
+        "search_ms_p95": 0.24,
+        "node_bytes_per_entity": 4391,
+        "root_bytes_per_placement": 216
+      },
+      {
+        "entities": 8109,
+        "registration_seconds": 8.95,
+        "registrations_per_second": 905.8,
+        "resolve_ms_p50": 0.162,
+        "resolve_ms_p95": 0.566,
+        "search_ms_p50": 2.047,
+        "search_ms_p95": 3.162,
+        "node_bytes_per_entity": 4335,
+        "root_bytes_per_placement": 187
+      },
+      {
+        "entities": 40782,
+        "registration_seconds": 46.14,
+        "registrations_per_second": 883.8,
+        "resolve_ms_p50": 0.15,
+        "resolve_ms_p95": 0.498,
+        "search_ms_p50": 2.27,
+        "search_ms_p95": 2.835,
+        "node_bytes_per_entity": 4343,
+        "root_bytes_per_placement": 188
+      }
+    ]
+  }
+}

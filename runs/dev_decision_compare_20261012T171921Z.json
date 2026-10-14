@@ -1,0 +1,327 @@
+{
+  "status": "DEVELOPMENT (design-time comparison on development schemas; NOT an evaluation result)",
+  "created_at": "2026-10-12T17:19:21+00:00",
+  "real_model": false,
+  "conditions": {
+    "cascade": {
+      "overlay": "config/ablation/full_cascade_value.yaml",
+      "stages": [
+        "alias",
+        "fuzzy",
+        "value"
+      ],
+      "decision": "cascade",
+      "embedder": "none",
+      "fingerprint": {
+        "sha256": "b4e4a00794c58976748bb4be06e184114ba09fec9a9690c380d49065662ca8a5",
+        "decision": "cascade",
+        "stages": [
+          "alias",
+          "fuzzy",
+          "value"
+        ],
+        "embedder": "none",
+        "semantic_is_real": false
+      },
+      "macro": {
+        "precision": 0.8188,
+        "recall": 0.7265,
+        "f1": 0.7605
+      },
+      "per_schema": {
+        "manufacturer_a": {
+          "precision": 0.833333,
+          "recall": 0.833333,
+          "f1": 0.833333
+        },
+        "manufacturer_a_drift": {
+          "precision": 0.833333,
+          "recall": 0.833333,
+          "f1": 0.833333
+        },
+        "manufacturer_b_erpnext": {
+          "precision": 0.642857,
+          "recall": 0.692308,
+          "f1": 0.666667
+        },
+        "manufacturer_b_erpnext_drift": {
+          "precision": 0.714286,
+          "recall": 0.769231,
+          "f1": 0.740741
+        },
+        "manufacturer_c_odoo": {
+          "precision": 1.0,
+          "recall": 0.615385,
+          "f1": 0.761905
+        },
+        "manufacturer_c_odoo_drift": {
+          "precision": 0.888889,
+          "recall": 0.615385,
+          "f1": 0.727273
+        }
+      }
+    },
+    "rerank": {
+      "overlay": "config/ablation/rerank_v2.yaml",
+      "stages": [
+        "alias",
+        "fuzzy",
+        "value"
+      ],
+      "decision": "rerank",
+      "embedder": "none",
+      "fingerprint": {
+        "sha256": "8fee858c08b71e114dbed3ab969df122162c68c671e8e46bbe7a355cbec180c5",
+        "decision": "rerank",
+        "stages": [
+          "alias",
+          "fuzzy",
+          "value"
+        ],
+        "embedder": "none",
+        "semantic_is_real": false
+      },
+      "macro": {
+        "precision": 0.9722,
+        "recall": 0.8333,
+        "f1": 0.89
+      },
+      "per_schema": {
+        "manufacturer_a": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "manufacturer_a_drift": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "manufacturer_b_erpnext": {
+          "precision": 0.916667,
+          "recall": 0.846154,
+          "f1": 0.88
+        },
+        "manufacturer_b_erpnext_drift": {
+          "precision": 0.916667,
+          "recall": 0.846154,
+          "f1": 0.88
+        },
+        "manufacturer_c_odoo": {
+          "precision": 1.0,
+          "recall": 0.692308,
+          "f1": 0.818182
+        },
+        "manufacturer_c_odoo_drift": {
+          "precision": 1.0,
+          "recall": 0.615385,
+          "f1": 0.761905
+        }
+      }
+    },
+    "rerank_aliases_v1_1": {
+      "overlay": "config/ablation/rerank_v2_aliases_v1_1.yaml",
+      "stages": [
+        "alias",
+        "fuzzy",
+        "value"
+      ],
+      "decision": "rerank",
+      "embedder": "none",
+      "fingerprint": {
+        "sha256": "2bdcab781c3e13f69a2c2e27e707c753655a197d423ba4c27003fdb97949e1e8",
+        "decision": "rerank",
+        "stages": [
+          "alias",
+          "fuzzy",
+          "value"
+        ],
+        "embedder": "none",
+        "semantic_is_real": false
+      },
+      "macro": {
+        "precision": 0.9722,
+        "recall": 0.8333,
+        "f1": 0.89
+      },
+      "per_schema": {
+        "manufacturer_a": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "manufacturer_a_drift": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "manufacturer_b_erpnext": {
+          "precision": 0.916667,
+          "recall": 0.846154,
+          "f1": 0.88
+        },
+        "manufacturer_b_erpnext_drift": {
+          "precision": 0.916667,
+          "recall": 0.846154,
+          "f1": 0.88
+        },
+        "manufacturer_c_odoo": {
+          "precision": 1.0,
+          "recall": 0.692308,
+          "f1": 0.818182
+        },
+        "manufacturer_c_odoo_drift": {
+          "precision": 1.0,
+          "recall": 0.615385,
+          "f1": 0.761905
+        }
+      }
+    }
+  },
+  "differences": [
+    {
+      "schema": "manufacturer_a",
+      "column": "Style_No",
+      "gold": "gtin",
+      "cascade": "productIdentifier (alias)",
+      "rerank": "gtin (value)",
+      "better": "rerank",
+      "why": "Accepted gtin: value signature. Rejected: productIdentifier rejected: the values do not fit productIdentifier (0% conform) but fit gtin (100%) \u2014 the data overrides the header."
+    },
+    {
+      "schema": "manufacturer_a_drift",
+      "column": "Style_No",
+      "gold": "gtin",
+      "cascade": "productIdentifier (alias)",
+      "rerank": "gtin (value)",
+      "better": "rerank",
+      "why": "Accepted gtin: value signature. Rejected: productIdentifier rejected: the values do not fit productIdentifier (0% conform) but fit gtin (100%) \u2014 the data overrides the header."
+    },
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "has_batch_no",
+      "gold": "NO_MAPPING",
+      "cascade": "batchNumber (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: batchNumber rejected: values are a yes/no flag (1), not batchNumber (R3.1)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "has_serial_no",
+      "gold": "NO_MAPPING",
+      "cascade": "serialNumber (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: serialNumber rejected: values are a yes/no flag (1), not serialNumber (R3.1)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "weight_per_unit",
+      "gold": "netWeight",
+      "cascade": "NO_MAPPING (none)",
+      "rerank": "netWeight (fuzzy)",
+      "better": "rerank",
+      "why": "Accepted netWeight: header 80 (below threshold), corroborated: its values are numeric, as the field requires."
+    },
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "weight_uom",
+      "gold": "NO_MAPPING",
+      "cascade": "netWeight (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: netWeight rejected: the values (Kg) are units of measure, which belong to a quantity column, not to netWeight (R3.2) | countryOfOrigin rejected: the values (Kg) are units of measure, which belong to a quantity column, not to countryOfOrigin (R3.2)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "description",
+      "gold": "NO_MAPPING",
+      "cascade": "productFamily (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: productFamily rejected: productFamily holds codes but the values are free text (R3.3)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "co2e_kg",
+      "gold": "carbonFootprint",
+      "cascade": "NO_MAPPING (none)",
+      "rerank": "carbonFootprint (alias)",
+      "better": "rerank",
+      "why": "Accepted carbonFootprint: alias 'co2e' (unit 'kg' removed)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext_drift",
+      "column": "has_batch_no",
+      "gold": "NO_MAPPING",
+      "cascade": "batchNumber (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: batchNumber rejected: values are a yes/no flag (1), not batchNumber (R3.1)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext_drift",
+      "column": "weight_per_unit",
+      "gold": "netWeight",
+      "cascade": "NO_MAPPING (none)",
+      "rerank": "netWeight (fuzzy)",
+      "better": "rerank",
+      "why": "Accepted netWeight: header 80 (below threshold), corroborated: its values are numeric, as the field requires."
+    },
+    {
+      "schema": "manufacturer_b_erpnext_drift",
+      "column": "weight_uom",
+      "gold": "NO_MAPPING",
+      "cascade": "netWeight (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: netWeight rejected: the values (Kg) are units of measure, which belong to a quantity column, not to netWeight (R3.2) | countryOfOrigin rejected: the values (Kg) are units of measure, which belong to a quantity column, not to countryOfOrigin (R3.2)."
+    },
+    {
+      "schema": "manufacturer_b_erpnext_drift",
+      "column": "description",
+      "gold": "NO_MAPPING",
+      "cascade": "productFamily (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: productFamily rejected: productFamily holds codes but the values are free text (R3.3)."
+    },
+    {
+      "schema": "manufacturer_c_odoo",
+      "column": "x_studio_lot",
+      "gold": "batchNumber",
+      "cascade": "NO_MAPPING (value)",
+      "rerank": "batchNumber (alias)",
+      "better": "rerank",
+      "why": "Accepted batchNumber: alias 'lot' (ERP prefix 'x_studio_' removed)."
+    },
+    {
+      "schema": "manufacturer_c_odoo_drift",
+      "column": "descript",
+      "gold": "NO_MAPPING",
+      "cascade": "productFamily (fuzzy)",
+      "rerank": "NO_MAPPING (none)",
+      "better": "rerank",
+      "why": "Rejected: productFamily rejected: productFamily holds codes but the values are free text (R3.3)."
+    }
+  ],
+  "alias_correction_differences": [
+    {
+      "schema": "manufacturer_b_erpnext",
+      "column": "supplier_gln",
+      "gold": "NO_MAPPING",
+      "rerank_v1_0_aliases": "manufacturerOperatorId (alias)",
+      "rerank_v1_1_aliases": "gtin (value)",
+      "why": "Accepted gtin: value signature."
+    },
+    {
+      "schema": "manufacturer_b_erpnext_drift",
+      "column": "supplier_gln",
+      "gold": "NO_MAPPING",
+      "rerank_v1_0_aliases": "manufacturerOperatorId (alias)",
+      "rerank_v1_1_aliases": "gtin (value)",
+      "why": "Accepted gtin: value signature."
+    }
+  ]
+}

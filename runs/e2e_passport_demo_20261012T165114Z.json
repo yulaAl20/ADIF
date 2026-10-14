@@ -1,0 +1,351 @@
+{
+  "status": "DEMONSTRATION (one invented product; not an evaluation of accuracy or scale)",
+  "created_at": "2026-10-12T16:51:14+00:00",
+  "input": "demo/e2e_complete_record.csv",
+  "step1_gateway_mapping": {
+    "stages": [
+      "alias",
+      "fuzzy",
+      "value"
+    ],
+    "decision": "cascade",
+    "columns": 20,
+    "correct": 20,
+    "detail": [
+      {
+        "column": "Design Code",
+        "proposed": "productFamily",
+        "stage": "alias",
+        "intended": "productFamily",
+        "correct": true
+      },
+      {
+        "column": "Product Category",
+        "proposed": "productCategory",
+        "stage": "alias",
+        "intended": "productCategory",
+        "correct": true
+      },
+      {
+        "column": "Manufacturer",
+        "proposed": "manufacturerName",
+        "stage": "alias",
+        "intended": "manufacturerName",
+        "correct": true
+      },
+      {
+        "column": "Manufacturer ID",
+        "proposed": "manufacturerOperatorId",
+        "stage": "alias",
+        "intended": "manufacturerOperatorId",
+        "correct": true
+      },
+      {
+        "column": "Facility ID",
+        "proposed": "facilityIdentifiers",
+        "stage": "alias",
+        "intended": "facilityIdentifiers",
+        "correct": true
+      },
+      {
+        "column": "Country of Origin",
+        "proposed": "countryOfOrigin",
+        "stage": "alias",
+        "intended": "countryOfOrigin",
+        "correct": true
+      },
+      {
+        "column": "Fabric Composition",
+        "proposed": "fibreComposition",
+        "stage": "alias",
+        "intended": "fibreComposition",
+        "correct": true
+      },
+      {
+        "column": "Care Instructions",
+        "proposed": "careInstructions",
+        "stage": "alias",
+        "intended": "careInstructions",
+        "correct": true
+      },
+      {
+        "column": "HS Code",
+        "proposed": "commodityCode",
+        "stage": "alias",
+        "intended": "commodityCode",
+        "correct": true
+      },
+      {
+        "column": "Declaration of Conformity",
+        "proposed": "declarationOfConformity",
+        "stage": "alias",
+        "intended": "declarationOfConformity",
+        "correct": true
+      },
+      {
+        "column": "Safety Information",
+        "proposed": "safetyInformation",
+        "stage": "alias",
+        "intended": "safetyInformation",
+        "correct": true
+      },
+      {
+        "column": "Recycled Content",
+        "proposed": "recycledContent",
+        "stage": "alias",
+        "intended": "recycledContent",
+        "correct": true
+      },
+      {
+        "column": "Carbon Footprint",
+        "proposed": "carbonFootprint",
+        "stage": "alias",
+        "intended": "carbonFootprint",
+        "correct": true
+      },
+      {
+        "column": "GTIN",
+        "proposed": "gtin",
+        "stage": "alias",
+        "intended": "gtin",
+        "correct": true
+      },
+      {
+        "column": "Style No",
+        "proposed": "productIdentifier",
+        "stage": "alias",
+        "intended": "productIdentifier",
+        "correct": true
+      },
+      {
+        "column": "Colour",
+        "proposed": "colour",
+        "stage": "alias",
+        "intended": "colour",
+        "correct": true
+      },
+      {
+        "column": "Size",
+        "proposed": "size",
+        "stage": "alias",
+        "intended": "size",
+        "correct": true
+      },
+      {
+        "column": "Batch",
+        "proposed": "batchNumber",
+        "stage": "alias",
+        "intended": "batchNumber",
+        "correct": true
+      },
+      {
+        "column": "Serial Number",
+        "proposed": "serialNumber",
+        "stage": "alias",
+        "intended": "serialNumber",
+        "correct": true
+      },
+      {
+        "column": "Production Date",
+        "proposed": "productionDate",
+        "stage": "alias",
+        "intended": "productionDate",
+        "correct": true
+      }
+    ]
+  },
+  "step3_registration": {
+    "registrar": "examplelanka",
+    "rows": 3,
+    "created": {
+      "family": 1,
+      "variant": 2,
+      "instance": 3
+    },
+    "updated": {},
+    "unchanged": {
+      "family": 2,
+      "variant": 1
+    },
+    "skipped": [],
+    "conflicts": []
+  },
+  "step4_passports": [
+    {
+      "level": "family",
+      "adid_path": "/adid/0339832b-d61b-40c1-b4f4-a636da201fd3",
+      "uri": "https://id.adir.example/adid/0339832b-d61b-40c1-b4f4-a636da201fd3",
+      "passed": true,
+      "checks": {
+        "resolves_over_http_at_its_adid": true,
+        "no_type_or_format_errors": true,
+        "controlled_vocabularies_respected": true,
+        "level_mandatory_fields_present": true,
+        "jsonld_converts_to_rdf": true,
+        "gs1_digital_links_well_formed": true,
+        "parent_link_correct": true
+      },
+      "mandatory_required_here": [
+        "productFamily",
+        "manufacturerOperatorId"
+      ],
+      "missing": [],
+      "type_errors": [],
+      "vocabulary_errors": [],
+      "rdf_triples": 13,
+      "gs1_digital_links": [],
+      "fields_present": 4
+    },
+    {
+      "level": "variant",
+      "adid_path": "/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/white_xs",
+      "uri": "https://id.adir.example/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/white_xs",
+      "passed": true,
+      "checks": {
+        "resolves_over_http_at_its_adid": true,
+        "no_type_or_format_errors": true,
+        "controlled_vocabularies_respected": true,
+        "level_mandatory_fields_present": true,
+        "jsonld_converts_to_rdf": true,
+        "gs1_digital_links_well_formed": true,
+        "parent_link_correct": true
+      },
+      "mandatory_required_here": [
+        "productFamily",
+        "productIdentifier",
+        "manufacturerOperatorId",
+        "fibreComposition"
+      ],
+      "missing": [],
+      "type_errors": [],
+      "vocabulary_errors": [],
+      "rdf_triples": 26,
+      "gs1_digital_links": [
+        "https://id.gs1.org/01/00614141000111"
+      ],
+      "fields_present": 16
+    },
+    {
+      "level": "instance",
+      "adid_path": "/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/white_xs/50f47dd2-c13c-402a-9f21-222fcba15a59",
+      "uri": "https://id.adir.example/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/white_xs/50f47dd2-c13c-402a-9f21-222fcba15a59",
+      "passed": true,
+      "checks": {
+        "resolves_over_http_at_its_adid": true,
+        "no_type_or_format_errors": true,
+        "controlled_vocabularies_respected": true,
+        "level_mandatory_fields_present": true,
+        "jsonld_converts_to_rdf": true,
+        "gs1_digital_links_well_formed": true,
+        "parent_link_correct": true
+      },
+      "mandatory_required_here": [
+        "productFamily",
+        "productIdentifier",
+        "manufacturerOperatorId",
+        "fibreComposition"
+      ],
+      "missing": [],
+      "type_errors": [],
+      "vocabulary_errors": [],
+      "rdf_triples": 28,
+      "gs1_digital_links": [
+        "https://id.gs1.org/01/00614141000111/21/SN00001"
+      ],
+      "fields_present": 17
+    },
+    {
+      "level": "instance",
+      "adid_path": "/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/white_xs/14beb0e7-52f4-496e-bb3c-80265bd430e3",
+      "uri": "https://id.adir.example/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/white_xs/14beb0e7-52f4-496e-bb3c-80265bd430e3",
+      "passed": true,
+      "checks": {
+        "resolves_over_http_at_its_adid": true,
+        "no_type_or_format_errors": true,
+        "controlled_vocabularies_respected": true,
+        "level_mandatory_fields_present": true,
+        "jsonld_converts_to_rdf": true,
+        "gs1_digital_links_well_formed": true,
+        "parent_link_correct": true
+      },
+      "mandatory_required_here": [
+        "productFamily",
+        "productIdentifier",
+        "manufacturerOperatorId",
+        "fibreComposition"
+      ],
+      "missing": [],
+      "type_errors": [],
+      "vocabulary_errors": [],
+      "rdf_triples": 28,
+      "gs1_digital_links": [
+        "https://id.gs1.org/01/00614141000111/21/SN00002"
+      ],
+      "fields_present": 17
+    },
+    {
+      "level": "variant",
+      "adid_path": "/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/navy_m",
+      "uri": "https://id.adir.example/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/navy_m",
+      "passed": true,
+      "checks": {
+        "resolves_over_http_at_its_adid": true,
+        "no_type_or_format_errors": true,
+        "controlled_vocabularies_respected": true,
+        "level_mandatory_fields_present": true,
+        "jsonld_converts_to_rdf": true,
+        "gs1_digital_links_well_formed": true,
+        "parent_link_correct": true
+      },
+      "mandatory_required_here": [
+        "productFamily",
+        "productIdentifier",
+        "manufacturerOperatorId",
+        "fibreComposition"
+      ],
+      "missing": [],
+      "type_errors": [],
+      "vocabulary_errors": [],
+      "rdf_triples": 26,
+      "gs1_digital_links": [
+        "https://id.gs1.org/01/00614141000289"
+      ],
+      "fields_present": 16
+    },
+    {
+      "level": "instance",
+      "adid_path": "/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/navy_m/43f999ba-0fbd-4576-b992-93d67a74d5f7",
+      "uri": "https://id.adir.example/adid/0339832b-d61b-40c1-b4f4-a636da201fd3/navy_m/43f999ba-0fbd-4576-b992-93d67a74d5f7",
+      "passed": true,
+      "checks": {
+        "resolves_over_http_at_its_adid": true,
+        "no_type_or_format_errors": true,
+        "controlled_vocabularies_respected": true,
+        "level_mandatory_fields_present": true,
+        "jsonld_converts_to_rdf": true,
+        "gs1_digital_links_well_formed": true,
+        "parent_link_correct": true
+      },
+      "mandatory_required_here": [
+        "productFamily",
+        "productIdentifier",
+        "manufacturerOperatorId",
+        "fibreComposition"
+      ],
+      "missing": [],
+      "type_errors": [],
+      "vocabulary_errors": [],
+      "rdf_triples": 28,
+      "gs1_digital_links": [
+        "https://id.gs1.org/01/00614141000289/21/SN00003"
+      ],
+      "fields_present": 17
+    }
+  ],
+  "summary": {
+    "family": "1/1 passed",
+    "variant": "2/2 passed",
+    "instance": "3/3 passed"
+  },
+  "all_passed": true
+}
