@@ -281,6 +281,17 @@ def create_web_app(
                        max_age=8 * 3600, same_site="lax", https_only=secure_cookies)
     app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
 
+    @app.middleware("http")
+    async def json_download(request: Request, call_next):
+        """``?download=1`` on a passport or record saves it as a file instead of showing it."""
+        response = await call_next(request)
+        if request.query_params.get("download") == "1" and "json" in (response.headers.get("content-type") or ""):
+            view = request.query_params.get("view", "record")
+            stem = request.url.path.strip("/").replace("adid/", "", 1).replace("/", "_") or "record"
+            name = f"passport_{stem}.jsonld" if view == "dpp" else f"record_{stem}.json"
+            response.headers["Content-Disposition"] = f'attachment; filename="{name}"'
+        return response
+
     @app.exception_handler(StarletteHTTPException)
     async def http_error(request: Request, exc: StarletteHTTPException):
         wants_html = "text/html" in (request.headers.get("accept") or "") and not request.url.path.startswith(

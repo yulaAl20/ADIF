@@ -180,7 +180,7 @@
     <details class="panel hood">
       <summary><h3>What this prototype does not claim</h3></summary>
       <ul>
-        <li>It is not a legally designated DPP service, registry or authority, and it is not an official standard. <span class="mono">id.adir.example</span> is an example host.</li>
+        <li>It is not a legally designated DPP service, registry or authority, and it is not an official standard.{% if 'example' in resolver %} <span class="mono">{{ resolver.replace('https://', '') }}</span> is an example host.{% endif %}</li>
         <li>It does not imply certification or compliance with any regulation. The textile delegated act under the Ecodesign Regulation is not yet adopted.</li>
         <li>Matching is not fully accurate, and a high confidence score does not guarantee that a match is correct. The workflow is human-assisted: the system proposes, a person confirms. The measured accuracy is reported above, including the targets that were not met.</li>
         <li>This registry is a research registry and resolver. It is not the EU digital product passport registry set up under Implementing Regulation (EU) 2026/1778, and registering a product here is not registration with the EU.</li>

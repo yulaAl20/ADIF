@@ -42,7 +42,7 @@
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <span>ADIF is a research prototype from an undergraduate study on vendor-neutral Digital Product Passports for Sri Lankan apparel exporters. It is not a legally designated DPP service, registry or authority, and it is not an official standard. No certification or regulatory compliance is implied. Account approval here is prototype governance, not official accreditation. Addresses use the example host {{ resolver.replace('https://', '') }}.</span>
+    <span>ADIF is a research prototype from an undergraduate study on vendor-neutral Digital Product Passports for Sri Lankan apparel exporters. It is not a legally designated DPP service, registry or authority, and it is not an official standard. No certification or regulatory compliance is implied. Account approval here is prototype governance, not official accreditation. {% if 'example' in resolver %}Addresses use the example host {{ resolver.replace('https://', '') }}.{% endif %}</span>
     <span><a href="/how-it-works">How it works</a> &nbsp; <a href="/docs">API</a> &nbsp; <a href="/registry/info">Registry facts (JSON)</a></span>
   </div>
 </footer>

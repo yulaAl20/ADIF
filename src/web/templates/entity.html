@@ -78,7 +78,9 @@
         {% if record.status != 'withdrawn' %}
         <div class="panel">
           <h2 style="font-size:1.1rem">Passport and data</h2>
-          <p class="row-actions"><a class="btn btn-thread btn-s" href="{{ record.adid|href }}?view=dpp">Passport (JSON-LD)</a><a class="btn btn-quiet btn-s" href="{{ record.adid|href }}?view=json">Record (JSON)</a></p>
+          {% set fname = (record.adid|href).strip('/').replace('adid/', '').replace('/', '_') %}
+          <p class="row-actions"><a class="btn btn-thread btn-s" href="{{ record.adid|href }}?view=dpp">View passport (JSON-LD)</a><a class="btn btn-quiet btn-s" href="{{ record.adid|href }}?view=json">View record (JSON)</a></p>
+          <p class="row-actions" style="margin-top:-4px"><a class="btn btn-line btn-s" href="{{ record.adid|href }}?view=dpp&amp;download=1" download="passport_{{ fname }}.jsonld">Download passport</a><a class="btn btn-line btn-s" href="{{ record.adid|href }}?view=json&amp;download=1" download="record_{{ fname }}.json">Download record</a></p>
           <p class="small muted" style="margin:0">Machines asking this same address for JSON-LD get the passport directly.</p>
         </div>
         {% endif %}

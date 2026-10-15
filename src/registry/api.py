@@ -31,6 +31,8 @@ Registrant (``X-ADIR-Key``):
 
 from __future__ import annotations
 
+import os
+
 import json
 from functools import lru_cache
 from pathlib import Path
@@ -63,7 +65,9 @@ def node_from_config(path: str | Path = CONFIG) -> RegistryNode:
     return RegistryNode(
         node_id=n["node_id"],
         store=RegistryStore(n["db"], n["node_id"]),
-        root=RootIndex(r["index_db"], r["resolver"]),
+        # ADIF_RESOLVER lets a hosted copy print its own address (e.g. https://adif-oydy.onrender.com)
+        # instead of the example host. Only how addresses are written changes; no stored record does.
+        root=RootIndex(r["index_db"], (os.environ.get("ADIF_RESOLVER") or r["resolver"]).rstrip("/")),
         policy=AccessPolicy.load(path),
         base_url=n["base_url"],
         operator=n.get("operator", ""),
