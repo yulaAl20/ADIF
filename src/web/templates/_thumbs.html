@@ -5,19 +5,19 @@
   <rect width="320" height="200" fill="#FAF9F7"/>
   {% if kind == 'family' %}
     <g transform="translate(108 22) scale(1.05)"><path d="{{ tee }}" fill="none" stroke="#1D1F24" stroke-width="1.6" stroke-dasharray="4 3"/></g>
-    <text x="24" y="34" font-family="{{ mono }}" font-size="11" fill="#67645D">TS-1000</text>
-    <text x="24" y="182" font-family="{{ mono }}" font-size="11" fill="#2E4A7D">/adid/3f2b9c1e-…</text>
+    <text x="24" y="34" font-family="{{ mono }}" font-size="11" fill="#67645D">CB-TEE-01</text>
+    <text x="24" y="182" font-family="{{ mono }}" font-size="11" fill="#2E4A7D">/adid/…</text>
   {% elif kind == 'variant' %}
-    {% for c in [('#2E4A7D','navy_m'),('#C9B48E','sand_l'),('#FFFFFF','white_xs')] %}
+    {% for c in [('#1F6E9C','ocean-blue_m'),('#A8592A','cinnamon_l'),('#F3EFE4','coconut-white_s')] %}
     <g transform="translate({{ 22 + loop.index0 * 96 }} 34) scale(.85)"><path d="{{ tee }}" fill="{{ c[0] }}" stroke="#D6D2CB"/></g>
     <text x="{{ 64 + loop.index0 * 96 }}" y="150" text-anchor="middle" font-family="{{ mono }}" font-size="11" fill="#1D1F24">{{ c[1] }}</text>
     {% endfor %}
-    <text x="24" y="182" font-family="{{ mono }}" font-size="11" fill="#2E4A7D">/adid/3f2b…/white_xs</text>
+    <text x="24" y="182" font-family="{{ mono }}" font-size="11" fill="#2E4A7D">/adid/…/ocean-blue_m</text>
   {% elif kind == 'instance' %}
     <g transform="translate(70 30) scale(1.1)"><path d="{{ tee }}" fill="#FFFFFF" stroke="#D6D2CB"/></g>
     <path d="M178 66 Q196 60 204 74" fill="none" stroke="#1D1F24" stroke-width="1.2"/>
     <g transform="translate(196 72)"><path d="M6 0h40l6 6v58H0V6z" fill="#fff" stroke="#D6D2CB"/><g transform="translate(9 14) scale(1.35)" fill="#1D1F24">{% include "_qr_path.html" %}</g></g>
-    <text x="24" y="182" font-family="{{ mono }}" font-size="11" fill="#2E4A7D">/adid/3f2b…/white_xs/9c41…</text>
+    <text x="24" y="182" font-family="{{ mono }}" font-size="11" fill="#2E4A7D">/adid/…/ocean-blue_m/9c41…</text>
   {% elif kind == 'adid' %}
     <g font-family="{{ mono }}" font-size="11">
       <rect x="120" y="26" width="80" height="28" rx="6" fill="#1D1F24"/><text x="160" y="44" text-anchor="middle" fill="#FAF9F7">family</text>
@@ -30,7 +30,7 @@
   {% elif kind == 'cdm' %}
     <g font-family="{{ mono }}" font-size="11" fill="#1D1F24">
       <text x="24" y="34">{</text>
-      <text x="36" y="54"><tspan fill="#67645D">"@id":</tspan> <tspan fill="#2E4A7D">".../adid/3f2b…/white_xs"</tspan></text>
+      <text x="36" y="54"><tspan fill="#67645D">"@id":</tspan> <tspan fill="#2E4A7D">".../adid/…/ocean-blue_m"</tspan></text>
       <text x="36" y="74"><tspan fill="#67645D">"fibreComposition":</tspan> "100% Cotton"</text>
       <text x="36" y="94"><tspan fill="#67645D">"countryOfOrigin":</tspan> "LK"</text>
       <text x="36" y="114"><tspan fill="#67645D">"careInstructions":</tspan> "30C wash"</text>

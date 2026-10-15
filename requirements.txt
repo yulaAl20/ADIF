@@ -27,3 +27,7 @@ python-multipart>=0.0.9
 httpx>=0.27
 jinja2>=3.1,<4          # website templates (src/web)
 itsdangerous>=2.1,<3    # signed session cookies for the portal
+# Online database (optional): set DATABASE_URL to a PostgreSQL URL (e.g. Neon free tier).
+psycopg[binary]>=3.1,<4
+# Real, scannable QR codes on the website labels.
+segno>=1.6,<2

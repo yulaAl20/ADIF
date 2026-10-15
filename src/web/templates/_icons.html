@@ -1,0 +1,33 @@
+{# Garment icons for the registry. One outline per category, filled with the
+   product's own colour when it has one. viewBox 0 0 100 100. #}
+{% macro garment(category, fill="#E2E7F0", size=64) %}
+{% set c = (category or '')|lower %}
+<svg class="garment" viewBox="0 0 100 100" width="{{ size }}" height="{{ size }}" aria-hidden="true">
+  <g fill="{{ fill }}" stroke="#1D1F24" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+  {% if 'polo' in c %}
+    <path d="M32 16 L42 12 L50 20 L58 12 L68 16 L88 32 L78 44 L70 38 L70 88 L30 88 L30 38 L22 44 L12 32 Z"/>
+    <path d="M42 12 L50 30 L58 12" fill="none"/>
+    <path d="M50 30 L50 44" fill="none"/>
+    <circle cx="50" cy="36" r="1.4" fill="#1D1F24" stroke="none"/><circle cx="50" cy="41" r="1.4" fill="#1D1F24" stroke="none"/>
+  {% elif 'hood' in c or 'sweat' in c or 'jacket' in c %}
+    <path d="M36 18 Q50 4 64 18 L86 30 L92 70 L80 72 L74 44 L74 90 L26 90 L26 44 L20 72 L8 70 L14 30 Z"/>
+    <path d="M36 18 Q50 38 64 18" fill="none"/>
+    <path d="M38 64 H62 V76 H38 Z" fill="none"/>
+    <path d="M46 28 V40 M54 28 V40" fill="none"/>
+  {% elif 'dress' in c %}
+    <path d="M38 10 L44 14 Q50 20 56 14 L62 10 L64 30 L58 40 L80 90 L20 90 L42 40 L36 30 Z"/>
+    <path d="M42 40 H58" fill="none"/>
+  {% elif 'trouser' in c or 'pant' in c or 'jean' in c %}
+    <path d="M30 10 H70 L76 90 H56 L50 40 L44 90 H24 Z"/>
+    <path d="M30 20 H70" fill="none"/>
+  {% elif 'short' in c and 'shirt' not in c %}
+    <path d="M26 24 H74 L82 72 H58 L50 46 L42 72 H18 Z"/>
+    <path d="M26 34 H74" fill="none"/>
+  {% elif 'shirt' in c or 'tee' in c or 'top' in c %}
+    <path d="M32 16 L42 12 Q50 22 58 12 L68 16 L88 32 L78 44 L70 38 L70 88 L30 88 L30 38 L22 44 L12 32 Z"/>
+  {% else %}
+    <path d="M32 16 L42 12 Q50 22 58 12 L68 16 L88 32 L78 44 L70 38 L70 88 L30 88 L30 38 L22 44 L12 32 Z" stroke-dasharray="5 4"/>
+  {% endif %}
+  </g>
+</svg>
+{% endmacro %}

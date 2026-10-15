@@ -1,35 +1,156 @@
 {% extends "base.html" %}
 {% block title %}How it works{% endblock %}
 {% block main %}
+{% set ic = {
+  "account": "M-7 9a7 7 0 0 1 14 0M0 -1a5 5 0 1 0 0 -0.01",
+  "upload": "M0 8V-8M-6 -2l6 -6 6 6M-9 9h18",
+  "check": "M-8 0l5 6 11 -12",
+  "id": "M-9 -7h18v14h-18zM-5 -2h6M-5 3h10",
+  "print": "M-6 -9h12v6h-12zM-9 -3h18v9h-18zM-6 3h12v7h-12z",
+  "edit": "M-8 8l3 -1 10 -10 -2 -2 -10 10zM3 -7l2 -2 2 2 -2 2",
+  "scan": "M-9 -4v-5h5M4 -9h5v5M9 4v5h-5M-4 9h-5v-5M-5 0h10",
+  "read": "M-9 -7q5 -2 9 1q4 -3 9 -1v15q-5 -2 -9 1q-4 -3 -9 -1zM0 -6v15",
+  "link": "M-3 3l6 -6M-6 0l-2 2a3.5 3.5 0 0 0 5 5l2 -2M6 0l2 -2a3.5 3.5 0 0 0 -5 -5l-2 2",
+  "search": "M-2 -2m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0M3 3l6 6",
+  "lock": "M-7 -1h14v10h-14zM-4 -1v-3a4 4 0 0 1 8 0v3M0 3v2",
+  "list": "M-8 -6h16M-8 0h16M-8 6h10",
+  "seal": "M0 -9l8 4v5c0 5 -4 8 -8 9c-4 -1 -8 -4 -8 -9v-5zM-4 0l3 3 5 -6",
+  "code": "M-4 -7l-6 7 6 7M4 -7l6 7 -6 7",
+  "json": "M-4 -9c-4 0 -4 2 -4 5s-2 4 -2 4 2 1 2 4 0 5 4 5M4 -9c4 0 4 2 4 5s2 4 2 4 -2 1 -2 4 0 5 -4 5",
+  "barcode": "M-9 -7v14M-6 -7v14M-2 -7v14M1 -7v14M5 -7v14M8 -7v14",
+  "key": "M-3 0a5 5 0 1 0 -0.01 0M2 0h8M7 0v4"
+} %}
+{% set journeys = [
+  ("maker", "Manufacturer", "You make or export garments and want each one to carry a passport.", [
+    ("account", "Account", "Request an account", "Sign up with your company name. The registry operator approves it before you can register anything."),
+    ("upload", "Upload", "Upload the sheet you already keep", "CSV, Excel or JSON, with your own column names. No new template to fill in."),
+    ("check", "Check", "Check the suggested matches", "Each column is matched to a passport field with a confidence score. Low-confidence matches are flagged for you. Save your choices as a template for next season."),
+    ("id", "Register", "Register", "Every design, colour-and-size and serialised item gets its ADID, and you get the full list back."),
+    ("print", "Print", "Print the QR on the label", "Put the ADID address into the QR code on the hang tag or care label."),
+    ("edit", "Update", "Keep it up to date", "Correct a detail at any time. A new revision is saved and the printed address keeps working."),
+  ]),
+  ("shopper", "Shopper", "You are holding a garment and want to know what it is made of and where.", [
+    ("scan", "Scan", "Scan the QR on the label", "Any phone camera works. No app and no account."),
+    ("link", "Open", "The address opens its passport", "The ADID in the QR leads straight to the record for that exact colour and size, or that exact shirt."),
+    ("read", "Read", "Read the public details", "Fibre, origin, care, recycled content, carbon footprint and the documents the maker published."),
+    ("search", "Explore", "See its other colours and sizes", "Step to the rest of the design, or to similar products from other makers."),
+  ])
+] %}
 <section class="page">
-  <div class="wrap" style="max-width:980px">
+  <div class="wrap" style="max-width:1080px">
     <div class="page-head">
       <h1>How it works</h1>
-      <p class="lead muted" style="font-size:1.1rem">ADIF has three research contributions: an identity model (ADID), a canonical data model (CDM) and a hybrid interoperability gateway. This website is a demonstration built on top of them.</p>
+      <p class="lead muted" style="font-size:1.1rem">Choose who you are to see your path through ADIF.</p>
     </div>
 
-    <div class="panel" id="adid">
-      <h2>1. ADID: identity and hierarchical resolution</h2>
-      <p>An ADID addresses one of three levels, and the path depth gives the level.</p>
+    {# ------------------------------------------------------------ roles #}
+    <div class="journeys" data-journeys>
+      <div class="role-pick" role="tablist" aria-label="Who are you?">
+        {% for key, name, who, steps in journeys %}
+        <button type="button" role="tab" class="role" data-role="{{ key }}" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="j-{{ key }}">
+          <svg viewBox="-14 -14 28 28" aria-hidden="true"><path d="{{ ic[steps[0][0]] }}"/></svg>
+          <b>{{ name }}</b><span>{{ who }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      {% for key, name, who, steps in journeys %}
+      <div class="journey panel" id="j-{{ key }}" data-journey="{{ key }}" role="tabpanel" {% if not loop.first %}hidden{% endif %}>
+        <div class="j-head">
+          <h2>As a {{ name|lower }}</h2>
+          <button type="button" class="btn btn-quiet btn-s" data-play>Play the journey</button>
+        </div>
+        <div class="j-flow"></div>
+        <ol class="j-steps">
+          {% for icon, short, title, text in steps %}
+          <li data-icon="{{ ic[icon] }}" data-short="{{ short }}" tabindex="0"><b>{{ title }}</b><span>{{ text }}</span></li>
+          {% endfor %}
+        </ol>
+        {% if key == 'maker' %}<div class="row-actions"><a class="btn btn-thread" href="{% if user %}/portal/upload{% else %}/signup{% endif %}">{% if user %}Upload a file{% else %}Request an account{% endif %}</a></div>
+        {% elif key == 'shopper' and show %}<div class="row-actions"><a class="btn btn-thread" href="{{ show.variants[1].path if show.variants|length > 1 else show.family.path }}">Open an example passport</a></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    {# ------------------------------------------------- what happens to data #}
+    <div class="panel datajourney" id="your-data">
+      <h2>What happens to the details you upload</h2>
+      <p>Here is one row of Lanka Threads' sheet going through the registry. Each column is matched to a passport field, then filed at the level it describes and shown only to the people allowed to see it.</p>
+      <div class="pipeline" data-pipeline>
+        <ul class="cols-in" aria-label="Columns in the uploaded sheet">
+          {% for col, field, to in [
+            ("Design Code", "Style", "design"),
+            ("Colour", "Colour", "variant"),
+            ("Size", "Size", "variant"),
+            ("GTIN", "Barcode", "variant"),
+            ("Fabric Composition", "Fibre", "variant"),
+            ("Carbon Footprint", "Carbon footprint", "variant"),
+            ("Serial Number", "Serial number", "item"),
+            ("Facility ID", "Factory", "private"),
+            ("Batch", "Batch", "private"),
+            ("Unit Price (USD)", "No matching field", "dropped"),
+          ] %}
+          <li data-col="{{ col }}" data-field="{{ field }}" data-to="{{ to }}"><span class="mono">{{ col }}</span></li>
+          {% endfor %}
+        </ul>
+        <div class="gate" aria-hidden="true">
+          <svg viewBox="0 0 60 200"><path d="M6 20 L54 100 L6 180" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="54" cy="100" r="5" fill="currentColor"/></svg>
+          <span>matched and confirmed</span>
+        </div>
+        <div class="bins">
+          <div class="bin b-design" data-bin="design"><h3>The design</h3><p>Public, shared by every variant</p><ul class="bin-items"></ul></div>
+          <div class="bin b-variant" data-bin="variant"><h3>Each colour and size</h3><p>Public</p><ul class="bin-items"></ul></div>
+          <div class="bin b-item" data-bin="item"><h3>Each shirt</h3><p>Opens by scan, never listed</p><ul class="bin-items"></ul></div>
+          <div class="bin b-private" data-bin="private"><h3>Private</h3><p>Manufacturer and authorities only</p><ul class="bin-items"></ul></div>
+          <div class="bin b-dropped" data-bin="dropped"><h3>Not stored</h3><p>Columns you leave unmatched</p><ul class="bin-items"></ul></div>
+        </div>
+        <button type="button" class="btn btn-quiet btn-s run" data-run>Play</button>
+      </div>
+
+      <div class="facts">
+        <div><h3>Your file</h3><p>Read into memory so you can review the matches. It is not kept as a file, and an unfinished review expires after two hours.</p></div>
+        <div><h3>What is kept</h3><p>Only the columns you confirm, stored in the registry database as passport records. Prices, stock levels and anything else you leave unmatched are dropped.</p></div>
+        <div><h3>Changes</h3><p>An edit saves a new revision; earlier ones stay in the history. Nothing is deleted. A withdrawn product shows a notice instead of its details, and its address is never reused.</p></div>
+        <div><h3>Seals</h3><p>Every revision carries a fingerprint of the one before it, so an edit made outside the registry is detected.</p></div>
+        <div><h3>Who sees what</h3><p>The public sees product, sustainability and compliance details. Supply-chain and production details are visible only to you and to authorities. A new field is private until it is classified.</p></div>
+        <div><h3>Accounts</h3><p>Passwords are stored as salted hashes. Sign-ins, uploads and registrations are written to an access log.</p></div>
+      </div>
+
+      <table class="table who-sees">
+        <caption class="sr-only">Who can see each kind of information</caption>
+        <tr><th>Information</th><th>Public</th><th>Manufacturer</th><th>Authorities</th></tr>
+        <tr><td>Product: style, colour, size, fibre, origin, care, barcode</td><td class="y">Yes</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+        <tr><td>Sustainability and compliance documents</td><td class="y">Yes</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+        <tr><td>Serial number of one shirt</td><td class="y">By scan only</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+        <tr><td>Supply chain: factory, other operators, due diligence</td><td class="n">No</td><td class="y">Own products</td><td class="y">Yes</td></tr>
+        <tr><td>Production: batch, production date, purchase order</td><td class="n">No</td><td class="y">Own products</td><td class="y">Yes</td></tr>
+        <tr><td>Revision history</td><td class="n">No</td><td class="y">Own products</td><td class="y">Yes</td></tr>
+      </table>
+    </div>
+
+    {# ------------------------------------------------------- under the hood #}
+    <h2 style="margin:48px 0 16px">Under the hood</h2>
+    <details class="panel hood" id="adid" open>
+      <summary><h3>ADID: identity and hierarchical resolution</h3></summary>
       <table class="kv">
         <tr><th>Family (the garment design)</th><td class="mono small">/adid/{familyUUID}</td></tr>
-        <tr><th>Variant (one colour and size)</th><td class="mono small">/adid/{familyUUID}/white_xs</td></tr>
-        <tr><th>Instance (one physical garment)</th><td class="mono small">/adid/{familyUUID}/white_xs/{instanceUUID}</td></tr>
+        <tr><th>Variant (one colour and size)</th><td class="mono small">/adid/{familyUUID}/ocean-blue_m</td></tr>
+        <tr><th>Instance (one physical garment)</th><td class="mono small">/adid/{familyUUID}/ocean-blue_m/{instanceUUID}</td></tr>
       </table>
       <p style="margin-top:14px">The family and instance segments are random version-4 UUIDs, so they are globally unique and carry no product details. The variant segment is the colour and size, issued at registration and unique within its family. The variant also has its own UUID, kept in its record.</p>
-      <p>Each ADID is issued once and is not reassigned. A later correction to colour, size or any other detail creates a new revision of the record, and the address stays the same. Barcodes (GTIN, and GTIN plus serial) are stored as other names for the same record and open it through <span class="mono">/01/{gtin}</span>. Batch numbers are passport data rather than part of the address. The manufacturer and authorities can list everything recorded under one lot.</p>
+      <p>Each ADID is issued once and is not reassigned. A later correction to colour, size or any other detail creates a new revision of the record, and the address stays the same. Barcodes (GTIN, and GTIN plus serial) are stored as other names for the same record and open it through <span class="mono">/01/{gtin}</span>. Batch numbers are passport data rather than part of the address.</p>
       <p class="small muted">Status: this is ADID v2, a proposed post-freeze design. The evaluated specification is v1.0 (style code, colour and size, serial), and its grammar file is unchanged. Every v2 address is also valid under the v1.0 path grammar.</p>
-    </div>
+    </details>
 
-    <div class="panel" id="cdm">
-      <h2>2. CDM: canonical product data</h2>
+    <details class="panel hood" id="cdm">
+      <summary><h3>CDM: canonical product data</h3></summary>
       <p>The CDM has 54 passport fields drawn from the EU Ecodesign Regulation (2024/1781, Annex III and Articles 5 and 7), GS1 EPCIS 2.0, the UN Transparency Protocol and the EU textile-labelling regulation (1007/2011). Each field records the clause it comes from. Four are required: style, product identifier, manufacturer operator ID and fibre composition. The vocabulary is versioned and governed separately; manufacturers cannot change it from this site.</p>
       <p>Passports are written as JSON-LD. A variant's passport includes its family's details, and an instance's passport includes its family's and variant's details.</p>
-    </div>
+    </details>
 
-    <div class="panel" id="gateway">
-      <h2>3. Gateway: from a factory's spreadsheet to the CDM</h2>
-      <p>Each column in an upload passes through up to four matching stages, stopping at the first that is confident enough.</p>
+    <details class="panel hood" id="gateway">
+      <summary><h3>Gateway: from a factory's spreadsheet to the CDM</h3></summary>
+      <p>Each column passes through up to four matching stages, stopping at the first that is confident enough.</p>
       <ol class="steps" style="grid-template-columns:repeat(4,1fr)">
         <li><h3>Known names</h3><p>An exact match against a curated list of column names factories use for each field.</p></li>
         <li><h3>Similar spelling</h3><p>Typos and reordered words, accepted at a score of 85 or more out of 100.</p></li>
@@ -37,13 +158,13 @@
         <li><h3>Looks like the values</h3><p>Country codes, barcodes, customs codes and fibre names, accepted at 75 or more.</p></li>
       </ol>
       <p style="margin-top:18px">Each match gets a confidence calibrated on example files with known answers, and anything below 0.96 is flagged for a person to check. Confirmed choices can be saved as a template; saving under an existing name adds a revision and keeps the earlier ones.</p>
-    </div>
+    </details>
 
-    <div class="panel" id="evaluation">
-      <h2>What has been measured</h2>
-      <h3>The gateway (held-out files, evaluated version v1.0, frozen 10 October 2026)</h3>
+    <details class="panel hood" id="evaluation">
+      <summary><h3>What has been measured</h3></summary>
+      <h4>The gateway (held-out files, evaluated version v1.0, frozen 10 October 2026)</h4>
       <p>Column-matching accuracy (F1) rose from 0.54 with spelling similarity alone to 0.63 with all four stages. Confidence calibration error was 0.054, against a target of 0.10. The accuracy target of 0.85 was not met; that is reported as a finding. Two of the three test files were compiled rather than taken from a factory, and none came from a Sri Lankan manufacturer. The evaluation is controlled and synthetic: it shows that the prototype works and how the matching methods compare, not how it would perform in real Sri Lankan factories.</p>
-      <h3 style="margin-top:22px">ADID v2 resolution (synthetic catalogue, 3,632 records, 12 October 2026)</h3>
+      <h4 style="margin-top:22px">ADID v2 resolution (synthetic catalogue, 3,632 records, 12 October 2026)</h4>
       <table class="table">
         <tr><th>What was tested</th><th>Result</th></tr>
         <tr><td>Printed addresses unchanged after colour or size corrections</td><td>704 of 704 v2 addresses, against 0 of 528 v1.0 addresses</td></tr>
@@ -54,10 +175,10 @@
         <tr><td>Search time at about 38,000 records</td><td>About 2 milliseconds</td></tr>
       </table>
       <p class="small muted" style="margin-top:12px">Several of these results follow from the design and confirm that the software behaves as specified: random IDs do not collide, a hash chain catches edits, and v1.0 addresses change because they contain colour and size. The catalogue is generated, not factory data. The spelling variations were written by the same person who wrote the matching, so the 97% shows that capitals, spaces and hyphens are handled, not every spelling. "Grey" and "Gray" are still missed. Timings are from a development machine.</p>
-    </div>
+    </details>
 
-    <div class="panel">
-      <h2>What this prototype does not claim</h2>
+    <details class="panel hood">
+      <summary><h3>What this prototype does not claim</h3></summary>
       <ul>
         <li>It is not a legally designated DPP service, registry or authority, and it is not an official standard. <span class="mono">id.adir.example</span> is an example host.</li>
         <li>It does not imply certification or compliance with any regulation. The textile delegated act under the Ecodesign Regulation is not yet adopted.</li>
@@ -68,8 +189,9 @@
         <li>No conformance with EN 18219 (DPP unique identifiers) or GS1 Digital Link is claimed. Barcodes are supported as linked identifiers.</li>
         <li>Account approval on this site is prototype governance, not official accreditation. Passwords and API keys are used, not digital signatures. The revision seals detect edits; they do not stop an operator with database access from rewriting a whole history consistently.</li>
         <li>The site has prototype safeguards (hashed passwords, form tokens, sign-in throttling, upload limits, expiring uploads and an access log). It has not had a security assessment and is not presented as secure for production use.</li>
+        <li>The example products, including Lanka Threads and the Ceylon Breeze Crew Tee, are invented example data.</li>
       </ul>
-    </div>
+    </details>
   </div>
 </section>
 {% endblock %}

@@ -67,6 +67,57 @@ HERE = Path(__file__).parent
 LOCKED_FIELDS = {"gtin", "serialNumber", "batchNumber", "productFamily"}
 KIND_NAMES = {"family": "Family", "variant": "Variant", "instance": "Instance"}
 KIND_PLURAL = {"family": "Families", "variant": "Variants", "instance": "Instances"}
+#: Category shortcuts on the registry page.
+SIZE_ORDER = ("XXS", "XS", "S", "M", "L", "XL", "XXL", "3XL")
+BROWSE_CATEGORIES = ("T-shirt", "Polo shirt", "Hoodie", "Dress", "Trousers", "Shorts")
+
+#: Display colours for colour names used in uploads (matched loosely, see colour_hex).
+_COLOUR_HEX = {
+    "oceanblue": "#1F6E9C", "coconutwhite": "#F3EFE4", "cinnamon": "#A8592A", "navy": "#24365F",
+    "sand": "#D8C49C", "black": "#22242A", "white": "#FBFAF7", "offwhite": "#F1ECE0", "olive": "#6B7340",
+    "skyblue": "#86B9E0", "lightblue": "#A9CBE8", "charcoal": "#45484F", "maroon": "#702433",
+    "burgundy": "#6B1F33", "grey": "#9A9C9F", "gray": "#9A9C9F", "blue": "#2F64B0", "green": "#3F7A4F",
+    "red": "#C23B3B", "teal": "#1F7D7A", "coral": "#E57A63", "beige": "#D9C7A7", "pink": "#E6A3B8",
+    "yellow": "#E8C547", "brown": "#7A5133", "orange": "#E07B2E", "purple": "#6A4C93",
+}
+
+
+def colour_hex(name: Any) -> str:
+    """A display colour for a colour name however it was spelt ("NAVY-BLUE", "Navy")."""
+    from src.registry.store import normalise_facet
+
+    key = normalise_facet(name or "")
+    if key in _COLOUR_HEX:
+        return _COLOUR_HEX[key]
+    for word, hexv in sorted(_COLOUR_HEX.items(), key=lambda kv: -len(kv[0])):
+        if word in key:
+            return hexv
+    return "#C9C6BF"
+
+
+#: Design code of the worked example registered by ``scripts.seed_demo``.
+SHOWCASE_FAMILY = "CB-TEE-01"
+
+
+def qr_path(text: str) -> dict[str, Any]:
+    """A real, scannable QR code as one SVG path (unit = one module)."""
+    try:
+        import segno
+    except ImportError:  # optional: the label falls back to a plain frame
+        return {"d": "", "size": 0}
+    qr = segno.make(text, error="m")
+    d = []
+    for y, row in enumerate(qr.matrix):
+        x = 0
+        while x < len(row):
+            if row[x]:
+                start = x
+                while x < len(row) and row[x]:
+                    x += 1
+                d.append(f"M{start} {y}h{x - start}v1h-{x - start}z")
+            else:
+                x += 1
+    return {"d": "".join(d), "size": len(qr.matrix)}
 
 
 @dataclass
@@ -140,6 +191,7 @@ def create_web_app(
         return ent.path if ent is not None and ent.path else f"/adid/{adid}"
 
     templates.env.filters["href"] = href
+    templates.env.filters["colour_hex"] = colour_hex
 
     def engine():
         if engine_getter is not None:
@@ -248,15 +300,69 @@ def create_web_app(
             out[kind] = ids[0] if ids else None
         return out
 
+    def showcase(base_url: str) -> dict[str, Any] | None:
+        """The worked example on the home page: one registered design and its variants."""
+        fams = node.store.search({"productFamily": SHOWCASE_FAMILY}, kinds=["family"], limit=1)
+        if not fams:
+            return None
+        fam = node.store.get(fams[0])
+        variants, lots = [], {}
+        for _, vid in node.store.related(fam.adid, "variantOf", "in"):
+            v = node.store.get(vid)
+            if v is None or v.status != "active":
+                continue
+            items = []
+            for _, iid in node.store.related(vid, "instanceOf", "in"):
+                inst = node.store.get(iid)
+                if inst is not None and inst.status == "active":
+                    items.append({"path": inst.path, "serial": inst.metadata.get("serialNumber", ""),
+                                  "uuid": inst.adid, "qr": qr_path(base_url.rstrip("/") + inst.path)})
+            batch = v.metadata.get("batchNumber")
+            if isinstance(batch, list):
+                batch = batch[0] if batch else None
+            if batch:
+                lots.setdefault(str(batch), []).append(v.path)
+            variants.append({"path": v.path, "segment": v.path.rsplit("/", 1)[-1],
+                             "colour": v.metadata.get("colour", ""), "size": v.metadata.get("size", ""),
+                             "gtin": (v.alt_ids.get("gtin") or [""])[0], "batch": batch, "items": items,
+                             "qr": qr_path(base_url.rstrip("/") + v.path)})
+        if not variants:
+            return None
+        colours = list(dict.fromkeys(v["colour"] for v in variants))
+        sizes = list(dict.fromkeys(v["size"] for v in variants))
+        similar = 0
+        try:
+            first = variants[0]
+            similar = len(node.store.search({"productCategory": fam.metadata.get("productCategory", ""),
+                                             "colour": first["colour"]}, kinds=["variant"], limit=50))
+        except RegistryError:
+            pass
+        live = base_url.rstrip("/") + fam.path
+        return {"family": fam, "variants": variants, "colours": colours, "sizes": sizes,
+                "lots": lots, "qr": qr_path(live), "live_url": live,
+                "item_count": sum(len(v["items"]) for v in variants), "similar": similar}
+
+    def public_base(request: Request) -> str:
+        """The site's own address, for QR codes (https behind a hosting proxy)."""
+        configured = os.environ.get("ADIF_PUBLIC_URL", "").strip()
+        if configured:
+            return configured.rstrip("/")
+        base = str(request.base_url).rstrip("/")
+        host = request.url.hostname or ""
+        if base.startswith("http://") and host not in ("localhost", "127.0.0.1", "testserver"):
+            base = "https://" + base[len("http://"):]
+        return base
+
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)
     def home(request: Request):
         counts = {k: node.store.count(k) for k in ("family", "variant", "instance")}
-        ex_variant = node.store.get(example_ids()["variant"]) if example_ids()["variant"] else None
-        return render(request, "home.html", counts=counts, examples=example_ids(), ex_variant=ex_variant)
+        counts["manufacturers"] = len(node.store.registrars_with_entities())
+        return render(request, "home.html", counts=counts, examples=example_ids(),
+                      show=showcase(public_base(request)))
 
     @app.get("/how-it-works", response_class=HTMLResponse, include_in_schema=False)
     def how(request: Request):
-        return render(request, "how.html")
+        return render(request, "how.html", show=showcase(public_base(request)))
 
     @app.get("/registry", response_class=HTMLResponse, include_in_schema=False)
     def registry_page(request: Request, q: str = ""):
@@ -286,13 +392,31 @@ def create_web_app(
             item = summary(node, e)
             with node.store._lock:
                 meta = node.store._inherited_metadata(node.store._conn, a)
+            if not meta.get("productCategory"):
+                continue  # browse lists categorised products only; direct lookup still finds the rest
+            colours, sizes = [], []
+            if e.kind == "family":
+                variant_ids = [v for _, v in node.store.related(a, "variantOf", "in")]
+                for vid in variant_ids:
+                    v = node.store.get(vid)
+                    if v is not None and v.status == "active":
+                        colours.append(str(v.metadata.get("colour", "")))
+                        sizes.append(str(v.metadata.get("size", "")))
+            else:
+                variant_ids = []
+                colours, sizes = [str(meta.get("colour", ""))], [str(meta.get("size", ""))]
             item.update({"design": meta.get("productFamily"), "category": meta.get("productCategory"),
-                         "manufacturer": e.registrar, "fibre": meta.get("fibreComposition"),
-                         "versions": len(node.store.related(a, "variantOf", "in")) if e.kind == "family" else None})
+                         "manufacturer": e.registrar, "maker": meta.get("manufacturerName") or e.registrar,
+                         "fibre": meta.get("fibreComposition"), "origin": meta.get("countryOfOrigin"),
+                         "colours": list({colour_hex(c): c for c in reversed(colours) if c}.values())[::-1],
+                         "sizes": [z for z in SIZE_ORDER if z in {x.strip().upper() for x in sizes}]
+                                  + sorted({x.strip().upper() for x in sizes if x} - set(SIZE_ORDER)),
+                         "versions": len(variant_ids) if e.kind == "family" else None})
             results.append(item)
+        category = filters.get("productCategory", "")
         return render(request, "registry.html", q=q, not_found=bool(q), filters=filters, kind=kind,
-                      manufacturer=manufacturer or "", results=results,
-                      facet_fields=searchable)
+                      manufacturer=manufacturer or "", results=results, category=category,
+                      categories=BROWSE_CATEGORIES, facet_fields=searchable)
 
     @app.get("/id/{adid}/v/{version}", response_class=HTMLResponse, include_in_schema=False)
     def old_version(request: Request, adid: str, version: int):
@@ -731,6 +855,20 @@ def build() -> FastAPI:
     web = raw.get("web", {})
     node = node_from_config(CONFIG)
     secure = bool(web.get("secure_cookies", False)) or os.environ.get("ADIR_SECURE_COOKIES") == "1"
+    if os.environ.get("ADIF_AUTOSEED", "1") != "0" and node.store.count() == 0:
+        # A fresh online database: register the demonstration catalogue in the
+        # background, so the site answers at once and fills within a minute.
+        import threading
+
+        def _seed() -> None:
+            try:
+                from scripts.seed_demo import main as seed_main
+                # Never the published default password on a reachable server.
+                seed_main(["--password", os.environ.get("ADIF_DEMO_PASSWORD") or secrets.token_urlsafe(18)])
+            except Exception as exc:  # never take the site down over demo data
+                print(f"[adif] demo seeding failed: {exc!r}", flush=True)
+
+        threading.Thread(target=_seed, name="adif-seed", daemon=True).start()
     return create_web_app(
         node,
         AccountStore(web.get("accounts_db", "var/adir_web.sqlite")),

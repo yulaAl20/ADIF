@@ -20,6 +20,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
+from src.dbconn import connect
 from src.identity.adid import AdidError, slugify
 from src.registry.policy import Principal, Role
 
@@ -83,7 +84,7 @@ class AccountStore:
         db = str(db_path)
         if db != ":memory:":
             Path(db).parent.mkdir(parents=True, exist_ok=True)
-        self._conn = sqlite3.connect(db, check_same_thread=False, isolation_level=None)
+        self._conn = connect(db)
         self._conn.executescript(_SCHEMA)
         self._lock = threading.RLock()
 

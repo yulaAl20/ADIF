@@ -4,7 +4,7 @@
 
 node:
   node_id: lk-1                 # this registry node
-  operator: "Demo registry operator (Sri Lanka)"
+  operator: "ADIF registry operator (Sri Lanka)"
   base_url: http://127.0.0.1:8100
   db: var/adir_node_lk-1.sqlite
 

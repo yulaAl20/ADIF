@@ -2,17 +2,14 @@
 {% from "_thumbs.html" import thumb %}
 {% block title %}Apparel DPP Interoperability Framework{% endblock %}
 {% block main %}
-{% set fam = (ex_variant.path.split('/')[2] if ex_variant and ex_variant.path else "3f2b9c1e-7d4a-4c1e-9b2f-0a6e5d1c8b42") %}
-{% set vseg = (ex_variant.path.split('/')[3] if ex_variant and ex_variant.path else "white_xs") %}
-{% set inst = "9c41d2e0-5b7a-4f3e-8a21-6d0b4c7e1f90" %}
-{% set fp = fam.split('-') %}
+{% set dye = {"ocean blue": "#1F6E9C", "coconut white": "#F3EFE4", "cinnamon": "#A8592A"} %}
 
 <section class="strip">
   <div class="wrap">
     <span class="mono">Look up a product by its ADID, its barcode or its style code</span>
     <form class="lookup" action="/registry" method="get" role="search">
       <label class="sr-only" for="strip-q">ADID, barcode or style code</label>
-      <input id="strip-q" name="q" placeholder="5941234000013 or demoknit/ts-1000">
+      <input id="strip-q" name="q" placeholder="4791000000027 or lankathreads/cb-tee-01/ocean-blue_m">
       <button class="btn btn-thread" type="submit">Look up</button>
     </form>
   </div>
@@ -22,7 +19,7 @@
   <div class="wrap">
     <div>
       <h1>A structured, vendor-neutral address for every apparel product.</h1>
-      <p class="lead">ADIF turns a factory's existing product spreadsheet into Digital Product Passport records. It gives each garment family, colour-and-size variant and individual item an Apparel DPP Identity (ADID) that resolves to its passport.</p>
+      <p class="lead">ADIF turns a factory's existing product spreadsheet into Digital Product Passport records. Each garment design, each colour and size, and each individual item gets an Apparel DPP Identity (ADID) that opens its passport.</p>
       <div class="actions">
         <a class="btn btn-thread" href="/registry">Browse the registry</a>
         <a class="btn btn-line" href="{% if user %}/portal{% else %}/login?next=/portal{% endif %}">Register your products</a>
@@ -35,15 +32,20 @@
         <path d="M78 54 H322 L376 108 V512 Q376 526 362 526 H38 Q24 526 24 512 V108 Z" fill="none" stroke="#D6D2CB" stroke-width="1" stroke-dasharray="3 4" transform="translate(200 290) scale(.94) translate(-200 -290)"/>
         <circle cx="200" cy="96" r="15" fill="#ECEAE6" stroke="#CFCAC2" stroke-width="2"/>
         <path d="M200 96 C 204 60, 248 26, 312 4" fill="none" stroke="#D6455A" stroke-width="2.2" stroke-linecap="round"/>
-        <text x="200" y="152" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="15" font-weight="600" fill="#1D1F24">Apparel DPP Identity</text>
-        <g transform="translate(118 176) scale(6.56)" fill="#1D1F24">{% include "_qr_path.html" %}</g>
-        <text x="200" y="378" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="13" fill="#67645D">id.adir.example/adid/</text>
-        <text x="200" y="404" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="16" fill="#2E4A7D">{{ fp[0] }}-{{ fp[1] }}-{{ fp[2] }}</text>
-        <text x="200" y="428" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="16" fill="#2E4A7D">{{ fp[3] }}-{{ fp[4] }}/{{ vseg }}</text>
-        <line x1="70" x2="330" y1="458" y2="458" stroke="#D6D2CB"/>
-        <text x="200" y="488" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="13" fill="#67645D">Scan for this product's passport</text>
+        <text x="200" y="150" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="15" font-weight="600" fill="#1D1F24">{% if show %}Ceylon Breeze Crew Tee{% else %}Apparel DPP Identity{% endif %}</text>
+        {% if show and show.qr.size %}
+        <g transform="translate({{ 200 - 82 }} 168) scale({{ 164 / show.qr.size }})" fill="#1D1F24"><path d="{{ show.qr.d }}"/></g>
+        {% else %}
+        <rect x="118" y="168" width="164" height="164" rx="6" fill="none" stroke="#D6D2CB" stroke-dasharray="4 4"/>
+        {% endif %}
+        <text x="200" y="372" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="13" fill="#67645D">{{ resolver.replace('https://', '') }}/adid/</text>
+        {% set fam_id = show.family.adid if show else "3f2b9c1e-7d4a-4c1e-9b2f-0a6e5d1c8b42" %}
+        <text x="200" y="398" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="16" fill="#2E4A7D">{{ fam_id[:23] }}</text>
+        <text x="200" y="422" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="16" fill="#2E4A7D">{{ fam_id[23:] }}</text>
+        <line x1="70" x2="330" y1="456" y2="456" stroke="#D6D2CB"/>
+        <text x="200" y="486" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="13" fill="#67645D">{% if show %}Scan with your phone: it opens the live passport{% else %}Scan for this product's passport{% endif %}</text>
       </svg>
-      <figcaption class="sr-only">Illustration. The pattern is decorative, not a working QR code.</figcaption>
+      <figcaption class="sr-only">{% if show %}A working QR code for the registered example design.{% else %}Illustration.{% endif %}</figcaption>
     </figure>
   </div>
 </section>
@@ -52,7 +54,6 @@
   <div class="wrap">
     <div class="section-head">
       <h2 id="contrib-h">Three parts, one framework</h2>
-      <p>These are the research contributions. This website demonstrates them.</p>
     </div>
     <div class="grid3">
       {% for k, title, tags, anchor in [
@@ -70,29 +71,80 @@
   </div>
 </section>
 
-<section class="formula" aria-labelledby="formula-h">
+{# ------------------------------------------------------------------ ADID banner #}
+<section class="adid-banner" aria-labelledby="banner-h">
   <div class="wrap">
-    <div class="formula-card">
-      <h2 id="formula-h">How an ADID is put together</h2>
-      <p class="muted">Path depth gives the level: one segment after <span class="mono">/adid/</span> is a family, two is a variant, three is a single item. Fibre, origin, care and the other details are not in the address. They live in the passport record that the address opens.</p>
-      <div class="uri" aria-label="Anatomy of an ADID address">
-        <div class="uri-part host"><span class="seg">https://id.adir.example/adid/</span><span class="anno"><b>Resolver</b>The registry host that answers the address.</span></div>
-        <div class="uri-part id"><span class="seg" data-adid-text>{{ fp[0] }}-{{ fp[1] }}-<span class="v4">{{ fp[2][0] }}</span>{{ fp[2][1:] }}-{{ fp[3] }}-{{ fp[4] }}</span><span class="anno"><b>Family</b>A random UUID issued once per garment design. The highlighted 4 marks a version-4 UUID: random, with no product details in it.</span></div>
-        <div class="uri-part type"><span class="seg">/{{ vseg }}</span><span class="anno"><b>Variant</b>Colour and size, issued at registration and unique within the family. Its own UUID is kept in the record.</span></div>
-        <div class="uri-part type"><span class="seg">/{{ inst }}</span><span class="anno"><b>Instance</b>One physical garment, given a random UUID. Its serial number and barcode are kept in the record.</span></div>
-      </div>
-      <div class="formula-foot">
-        <div class="equation">
-          family <span>=</span> /adid/ <span>+</span> UUID<br>
-          variant <span>=</span> family <span>+</span> /colour_size<br>
-          instance <span>=</span> variant <span>+</span> /UUID
+    {% if show %}
+    <div class="banner-grid" data-showcase>
+      <div class="banner-copy">
+        <p class="banner-kicker">A real example, registered in this registry</p>
+        <h2 id="banner-h">One T-shirt. Nine variants. Every one with an address for life.</h2>
+        <p class="banner-lead">Lanka Threads makes the <b>Ceylon Breeze Crew Tee</b> (style {{ show.family.metadata.productFamily }}) in {{ show.colours|length }} colours and {{ show.sizes|length }} sizes. Registering their product sheet gave the design one ADID, each colour-and-size combination its own ADID, and each serialised shirt an ADID of its own. Pick one below.</p>
+
+        <div class="picker" role="group" aria-label="Choose a colour">
+          <span class="picker-label">Colour</span>
+          {% for c in show.colours %}
+          <button type="button" class="swatch" data-colour="{{ c }}" aria-pressed="{{ 'true' if loop.first else 'false' }}" style="--dye: {{ dye.get(c|lower, '#888') }}"><span></span>{{ c }}</button>
+          {% endfor %}
         </div>
-        <div class="row-actions">
-          <button class="btn btn-quiet" type="button" data-mint>Generate a family UUID</button>
-          <span class="small muted">Generated in your browser: <span data-mint-count>0</span> so far.</span>
+        <div class="picker" role="group" aria-label="Choose a size">
+          <span class="picker-label">Size</span>
+          {% for s in show.sizes %}
+          <button type="button" class="chip" data-size="{{ s }}" aria-pressed="{{ 'true' if s == 'M' or (loop.first and 'M' not in show.sizes) else 'false' }}">{{ s }}</button>
+          {% endfor %}
+        </div>
+        <div class="picker" role="group" aria-label="Choose a single garment">
+          <span class="picker-label">One shirt</span>
+          <button type="button" class="chip chip-wide" data-item aria-pressed="false">Pick a serialised shirt</button>
+          <span class="picker-note" data-item-note></span>
+        </div>
+
+        <div class="address" aria-live="polite">
+          <span class="a-host">{{ resolver.replace('https://', '') }}/adid/</span><span class="a-fam">{{ show.family.adid }}</span><span class="a-var" data-a-var></span><span class="a-item" data-a-item></span>
+        </div>
+        <ul class="address-key">
+          <li class="k-fam"><b>The design</b>Same for all {{ show.variants|length }} variants. Random, so it reveals nothing.</li>
+          <li class="k-var"><b>Colour and size</b><span data-k-var>Issued once. A later spelling fix does not change it.</span></li>
+          <li class="k-item"><b>This one shirt</b><span data-k-item>Only serialised garments have this part.</span></li>
+        </ul>
+        <div class="row-actions" style="margin-top:22px">
+          <a class="btn btn-thread" data-open href="{{ show.family.path }}">Open this passport</a>
+          <a class="btn btn-line-light" href="{{ show.family.path }}">See the whole design</a>
         </div>
       </div>
+
+      <figure class="banner-tag" aria-label="Hang tag for the chosen variant">
+        <svg viewBox="0 0 360 500" xmlns="http://www.w3.org/2000/svg">
+          <path d="M70 40 H290 L340 90 V476 Q340 488 328 488 H32 Q20 488 20 476 V90 Z" fill="#FAF9F7"/>
+          <circle cx="180" cy="80" r="12" fill="#1B2733"/>
+          <path d="M180 80 C 184 48, 222 18, 300 0" fill="none" stroke="#D6455A" stroke-width="2.4" stroke-linecap="round"/>
+          <g transform="translate(110 104) scale(1.4)">
+            <path data-tee d="M30 15 L42 10 Q50 17 58 10 L70 15 L86 31 L75 41 L68 35 L68 88 L32 88 L32 35 L25 41 L14 31 Z" fill="#1F6E9C" stroke="#1D1F24" stroke-opacity=".25" stroke-width="1"/>
+          </g>
+          <text x="180" y="252" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#1D1F24">Ceylon Breeze Crew Tee</text>
+          <text x="180" y="274" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="14" fill="#67645D" data-tag-line>Ocean Blue, size M</text>
+          <g data-qr transform="translate(124 290)"></g>
+          <text x="180" y="424" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#67645D" data-tag-gtin>GTIN</text>
+          <text x="180" y="446" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="12" fill="#67645D">100% organic cotton · Made in Sri Lanka</text>
+        </svg>
+        <figcaption>The QR on the tag is real. Scan it with your phone.</figcaption>
+      </figure>
     </div>
+
+    <ol class="family-tree" aria-label="What was registered for this design">
+      <li><b>1</b><span>design</span></li>
+      <li><b>{{ show.colours|length }} × {{ show.sizes|length }}</b><span>colours × sizes</span></li>
+      <li><b>{{ show.variants|length }}</b><span>variants, each with its own barcode</span></li>
+      <li><b>{{ show.item_count }}</b><span>serialised shirts</span></li>
+      <li><b>{{ show.lots|length }}</b><span>production lots, kept private</span></li>
+    </ol>
+    <script type="application/json" id="showcase-data">{{ show.variants|tojson }}</script>
+    {% else %}
+    <div class="banner-copy">
+      <h2 id="banner-h">One design. Many variants. Every one with an address for life.</h2>
+      <p class="banner-lead">The worked example is still being registered. Reload in a minute to explore it.</p>
+    </div>
+    {% endif %}
   </div>
 </section>
 
@@ -100,16 +152,16 @@
   <div class="wrap">
     <div class="section-head">
       <h2 id="levels-h">Three identity levels</h2>
-      <p>The same levels as the research specification, linked in the registry.</p>
+      <p>Linked in the registry, so each one leads to the others.</p>
     </div>
     <div class="grid3">
       {% for k, title, tags, ex in [
-        ('family', 'Family', ['Public', 'Lists its variants'], examples.family),
-        ('variant', 'Variant', ['Public', 'Linked to its barcode'], examples.variant),
+        ('family', 'Family', ['Public', 'Lists its variants'], (show.family.adid if show else examples.family)),
+        ('variant', 'Variant', ['Public', 'Linked to its barcode'], (show.variants[1].path if show and show.variants|length > 1 else examples.variant)),
         ('instance', 'Instance', ['Opens by scan', 'Not listed publicly'], None),
       ] %}
       <article>
-        {% if ex %}<a class="shot" href="{{ ex|href }}" aria-label="See an example {{ title|lower }} record">{{ thumb(k) }}</a>{% else %}<span class="shot">{{ thumb(k) }}</span>{% endif %}
+        {% if ex %}<a class="shot" href="{{ ex if ex.startswith('/') else ex|href }}" aria-label="See an example {{ title|lower }} record">{{ thumb(k) }}</a>{% else %}<span class="shot">{{ thumb(k) }}</span>{% endif %}
         <div class="card-meta"><div><h3>{{ title }}</h3><div class="tags">{% for t in tags %}<span>{{ t }}</span>{% endfor %}</div></div></div>
       </article>
       {% endfor %}
@@ -126,9 +178,9 @@
       </aside>
       <article>
         <div class="stat" style="height:100%;display:flex;flex-direction:column;justify-content:center">
-          <span>In this demonstration registry</span>
-          <b>{{ counts.family }} families</b>
-          <span>{{ counts.variant }} variants and {{ counts.instance }} individually identified items.</span>
+          <span>Registered here so far</span>
+          <b>{{ counts.family }} designs</b>
+          <span>{{ counts.variant }} colour-and-size variants and {{ counts.instance }} individually identified items, from {{ counts.manufacturers }} manufacturers.</span>
         </div>
       </article>
       <article>
@@ -142,40 +194,90 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="near-h">
+{# ------------------------------------------------------- related products #}
+{% set focus = (show.variants|selectattr('items')|first) if show else None %}
+<section class="section related" aria-labelledby="near-h">
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h2 id="near-h">How related products are found</h2>
-        <p>Open any record and it shows its neighbourhood, taken from registry links and shared passport data:</p>
-        <ul>
-          <li><b>Up and down:</b> the family a variant belongs to, a family's variants, and a variant's items.</li>
-          <li><b>Siblings:</b> the other colours and sizes in the same family.</li>
-          <li><b>Same lot:</b> everything recorded under one batch number. Visible to the manufacturer and to authorities only.</li>
-          <li><b>Similar:</b> variants of the same category and colour from other families and manufacturers, matched however the values were spelt in the upload.</li>
-        </ul>
-        <p class="muted">Every link follows the same access rules as a direct lookup, so individual items are not listed publicly.</p>
+    <div class="section-head">
+      <h2 id="near-h">Every passport shows what it is connected to</h2>
+      <p>Open any product and four kinds of connection appear next to it. Choose one to see it on the map.</p>
+    </div>
+    <div class="related-grid" data-related>
+      <div class="rel-list" role="tablist" aria-label="Kinds of connection">
+        <button type="button" role="tab" class="rel-card" data-rel="design" aria-selected="true">
+          <span class="rel-ico" style="--c:#1D1F24"></span>
+          <span><b>Its design and its garments</b>
+          Go up from a colour-and-size to the design it belongs to, or down to the individual shirts made of it.</span>
+        </button>
+        <button type="button" role="tab" class="rel-card" data-rel="siblings" aria-selected="false">
+          <span class="rel-ico" style="--c:#2E4A7D"></span>
+          <span><b>Other colours and sizes</b>
+          Every other variant of the same design{% if show %}: here, the {{ show.variants|length - 1 }} other combinations of the Ceylon Breeze Tee{% endif %}.</span>
+        </button>
+        <button type="button" role="tab" class="rel-card" data-rel="lot" aria-selected="false">
+          <span class="rel-ico" style="--c:#8A5A12"></span>
+          <span><b>Made in the same batch <span class="lock">Private</span></b>
+          Everything recorded under one batch number, ready for a recall. Only the manufacturer and authorities can see it.</span>
+        </button>
+        <button type="button" role="tab" class="rel-card" data-rel="similar" aria-selected="false">
+          <span class="rel-ico" style="--c:#D6455A"></span>
+          <span><b>Look-alikes from other makers</b>
+          The same kind of product in the same colour from other designs and manufacturers, even when one factory wrote “Navy Blue” and another “NAVY-BLUE”.</span>
+        </button>
       </div>
-      <figure class="panel" aria-label="Diagram of a family's neighbourhood" style="margin:0">
-        <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,Segoe UI,sans-serif" font-size="12">
-          <g stroke="#B9B4AB" stroke-width="1.4">
-            <line x1="150" y1="70" x2="70" y2="150"/><line x1="150" y1="70" x2="150" y2="150"/><line x1="150" y1="70" x2="230" y2="150"/>
-            <line x1="70" y1="150" x2="40" y2="240"/><line x1="70" y1="150" x2="100" y2="240"/>
+      <figure class="rel-map" aria-label="Map of the connections of one variant">
+        <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,Segoe UI,sans-serif">
+          {# edges #}
+          <g class="edges" fill="none" stroke-width="2">
+            <path data-g="design" d="M260 190 L260 70"/>
+            <path data-g="design" d="M260 190 L200 320 M260 190 L260 320 M260 190 L320 320"/>
+            <path data-g="siblings" d="M260 70 L120 110 M260 70 L100 170 M260 70 L120 230 M260 70 L400 110 M260 70 L420 170 M260 70 L400 230"/>
+            <path data-g="lot" d="M260 190 C 200 150, 150 130, 120 110 M260 190 C 320 150, 370 130, 400 110" stroke-dasharray="6 5"/>
+            <path data-g="similar" d="M260 190 C 340 220, 420 260, 470 300 M260 190 C 190 240, 110 280, 60 320" stroke-dasharray="2 6" stroke-linecap="round"/>
           </g>
-          <line x1="230" y1="150" x2="370" y2="150" stroke="#2E4A7D" stroke-width="1.4" stroke-dasharray="5 4"/>
-          <line x1="370" y1="70" x2="370" y2="150" stroke="#B9B4AB" stroke-width="1.4"/>
-          <rect x="105" y="48" width="90" height="44" rx="8" fill="#1D1F24"/><text x="150" y="75" text-anchor="middle" fill="#FAF9F7">Family</text>
-          <rect x="325" y="48" width="90" height="44" rx="8" fill="#FAF9F7" stroke="#1D1F24"/><text x="370" y="69" text-anchor="middle" fill="#1D1F24">Another</text><text x="370" y="84" text-anchor="middle" fill="#1D1F24">family</text>
-          {% for x, c in [(70,'white_xs'),(150,'white_s'),(230,'navy_m')] %}
-          <rect x="{{ x - 36 }}" y="132" width="72" height="36" rx="18" fill="#E2E7F0"/><text x="{{ x }}" y="155" text-anchor="middle" fill="#2E4A7D" font-family="ui-monospace,Consolas,monospace" font-size="11">{{ c }}</text>
+          {# design #}
+          <g data-g="design" class="node">
+            <rect x="190" y="48" width="140" height="44" rx="10" fill="#1D1F24"/>
+            <text x="260" y="75" text-anchor="middle" fill="#FAF9F7" font-size="13">The design</text>
+          </g>
+          {# siblings #}
+          {% set sib = [(120,110,'#1F6E9C','S'),(100,170,'#F3EFE4','S'),(120,230,'#A8592A','S'),(400,110,'#1F6E9C','L'),(420,170,'#F3EFE4','M'),(400,230,'#A8592A','L')] %}
+          {% for x, y, c, s in sib %}
+          <g data-g="siblings{% if loop.index0 in (0, 3) %} lot{% endif %}" class="node">
+            <circle cx="{{ x }}" cy="{{ y }}" r="19" fill="{{ c }}" stroke="#1D1F24" stroke-opacity=".3"/>
+            <text x="{{ x }}" y="{{ y + 4 }}" text-anchor="middle" font-size="11" fill="{{ '#1D1F24' if c == '#F3EFE4' else '#fff' }}">{{ s }}</text>
+          </g>
           {% endfor %}
-          <rect x="334" y="132" width="72" height="36" rx="18" fill="#E2E7F0"/><text x="370" y="155" text-anchor="middle" fill="#2E4A7D" font-family="ui-monospace,Consolas,monospace" font-size="11">navy_l</text>
-          {% for x in [40,100] %}<rect x="{{ x - 24 }}" y="226" width="48" height="28" rx="6" fill="#FAF9F7" stroke="#D6455A" stroke-dasharray="3 3"/><text x="{{ x }}" y="245" text-anchor="middle" fill="#B83347">item</text>{% endfor %}
-          <text x="300" y="140" text-anchor="middle" fill="#2E4A7D" font-size="11">similar</text>
-          <text x="70" y="282" text-anchor="middle" fill="#67645D" font-size="11">items: owner and authorities</text>
+          {# items #}
+          {% for x in [200, 260, 320] %}
+          <g data-g="design" class="node">
+            <rect x="{{ x - 22 }}" y="306" width="44" height="30" rx="6" fill="#FAF9F7" stroke="#D6455A" stroke-dasharray="3 3"/>
+            <text x="{{ x }}" y="325" text-anchor="middle" font-size="11" fill="#B83347">shirt</text>
+          </g>
+          {% endfor %}
+          {# similar #}
+          <g data-g="similar" class="node">
+            <rect x="420" y="300" width="92" height="40" rx="20" fill="#F6DEE1"/>
+            <text x="466" y="317" text-anchor="middle" font-size="11" fill="#B83347">Blue T-shirt</text>
+            <text x="466" y="331" text-anchor="middle" font-size="10" fill="#67645D">another maker</text>
+          </g>
+          <g data-g="similar" class="node">
+            <rect x="8" y="300" width="98" height="40" rx="20" fill="#F6DEE1"/>
+            <text x="57" y="317" text-anchor="middle" font-size="11" fill="#B83347">“BLUE” T-shirt</text>
+            <text x="57" y="331" text-anchor="middle" font-size="10" fill="#67645D">another design</text>
+          </g>
+          {# focus #}
+          <g class="focus">
+            <circle cx="260" cy="190" r="42" fill="#1F6E9C" stroke="#FAF9F7" stroke-width="4"/>
+            <text x="260" y="186" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Ocean Blue</text>
+            <text x="260" y="201" text-anchor="middle" font-size="11" fill="#fff">size M</text>
+          </g>
+          <text x="260" y="370" text-anchor="middle" font-size="12" fill="#67645D" data-rel-caption>Up to the design, down to three serialised shirts.</text>
         </svg>
+        {% if focus %}<figcaption><a href="{{ focus.path }}">Open Ocean Blue, size M and see these connections live</a></figcaption>{% endif %}
       </figure>
     </div>
+    <p class="small muted" style="margin-top:18px">Every connection follows the same access rules as a direct lookup, so individual shirts are never listed publicly and batch details stay private.</p>
   </div>
 </section>
 
@@ -184,11 +286,12 @@
     <h2 id="steps-h">From spreadsheet to printed label</h2>
     <ol class="steps">
       <li><h3>Upload</h3><p>The product sheet you already keep, as CSV, Excel or JSON.</p></li>
-      <li><h3>Match</h3><p>The gateway matches your column names to CDM fields, each with a calibrated confidence.</p></li>
-      <li><h3>Check</h3><p>You confirm or correct each match. Your choices can be saved as a template revision.</p></li>
-      <li><h3>Register</h3><p>Each family, variant and serialised item receives its ADID and passport record.</p></li>
-      <li><h3>Print</h3><p>Put the ADID address in the label's QR code. Later corrections update the record behind it.</p></li>
+      <li><h3>Match</h3><p>The gateway matches your column names to passport fields, each with a confidence score.</p></li>
+      <li><h3>Check</h3><p>You confirm or correct each match. Your choices can be saved as a template.</p></li>
+      <li><h3>Register</h3><p>Each design, variant and serialised item receives its ADID and passport record.</p></li>
+      <li><h3>Print</h3><p>Put the ADID in the label's QR code. Later corrections update the record behind it.</p></li>
     </ol>
+    <p style="margin-top:22px"><a href="/how-it-works">See what each kind of user does, and what happens to your data</a></p>
   </div>
 </section>
 
@@ -197,7 +300,7 @@
     <h2 id="reasons-h">The regulation this responds to</h2>
     <div class="reasons">
       <div><blockquote>Passport data must be transferable "without vendor lock-in".</blockquote><cite>EU Regulation 2024/1781, Art. 10(1)(d)</cite><p class="small muted" style="margin-top:10px">ADIF uses open identifiers, an open data model and JSON-LD, not one supplier's product codes.</p></div>
-      <div><blockquote>Passports may be required at model, batch or item level.</blockquote><cite>EU Regulation 2024/1781, Art. 9(2)(d)</cite><p class="small muted" style="margin-top:10px">ADID addresses the family, variant and item, and records the batch as passport data.</p></div>
+      <div><blockquote>Passports may be required at model, batch or item level.</blockquote><cite>EU Regulation 2024/1781, Art. 9(2)(d)</cite><p class="small muted" style="margin-top:10px">ADID addresses the design, variant and item, and records the batch as passport data.</p></div>
       <div><blockquote>Textiles, in particular garments, are a priority product group.</blockquote><cite>EU Regulation 2024/1781, Art. 18(5)(c)</cite><p class="small muted" style="margin-top:10px">The textile delegated act is not yet adopted, so ADIF does not claim compliance with requirements that do not exist yet.</p></div>
     </div>
   </div>

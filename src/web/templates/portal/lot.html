@@ -4,7 +4,7 @@
 <section class="page"><div class="wrap">
   <div class="page-head"><h1 style="font-size:2.2rem">Everything in a lot</h1><p>Batch is recorded as passport data, not as part of the ADID. This search is limited to your own products{% if user.role.value == 'authority' %}, or to all products for authorities{% endif %}.</p></div>
   {% if user.role.value != 'authority' %}{% include "portal/_nav.html" %}{% endif %}
-  <form class="lookup" action="/portal/lot" method="get" style="margin:0 0 24px"><label class="sr-only" for="lq">Batch number</label><input id="lq" name="batch" value="{{ batch }}" placeholder="Batch or lot number, e.g. DL-7700"><button class="btn btn-thread">List the lot</button></form>
+  <form class="lookup" action="/portal/lot" method="get" style="margin:0 0 24px"><label class="sr-only" for="lq">Batch number</label><input id="lq" name="batch" value="{{ batch }}" placeholder="Batch or lot number, e.g. LT-2610"><button class="btn btn-thread">List the lot</button></form>
   {% if lot is not none %}
   <div class="panel"><h2 style="font-size:1.1rem">Lot {{ batch }}: {{ lot|length }} record{{ '' if lot|length == 1 else 's' }}</h2>
   {% if lot %}<table class="table"><tr><th>Record</th><th>Level</th><th>ADID</th></tr>{% for m in lot %}<tr><td><a href="{{ m.adid|href }}">{{ m.label }}</a></td><td>{{ kind_names[m.kind] }}</td><td class="mono small">{{ m.path }}</td></tr>{% endfor %}</table>

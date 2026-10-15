@@ -1,0 +1,17 @@
+Design Code,Product Category,Manufacturer,Manufacturer ID,Facility ID,Country of Origin,Fabric Composition,Care Instructions,HS Code,Recycled Content,Carbon Footprint,GTIN,Style No,Colour,Size,Batch,Production Date
+CK-POLO-210,Polo shirt,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,60% Cotton 40% Polyester,Machine wash 40C,610510,20,4.1,4792000000017,CK-POLO-210-NV-S,Navy,S,CK-2700,2026-08-10
+CK-POLO-210,Polo shirt,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,60% Cotton 40% Polyester,Machine wash 40C,610510,20,4.1,4792000000024,CK-POLO-210-NV-M,Navy,M,CK-2700,2026-08-10
+CK-POLO-210,Polo shirt,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,60% Cotton 40% Polyester,Machine wash 40C,610510,20,4.1,4792000000031,CK-POLO-210-NV-L,Navy,L,CK-2700,2026-08-10
+CK-POLO-210,Polo shirt,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,60% Cotton 40% Polyester,Machine wash 40C,610510,20,4.1,4792000000048,CK-POLO-210-SD-S,Sand,S,CK-2701,2026-08-10
+CK-POLO-210,Polo shirt,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,60% Cotton 40% Polyester,Machine wash 40C,610510,20,4.1,4792000000055,CK-POLO-210-SD-M,Sand,M,CK-2701,2026-08-10
+CK-POLO-210,Polo shirt,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,60% Cotton 40% Polyester,Machine wash 40C,610510,20,4.1,4792000000062,CK-POLO-210-SD-L,Sand,L,CK-2701,2026-08-10
+CK-HOOD-330,Hoodie,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,80% Cotton 20% Recycled Polyester,Wash inside out at 30C,611020,20,4.1,4792000000079,CK-HOOD-330-CG-M,Charcoal Grey,M,CK-2710,2026-08-11
+CK-HOOD-330,Hoodie,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,80% Cotton 20% Recycled Polyester,Wash inside out at 30C,611020,20,4.1,4792000000086,CK-HOOD-330-CG-L,Charcoal Grey,L,CK-2710,2026-08-11
+CK-HOOD-330,Hoodie,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,80% Cotton 20% Recycled Polyester,Wash inside out at 30C,611020,20,4.1,4792000000093,CK-HOOD-330-CG-XL,Charcoal Grey,XL,CK-2710,2026-08-11
+CK-HOOD-330,Hoodie,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,80% Cotton 20% Recycled Polyester,Wash inside out at 30C,611020,20,4.1,4792000000109,CK-HOOD-330-OG-M,Olive Green,M,CK-2711,2026-08-11
+CK-HOOD-330,Hoodie,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,80% Cotton 20% Recycled Polyester,Wash inside out at 30C,611020,20,4.1,4792000000116,CK-HOOD-330-OG-L,Olive Green,L,CK-2711,2026-08-11
+CK-HOOD-330,Hoodie,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,80% Cotton 20% Recycled Polyester,Wash inside out at 30C,611020,20,4.1,4792000000123,CK-HOOD-330-OG-XL,Olive Green,XL,CK-2711,2026-08-11
+CK-DRS-118,Dress,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,100% Viscose,Hand wash cold,610442,20,4.1,4792000000130,CK-DRS-118-SB-S,Sky Blue,S,CK-2720,2026-08-12
+CK-DRS-118,Dress,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,100% Viscose,Hand wash cold,610442,20,4.1,4792000000147,CK-DRS-118-SB-M,Sky Blue,M,CK-2720,2026-08-12
+CK-DRS-118,Dress,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,100% Viscose,Hand wash cold,610442,20,4.1,4792000000154,CK-DRS-118-MR-S,Maroon,S,CK-2721,2026-08-12
+CK-DRS-118,Dress,Ceylon Knit Works (Pvt) Ltd,LK-OPID-002218,LK-FAC-0107,LK,100% Viscose,Hand wash cold,610442,20,4.1,4792000000161,CK-DRS-118-MR-M,Maroon,M,CK-2721,2026-08-12

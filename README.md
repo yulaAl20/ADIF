@@ -34,6 +34,22 @@ python -m scripts.seed_demo          # demo accounts + products (prints the demo
 uvicorn src.web.app:build --factory --port 8000
 ```
 
+### Hosting with an online database
+
+Locally every store is a SQLite file under `var/`. On a host with no persistent
+disk (Render's free plan wipes it on every restart), point the site at a free
+PostgreSQL database instead, for example [Neon](https://neon.tech):
+
+| Environment variable | Purpose |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string (use Neon's *direct*, not pooled, URL). Each former SQLite file becomes one schema. |
+| `ADIF_DEMO_PASSWORD` | Password for the demo accounts created on first start. If unset, a random one is generated and printed in the logs. |
+| `ADIF_AUTOSEED` | `0` stops the demonstration catalogue being registered into an empty database. |
+| `ADIR_SECRET_KEY` | Session-cookie key, so sign-ins survive a redeploy. |
+| `ADIF_PUBLIC_URL` | Optional: the site's public address, used in the QR codes. |
+
+Start command: `uvicorn src.web.app:build --factory --host 0.0.0.0 --port $PORT`.
+
 Open **<http://127.0.0.1:8000>**. One process serves:
 
 | Who | Where | What |

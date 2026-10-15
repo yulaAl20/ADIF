@@ -1,45 +1,83 @@
 {% extends "base.html" %}
+{% from "_icons.html" import garment %}
 {% block title %}Registry{% endblock %}
 {% block main %}
 <section class="strip">
   <div class="wrap">
-    <span class="mono">Look up by ADID, barcode (GTIN) or style code such as demoknit/ts-1000</span>
+    <span class="mono">Look up by ADID, barcode (GTIN) or style code such as lankathreads/cb-tee-01/ocean-blue_m</span>
     <form class="lookup" action="/registry" method="get" role="search">
       <label class="sr-only" for="q">ID, barcode or style code</label>
       <input id="q" name="q" value="{{ q }}" placeholder="Paste an ID or type a barcode">
       <button class="btn btn-thread" type="submit">Look up</button>
     </form>
-    {% if not_found %}<p class="small" style="margin:14px auto 0;max-width:540px;color:var(--thread-deep)">Nothing is registered under "{{ q }}". Check the number, or search by details below.</p>{% endif %}
+    {% if not_found %}<p class="small" style="margin:14px auto 0;max-width:540px;color:var(--thread-deep)">Nothing is registered under "{{ q }}". Check the number, or browse below.</p>{% endif %}
   </div>
 </section>
 <section class="page">
   <div class="wrap">
-    <form method="get" action="/registry" class="panel" aria-label="Search by details">
-      <div class="filters">
-        <div><label for="kind">Show</label><select id="kind" name="kind"><option value="family" {% if kind=='family' %}selected{% endif %}>Families</option><option value="variant" {% if kind=='variant' %}selected{% endif %}>Variants (colour and size)</option></select></div>
-        <div><label for="manufacturer">Manufacturer ID</label><input type="text" id="manufacturer" name="manufacturer" value="{{ manufacturer }}" placeholder="e.g. demoknit"></div>
-        {% for f in facet_fields %}
-        <div><label for="f-{{ f }}">{{ {'productFamily':'Style code','productCategory':'Category','colour':'Colour','size':'Size','countryOfOrigin':'Country of origin','fibreComposition':'Fibre','manufacturerName':'Manufacturer name'}.get(f, f) }}</label><input type="text" id="f-{{ f }}" name="{{ f }}" value="{{ filters.get(f, '') }}"></div>
-        {% endfor %}
+    <div class="reg-head">
+      <h1>Browse the registry</h1>
+      <div class="view-toggle" role="group" aria-label="What to list">
+        <a href="?kind=family{% if category %}&productCategory={{ category|urlencode }}{% endif %}" {% if kind == 'family' %}aria-current="true"{% endif %}>Designs</a>
+        <a href="?kind=variant{% if category %}&productCategory={{ category|urlencode }}{% endif %}" {% if kind == 'variant' %}aria-current="true"{% endif %}>Colours and sizes</a>
       </div>
-      <div class="row-actions" style="margin-top:16px"><button class="btn btn-thread btn-s" type="submit">Search</button><a class="small" href="/registry">Clear</a><span class="small muted">Spelling of capitals, spaces and hyphens doesn't matter. Individual items are not listed publicly.</span></div>
-    </form>
+    </div>
 
-    <div class="section-head" style="margin-top:40px"><h2>{{ results|length }} {{ 'famil' if kind=='family' else 'variant' }}{{ ('y' if results|length == 1 else 'ies') if kind=='family' else ('' if results|length == 1 else 's') }}</h2><p>At most 50 shown.</p></div>
+    <nav class="cat-chips" aria-label="Filter by category">
+      <a href="?kind={{ kind }}" class="cat-chip" {% if not category %}aria-current="true"{% endif %}><span class="cat-all" aria-hidden="true"></span>All</a>
+      {% for c in categories %}
+      <a href="?kind={{ kind }}&productCategory={{ c|urlencode }}" class="cat-chip" {% if category|lower == c|lower %}aria-current="true"{% endif %}>{{ garment(c, '#FAF9F7', 26) }}{{ c }}</a>
+      {% endfor %}
+    </nav>
+
+    <details class="more-filters" {% if filters|length > (1 if category else 0) or manufacturer %}open{% endif %}>
+      <summary>More filters</summary>
+      <form method="get" action="/registry" aria-label="Search by details">
+        <input type="hidden" name="kind" value="{{ kind }}">
+        <div class="filters">
+          <div><label for="manufacturer">Manufacturer ID</label><input type="text" id="manufacturer" name="manufacturer" value="{{ manufacturer }}" placeholder="e.g. lankathreads"></div>
+          {% for f in facet_fields %}
+          <div><label for="f-{{ f }}">{{ {'productFamily':'Style code','productCategory':'Category','colour':'Colour','size':'Size','countryOfOrigin':'Country of origin','fibreComposition':'Fibre','manufacturerName':'Manufacturer name'}.get(f, f) }}</label><input type="text" id="f-{{ f }}" name="{{ f }}" value="{{ filters.get(f, '') }}"></div>
+          {% endfor %}
+        </div>
+        <div class="row-actions" style="margin-top:16px"><button class="btn btn-thread btn-s" type="submit">Search</button><a class="small" href="/registry">Clear</a><span class="small muted">Capitals, spaces and hyphens don't matter. Individual garments are not listed publicly.</span></div>
+      </form>
+    </details>
+
     {% if results %}
-    <div class="grid3">
+    <div class="reg-grid">
       {% for r in results %}
-      <article>
-        <a class="shot" href="{{ r.adid|href }}" style="display:flex;flex-direction:column;justify-content:space-between;padding:20px;aspect-ratio:auto;min-height:150px;text-decoration:none;color:inherit">
-          <span class="mono small" style="color:var(--denim);word-break:break-all">{{ r.path or r.adid }}</span>
-          <span style="font-size:1.5rem;font-weight:600;letter-spacing:-.02em">{{ r.design or r.label }}{% if r.kind == 'variant' %} <span class="muted" style="font-weight:400">{{ r.label }}</span>{% endif %}</span>
-        </a>
-        <div class="card-meta"><div><h3>{{ r.category or 'Uncategorised' }}</h3><div class="tags"><span>{{ r.manufacturer }}</span>{% if r.versions is not none %}<span>{{ r.versions }} version{{ '' if r.versions == 1 else 's' }}</span>{% endif %}{% if r.fibre %}<span>{{ r.fibre }}</span>{% endif %}</div></div></div>
-      </article>
+      {% set tint = (r.colours[0]|colour_hex) if r.colours else '#E2E7F0' %}
+      <a class="reg-card" href="{{ r.adid|href }}">
+        <div class="reg-visual" style="--tint: {{ tint }}">
+          {{ garment(r.category, tint, 92) }}
+          <span class="reg-cat">{{ r.category }}</span>
+        </div>
+        <div class="reg-body">
+          <h2>{{ r.design or r.label }}</h2>
+          {% if r.kind == 'variant' %}<p class="reg-variant">{{ r.label }}</p>{% endif %}
+          <p class="reg-maker">{{ r.maker }}</p>
+          {% if r.colours %}
+          <div class="reg-swatches" aria-label="Colours: {{ r.colours|join(', ') }}">
+            {% for c in r.colours[:6] %}<span title="{{ c }}" style="background: {{ c|colour_hex }}"></span>{% endfor %}
+            {% if r.colours|length > 6 %}<em>+{{ r.colours|length - 6 }}</em>{% endif %}
+          </div>
+          {% endif %}
+          <dl class="reg-facts">
+            {% if r.kind == 'family' %}<div><dt>Options</dt><dd>{{ r.versions }} colour-and-size combinations</dd></div>
+            {% if r.sizes %}<div><dt>Sizes</dt><dd>{{ r.sizes|join(' ') }}</dd></div>{% endif %}{% endif %}
+            {% if r.fibre %}<div><dt>Fibre</dt><dd>{{ r.fibre }}</dd></div>{% endif %}
+          </dl>
+          <span class="reg-id mono">{{ r.path or r.adid }}</span>
+        </div>
+      </a>
       {% endfor %}
     </div>
     {% else %}
-    <p class="empty">No records match. Try fewer details, or <a href="/registry">clear the search</a>.</p>
+    <div class="reg-empty">
+      {{ garment('', '#FAF9F7', 72) }}
+      <p>No products match{% if category %} in {{ category }}{% endif %}. Try another category, or <a href="/registry">show everything</a>.</p>
+    </div>
     {% endif %}
   </div>
 </section>

@@ -31,6 +31,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from src.dbconn import connect
 __all__ = ["AuditLog", "LoginThrottle", "UPLOAD_TTL_SECONDS", "max_upload_bytes", "safe_next"]
 
 UPLOAD_TTL_SECONDS = 2 * 3600
@@ -117,7 +118,7 @@ class AuditLog:
         db = str(db_path)
         if db != ":memory:":
             Path(db).parent.mkdir(parents=True, exist_ok=True)
-        self._conn = sqlite3.connect(db, check_same_thread=False, isolation_level=None)
+        self._conn = connect(db)
         self._conn.executescript(_AUDIT_SCHEMA)
         self._lock = threading.RLock()
 

@@ -50,6 +50,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterator
 
+from src.dbconn import connect
 from src.registry.ids import new_adid, parse_adid
 from src.registry.policy import Principal, Role
 
@@ -222,7 +223,7 @@ class RegistryStore:
         self.db_path = str(db_path)
         if self.db_path != ":memory:":
             Path(self.db_path).parent.mkdir(parents=True, exist_ok=True)
-        self._conn = sqlite3.connect(self.db_path, check_same_thread=False, isolation_level=None)
+        self._conn = connect(self.db_path)
         self._conn.execute("PRAGMA journal_mode=WAL" if self.db_path != ":memory:" else "PRAGMA journal_mode=MEMORY")
         self._conn.execute("PRAGMA synchronous=NORMAL")
         self._conn.executescript(_SCHEMA)
@@ -678,6 +679,10 @@ class RegistryStore:
         """The recorded state of ``adid`` at ``version`` (for 'view old version')."""
         rows = self._q("SELECT snapshot FROM history WHERE adid=? AND version=?", (adid, version))
         return json.loads(rows[0][0]) if rows else None
+
+    def registrars_with_entities(self) -> list[str]:
+        """Registrars that have registered at least one record."""
+        return [r[0] for r in self._q("SELECT DISTINCT registrar FROM entities ORDER BY registrar")]
 
     def owned_by(self, registrar: str, kind: str | None = None, limit: int = 500) -> list[str]:
         """ADIDs a registrar owns, newest first."""

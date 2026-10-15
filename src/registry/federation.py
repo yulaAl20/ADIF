@@ -32,6 +32,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from src.dbconn import connect
 from src.registry.ids import DEFAULT_RESOLVER, path_uri, to_uri, to_urn
 from src.registry.policy import AccessPolicy
 from src.registry.store import RegistryError, RegistryStore
@@ -69,7 +70,7 @@ class RootIndex:
         db = str(db_path)
         if db != ":memory:":
             Path(db).parent.mkdir(parents=True, exist_ok=True)
-        self._conn = sqlite3.connect(db, check_same_thread=False, isolation_level=None)
+        self._conn = connect(db)
         if db != ":memory:":
             self._conn.execute("PRAGMA journal_mode=WAL")
             self._conn.execute("PRAGMA synchronous=NORMAL")

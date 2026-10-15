@@ -68,7 +68,7 @@ def test_public_pages_render(site):
     for path in ("/", "/registry", "/how-it-works", "/login", "/signup"):
         r = c.get(path, headers=HTML)
         assert r.status_code == 200, path
-    assert "How an ADID is put together" in c.get("/", headers=HTML).text
+    assert "address for life" in c.get("/", headers=HTML).text
 
 
 def test_signup_is_pending_until_the_operator_approves(site):
