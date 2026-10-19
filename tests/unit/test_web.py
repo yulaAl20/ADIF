@@ -65,10 +65,11 @@ def upload_and_register(client: TestClient, template_name: str = "") -> str:
 def test_public_pages_render(site):
     app, *_ = site
     c = TestClient(app)
-    for path in ("/", "/registry", "/how-it-works", "/login", "/signup"):
+    for path in ("/", "/about", "/welcome", "/registry", "/how-it-works", "/login", "/signup"):
         r = c.get(path, headers=HTML)
         assert r.status_code == 200, path
-    assert "address for life" in c.get("/", headers=HTML).text
+    assert "address for life" in c.get("/about", headers=HTML).text
+    assert "Look up an apparel product passport" in c.get("/", headers=HTML).text
 
 
 def test_signup_is_pending_until_the_operator_approves(site):
@@ -212,3 +213,22 @@ def test_site_avoids_overclaiming_phrases(site):
         text = c.get(path, headers=HTML).text
         for phrase in banned:
             assert phrase.lower() not in text.lower(), (path, phrase)
+
+
+def test_two_host_layout_sends_accounts_to_the_app_host(monkeypatch):
+    """adif.my is the registry; signing in and joining happen on app.adif.my."""
+    monkeypatch.setenv("ADIF_PUBLIC_HOST", "adif.my")
+    monkeypatch.setenv("ADIF_APP_HOST", "app.adif.my")
+    node = RegistryNode("lk-1", RegistryStore(":memory:"), RootIndex(":memory:"), AccessPolicy.load())
+    app = create_web_app(node, AccountStore(":memory:"), TemplateLibrary(":memory:"), secret_key="t")
+    public = TestClient(app, base_url="https://adif.my")
+    account = TestClient(app, base_url="https://app.adif.my")
+    front = public.get("/", headers=HTML)
+    assert "Look up an apparel product passport" in front.text and "https://app.adif.my/welcome" in front.text
+    for path in ("/login", "/signup", "/portal", "/admin"):
+        r = public.get(path, headers=HTML, follow_redirects=False)
+        assert r.status_code == 307 and r.headers["location"] == f"https://app.adif.my{path}"
+    assert "Who are you signing in as?" in account.get("/", headers=HTML).text
+    r = account.get("/registry?kind=variant", headers=HTML, follow_redirects=False)
+    assert r.status_code == 307 and r.headers["location"] == "https://adif.my/registry?kind=variant"
+    assert account.get("/login?as=authority", headers=HTML).status_code == 200

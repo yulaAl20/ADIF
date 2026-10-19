@@ -1,11 +1,36 @@
 {% extends "base.html" %}
 {% from "_icons.html" import garment %}
-{% block title %}Registry{% endblock %}
+{% block title %}{% if landing %}Product passport registry{% else %}Registry{% endif %}{% endblock %}
 {% block main %}
+{% if landing %}
+<section class="lookup-hero">
+  <div class="wrap">
+    <h1>Look up an apparel product passport</h1>
+    <p class="lead">Every garment design, colour and size, and serialised item registered here has a permanent address. Enter it, or the barcode on the label.</p>
+    <form class="lookup lookup-xl" action="/" method="get" role="search">
+      <label class="sr-only" for="q">ADID, barcode or style code</label>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" value="{{ q }}" placeholder="ADID address, GTIN barcode or style code" autofocus>
+      <button class="btn btn-thread" type="submit">Look up</button>
+    </form>
+    <p class="lookup-try">Try
+      <a href="/?q=4791000000027" class="mono">4791000000027</a>
+      <a href="/?q=lankathreads/cb-tee-01/ocean-blue_m" class="mono">lankathreads/cb-tee-01/ocean-blue_m</a>
+      {% if show %}<a href="{{ show.family.path }}" class="mono">{{ show.family.path }}</a>{% endif %}
+    </p>
+    <dl class="lookup-facts">
+      <div><dt>{{ counts.family }}</dt><dd>designs</dd></div>
+      <div><dt>{{ counts.variant }}</dt><dd>colours and sizes</dd></div>
+      <div><dt>{{ counts.instance }}</dt><dd>serialised items</dd></div>
+      <div><dt>{{ counts.manufacturers }}</dt><dd>manufacturers</dd></div>
+    </dl>
+  </div>
+</section>
+{% else %}
 <section class="strip">
   <div class="wrap">
     <span class="mono">Look up by ADID, barcode (GTIN) or style code such as lankathreads/cb-tee-01/ocean-blue_m</span>
-    <form class="lookup" action="/registry" method="get" role="search">
+    <form class="lookup" action="/" method="get" role="search">
       <label class="sr-only" for="q">ID, barcode or style code</label>
       <input id="q" name="q" value="{{ q }}" placeholder="Paste an ID or type a barcode">
       <button class="btn btn-thread" type="submit">Look up</button>
@@ -13,10 +38,11 @@
     {% if not_found %}<p class="small" style="margin:14px auto 0;max-width:540px;color:var(--thread-deep)">Nothing is registered under "{{ q }}". Check the number, or browse below.</p>{% endif %}
   </div>
 </section>
+{% endif %}
 <section class="page">
   <div class="wrap">
     <div class="reg-head">
-      <h1>Browse the registry</h1>
+      {% if landing %}<h2 class="reg-title">Browse the registry</h2>{% else %}<h1 class="reg-title">Browse the registry</h1>{% endif %}
       <div class="view-toggle" role="group" aria-label="What to list">
         <a href="?kind=family{% if category %}&productCategory={{ category|urlencode }}{% endif %}" {% if kind == 'family' %}aria-current="true"{% endif %}>Designs</a>
         <a href="?kind=variant{% if category %}&productCategory={{ category|urlencode }}{% endif %}" {% if kind == 'variant' %}aria-current="true"{% endif %}>Colours and sizes</a>
@@ -32,7 +58,7 @@
 
     <details class="more-filters" {% if filters|length > (1 if category else 0) or manufacturer %}open{% endif %}>
       <summary>More filters</summary>
-      <form method="get" action="/registry" aria-label="Search by details">
+      <form method="get" action="/" aria-label="Search by details">
         <input type="hidden" name="kind" value="{{ kind }}">
         <div class="filters">
           <div><label for="manufacturer">Manufacturer ID</label><input type="text" id="manufacturer" name="manufacturer" value="{{ manufacturer }}" placeholder="e.g. lankathreads"></div>
@@ -40,7 +66,7 @@
           <div><label for="f-{{ f }}">{{ {'productFamily':'Style code','productCategory':'Category','colour':'Colour','size':'Size','countryOfOrigin':'Country of origin','fibreComposition':'Fibre','manufacturerName':'Manufacturer name'}.get(f, f) }}</label><input type="text" id="f-{{ f }}" name="{{ f }}" value="{{ filters.get(f, '') }}"></div>
           {% endfor %}
         </div>
-        <div class="row-actions" style="margin-top:16px"><button class="btn btn-thread btn-s" type="submit">Search</button><a class="small" href="/registry">Clear</a><span class="small muted">Capitals, spaces and hyphens don't matter. Individual garments are not listed publicly.</span></div>
+        <div class="row-actions" style="margin-top:16px"><button class="btn btn-thread btn-s" type="submit">Search</button><a class="small" href="/">Clear</a><span class="small muted">Capitals, spaces and hyphens don't matter. Individual garments are not listed publicly.</span></div>
       </form>
     </details>
 
@@ -76,7 +102,7 @@
     {% else %}
     <div class="reg-empty">
       {{ garment('', '#FAF9F7', 72) }}
-      <p>No products match{% if category %} in {{ category }}{% endif %}. Try another category, or <a href="/registry">show everything</a>.</p>
+      <p>No products match{% if category %} in {{ category }}{% endif %}. Try another category, or <a href="/">show everything</a>.</p>
     </div>
     {% endif %}
   </div>

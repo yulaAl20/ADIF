@@ -3,8 +3,10 @@
 {% block main %}
 <section class="page"><div class="wrap">
   <div class="formcard">
-    <h1 style="font-size:2rem">Sign in</h1>
-    <p class="muted">For manufacturers registering products, and for authorities.</p>
+    {% set who = {'manufacturer': 'Manufacturer sign in', 'authority': 'Authority sign in', 'operator': 'Operator sign in'} %}
+    <p class="small"><a href="/welcome">&larr; Choose a different account type</a></p>
+    <h1 style="font-size:2rem">{{ who.get(as_role, 'Sign in') }}</h1>
+    <p class="muted">{% if as_role == 'authority' %}For customs and market-surveillance officers.{% elif as_role == 'operator' %}For the team that runs this registry.{% else %}For manufacturers registering products, and for authorities.{% endif %}</p>
     {% if error %}<div class="flash error" role="alert">{{ error }}</div>{% endif %}
     <form method="post" action="/login" class="panel">
       <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="next" value="{{ next }}">
@@ -14,7 +16,7 @@
       <input type="password" id="password" name="password" autocomplete="current-password" required>
       <button class="btn btn-thread" type="submit">Sign in</button>
     </form>
-    <p class="small" style="margin-top:18px">No account yet? <a href="/signup">Request one for your company</a>. The registry operator approves new manufacturers before they can register products.</p>
+    {% if as_role in ('', 'manufacturer') %}<p class="small" style="margin-top:18px">No account yet? <a href="/signup">Request one for your company</a>. The registry operator approves new manufacturers before they can register products.</p>{% endif %}
   </div>
 </div></section>
 {% endblock %}

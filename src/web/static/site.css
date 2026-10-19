@@ -69,7 +69,7 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--denim); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ------------------------------------------------------------------ buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: var(--radius-pill); padding: 11px 22px; font: 600 .95rem/1 var(--sans); text-decoration: none; cursor: pointer; border: 1.5px solid transparent; transition: background-color .15s, color .15s; }
+.btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: var(--radius-pill); padding: 11px 22px; font: 600 .95rem/1 var(--sans); text-decoration: none; cursor: pointer; border: 1.5px solid transparent; transition: background-color .15s, color .15s; }
 .btn-thread { background: var(--thread); color: #fff; }
 .btn-thread:hover { background: var(--thread-deep); color: #fff; }
 .btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
@@ -405,7 +405,7 @@ details.hood + details.hood { margin-top: 12px; }
 
 /* ================================================================ registry */
 .reg-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
-.reg-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin: 0; }
+.reg-head .reg-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin: 0; }
 .view-toggle { display: inline-flex; background: var(--paper-2); border-radius: var(--radius-pill); padding: 4px; }
 .view-toggle a { padding: 8px 16px; border-radius: var(--radius-pill); color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; }
 .view-toggle a[aria-current="true"] { background: var(--sheet); color: var(--ink); box-shadow: 0 1px 2px rgba(29,31,36,.12); }
@@ -437,3 +437,42 @@ details.hood + details.hood { margin-top: 12px; }
 .reg-facts dd { margin: 0; }
 .reg-id { margin-top: auto; padding-top: 10px; font-size: .72rem; color: var(--denim); word-break: break-all; opacity: .8; }
 .reg-empty { text-align: center; padding: 50px 0; color: var(--muted); }
+
+/* ======================================================= registry front page
+   A single, quiet search field is the whole job of adif.my; everything else
+   (browse, the worked example) waits below it. */
+.lookup-hero { padding: 84px 0 56px; border-bottom: 1px solid var(--rule); text-align: center; }
+.lookup-hero h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); max-width: 20ch; margin: 0 auto 14px; }
+.lookup-hero .lead { color: var(--muted); max-width: 56ch; margin: 0 auto 30px; font-size: 1.08rem; }
+.lookup-xl { max-width: 720px; padding: 7px 7px 7px 20px; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(29,31,36,.07); }
+.lookup-xl svg { width: 22px; height: 22px; color: var(--muted); flex: none; }
+.lookup-xl input { font-size: 1.12rem; padding: 10px 0; }
+.lookup-xl .btn { padding: 14px 26px; font-size: 1rem; }
+.lookup-try { margin: 18px auto 0; max-width: none; font-size: .9rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; }
+.lookup-try a { color: var(--denim); font-size: .82rem; word-break: break-all; }
+.lookup-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 44px; margin: 40px 0 0; }
+.lookup-facts div { text-align: center; }
+.lookup-facts dt { font-size: 1.6rem; font-weight: 600; letter-spacing: -.02em; }
+.lookup-facts dd { margin: 0; color: var(--muted); font-size: .85rem; }
+
+/* ============================================================ account host */
+.app-head { background: #17191E; border-bottom-color: #17191E; }
+.app-head .brand, .app-head .nav a, .app-head .who { color: #F2F0EC; }
+.app-head .brand small { color: #A8A49C; }
+.app-head .linkbtn, .app-head .who a { color: #F0A3AE; }
+.brand-tag { font-style: normal; font-weight: 500; font-size: .74rem; background: var(--thread); color: #fff; border-radius: var(--radius-pill); padding: 2px 8px; margin-left: 6px; vertical-align: 2px; }
+.welcome-head { max-width: 760px; margin-bottom: 30px; }
+.welcome-head h1 { font-size: clamp(2rem, 4vw, 2.9rem); }
+.who-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 20px; }
+.who-card { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-m); padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+.who-card svg { width: 40px; height: 40px; fill: none; stroke: var(--thread); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.who-card h2 { font-size: 1.3rem; margin: 6px 0 0; }
+.who-card p { margin: 0; }
+.who-card .row-actions { margin-top: auto; padding-top: 10px; }
+.who-maker { background: #17191E; color: #F2F0EC; border-color: #17191E; }
+.who-maker p.muted, .who-maker .muted { color: #A8A49C; }
+.who-maker .btn-line { border-color: #F2F0EC; color: #F2F0EC; }
+.who-maker .btn-line:hover { background: #F2F0EC; color: #17191E; }
+.welcome-foot { margin-top: 28px; }
+@media (max-width: 980px) { .who-grid { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .lookup-hero { padding: 48px 0 36px; } .lookup-xl svg { display: none; } .lookup-facts { gap: 10px 26px; } }

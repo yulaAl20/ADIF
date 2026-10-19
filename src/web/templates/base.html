@@ -6,32 +6,38 @@
 <title>{% block title %}ADIF{% endblock %} · ADIF research prototype</title>
 <meta name="description" content="{% block description %}ADIF: the ADID identity model, the Canonical Data Model and a hybrid gateway for apparel Digital Product Passports. Research prototype.{% endblock %}">
 <link rel="icon" href="/static/mark.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/static/site.css?v=2026-10-16b">
+<link rel="stylesheet" href="/static/site.css?v=2026-10-19">
 </head>
 <body>
-<header class="site-head">
+<header class="site-head{% if on_app %} app-head{% endif %}">
   <div class="wrap">
-    <a class="brand" href="/">
+    <a class="brand" href="{{ site_url('/') if on_app else '/' }}">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 4h14l5 5v19H4V9z" fill="#D6455A"/><circle cx="16" cy="9.5" r="2.4" fill="#ECEAE6"/><path d="M9 17h14M9 21h9" stroke="#ECEAE6" stroke-width="2" stroke-linecap="round"/></svg>
-      <span>ADIF<small>Apparel DPP Interoperability Framework</small></span>
+      <span>ADIF{% if on_app %} <em class="brand-tag">Accounts</em>{% endif %}<small>Apparel DPP Interoperability Framework</small></span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/registry" {% if path.startswith('/registry') %}aria-current="page"{% endif %}>Registry</a>
-      <a href="/how-it-works" {% if path == '/how-it-works' %}aria-current="page"{% endif %}>How it works</a>
-      {% if user %}
-      <a href="/portal" {% if path.startswith('/portal') %}aria-current="page"{% endif %}>{% if user.role.value == 'operator' %}Operator{% elif user.role.value == 'authority' %}Authority{% else %}My products{% endif %}</a>
+      {% if on_app %}
+      <a href="{{ site_url('/') }}">Registry</a>
+      {% if user %}<a href="/portal" {% if path.startswith('/portal') or path.startswith('/admin') %}aria-current="page"{% endif %}>{% if user.role.value == 'operator' %}Operator{% elif user.role.value == 'authority' %}Authority{% else %}My products{% endif %}</a>
+      {% else %}<a href="/" {% if path in ('/', '/welcome', '/login', '/signup') %}aria-current="page"{% endif %}>Sign in or join</a>{% endif %}
       {% else %}
-      <a href="/login?next=/portal" {% if path in ('/login', '/signup') %}aria-current="page"{% endif %}>For manufacturers</a>
+      <a href="/" {% if path == '/' or path.startswith('/registry') %}aria-current="page"{% endif %}>Registry</a>
+      <a href="/about" {% if path == '/about' %}aria-current="page"{% endif %}>About ADID</a>
+      <a href="/how-it-works" {% if path == '/how-it-works' %}aria-current="page"{% endif %}>How it works</a>
       {% endif %}
     </nav>
     <div class="head-right">
-      <form class="search-pill" action="/registry" method="get" role="search">
+      {% if not on_app %}
+      <form class="search-pill" action="/" method="get" role="search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <label class="sr-only" for="head-q">Search the registry</label>
         <input id="head-q" name="q" placeholder="ID, barcode or name">
       </form>
+      {% endif %}
       {% if user %}
-      <span class="who">{{ user.organisation }} · <form method="post" action="/logout"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="linkbtn">Sign out</button></form></span>
+      <span class="who">{% if not on_app %}<a href="{{ app_url('/portal') }}">{{ user.organisation }}</a>{% else %}{{ user.organisation }}{% endif %} · <form method="post" action="{{ app_url('/logout') }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="linkbtn">Sign out</button></form></span>
+      {% elif not on_app %}
+      <a class="btn btn-line btn-s" href="{{ app_url('/welcome') }}">Sign in</a>
       {% endif %}
     </div>
   </div>
@@ -43,10 +49,10 @@
 <footer class="site-foot">
   <div class="wrap">
     <span>ADIF is a research prototype from an undergraduate study on vendor-neutral Digital Product Passports for Sri Lankan apparel exporters. It is not a legally designated DPP service, registry or authority, and it is not an official standard. No certification or regulatory compliance is implied. Account approval here is prototype governance, not official accreditation. {% if 'example' in resolver %}Addresses use the example host {{ resolver.replace('https://', '') }}.{% endif %}</span>
-    <span><a href="/how-it-works">How it works</a> &nbsp; <a href="/docs">API</a> &nbsp; <a href="/registry/info">Registry facts (JSON)</a></span>
+    <span><a href="{{ site_url('/how-it-works') }}">How it works</a> &nbsp; <a href="/docs">API</a> &nbsp; <a href="/registry/info">Registry facts (JSON)</a></span>
   </div>
 </footer>
-<script src="/static/site.js?v=2026-10-16b" defer></script>
-<script src="/static/explain.js?v=2026-10-16b" defer></script>
+<script src="/static/site.js?v=2026-10-19" defer></script>
+<script src="/static/explain.js?v=2026-10-19" defer></script>
 </body>
 </html>

@@ -37,7 +37,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 import yaml
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -67,6 +67,17 @@ HERE = Path(__file__).parent
 LOCKED_FIELDS = {"gtin", "serialNumber", "batchNumber", "productFamily"}
 KIND_NAMES = {"family": "Family", "variant": "Variant", "instance": "Instance"}
 KIND_PLURAL = {"family": "Families", "variant": "Variants", "instance": "Instances"}
+#: Two-host layout (optional). With ADIF_PUBLIC_HOST=adif.my and ADIF_APP_HOST=app.adif.my,
+#: the public registry lives on the first and accounts (sign-in, sign-up, portal, operator)
+#: on the second. Unset, everything is served from one host, as before.
+ACCOUNT_PREFIXES = ("/login", "/signup", "/logout", "/portal", "/admin", "/welcome")
+PUBLIC_PREFIXES = ("/registry", "/how-it-works", "/about", "/adid/", "/01/")
+
+
+def _env_host(name: str) -> str:
+    return os.environ.get(name, "").strip().lower().removeprefix("https://").removeprefix("http://").strip("/")
+
+
 #: Category shortcuts on the registry page.
 SIZE_ORDER = ("XXS", "XS", "S", "M", "L", "XL", "XXL", "3XL")
 BROWSE_CATEGORIES = ("T-shirt", "Polo shirt", "Hoodie", "Dress", "Trousers", "Shorts")
@@ -180,6 +191,24 @@ def create_web_app(
     def client_of(request: Request) -> str:
         return request.client.host if request.client else ""
 
+    public_host = _env_host("ADIF_PUBLIC_HOST")
+    app_host = _env_host("ADIF_APP_HOST")
+    split = bool(public_host and app_host)
+
+    def host_of(request: Request) -> str:
+        return (request.headers.get("host") or "").split(":")[0].lower()
+
+    def on_app_host(request: Request) -> bool:
+        return split and host_of(request) == app_host
+
+    def app_url(path: str) -> str:
+        """Address of an account page: on app.adif.my when the two-host layout is on."""
+        return f"https://{app_host}{path}" if split else path
+
+    def site_url(path: str) -> str:
+        """Address of a public registry page: on adif.my when the two-host layout is on."""
+        return f"https://{public_host}{path}" if split else path
+
     def purge_expired_uploads() -> None:
         cutoff = time.time() - UPLOAD_TTL_SECONDS
         for token in [t for t, u in uploads.items() if u.created_at < cutoff]:
@@ -240,6 +269,9 @@ def create_web_app(
             "kind_plural": KIND_PLURAL,
             "resolver": node.resolver,
             "path": request.url.path,
+            "on_app": on_app_host(request),
+            "app_url": app_url,
+            "site_url": site_url,
             **ctx,
         }
         return templates.TemplateResponse(request, page, context, status_code=status_code)
@@ -277,8 +309,27 @@ def create_web_app(
 
     app = create_app(node, html_renderer=render_entity, session_principal=session_principal)
     app.title = "ADIF — Apparel DPP Interoperability Framework (research prototype)"
+    # A cookie domain such as ".adif.my" keeps people signed in on both adif.my and app.adif.my,
+    # so an authority who signs in on the app still sees restricted sections on product pages.
     app.add_middleware(SessionMiddleware, secret_key=secret_key, session_cookie="adir_session",
-                       max_age=8 * 3600, same_site="lax", https_only=secure_cookies)
+                       max_age=8 * 3600, same_site="lax", https_only=secure_cookies,
+                       domain=os.environ.get("ADIF_COOKIE_DOMAIN", "").strip() or None)
+
+    @app.middleware("http")
+    async def host_routing(request: Request, call_next):
+        """Send account pages to the app host and registry pages to the public host."""
+        if split:
+            host, path = host_of(request), request.url.path
+            query = ("?" + request.url.query) if request.url.query else ""
+            if host in (public_host, "www." + public_host) and path.startswith(ACCOUNT_PREFIXES):
+                return RedirectResponse(f"https://{app_host}{path}{query}", status_code=307)
+            if host == "www." + public_host:
+                return RedirectResponse(f"https://{public_host}{path}{query}", status_code=308)
+            wants_html = "text/html" in (request.headers.get("accept") or "")
+            if (host == app_host and request.method == "GET" and wants_html
+                    and path.startswith(PUBLIC_PREFIXES)):
+                return RedirectResponse(f"https://{public_host}{path}{query}", status_code=307)
+        return await call_next(request)
     app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
 
     @app.middleware("http")
@@ -364,11 +415,28 @@ def create_web_app(
             base = "https://" + base[len("http://"):]
         return base
 
-    @app.get("/", response_class=HTMLResponse, include_in_schema=False)
-    def home(request: Request):
+    def counts_now() -> dict[str, int]:
         counts = {k: node.store.count(k) for k in ("family", "variant", "instance")}
         counts["manufacturers"] = len(node.store.registrars_with_entities())
-        return render(request, "home.html", counts=counts, examples=example_ids(),
+        return counts
+
+    @app.get("/", response_class=HTMLResponse, include_in_schema=False)
+    def home(request: Request, q: str = ""):
+        if on_app_host(request):
+            return welcome(request)
+        return registry_page(request, q, landing=True)
+
+    @app.get("/welcome", response_class=HTMLResponse, include_in_schema=False)
+    def welcome(request: Request):
+        """The account entrance: choose who you are, then sign in or ask to join."""
+        account = current_account(request)
+        if account is not None:
+            return RedirectResponse("/portal", status_code=303)
+        return render(request, "welcome.html", counts=counts_now())
+
+    @app.get("/about", response_class=HTMLResponse, include_in_schema=False)
+    def about(request: Request):
+        return render(request, "home.html", counts=counts_now(), examples=example_ids(),
                       show=showcase(public_base(request)))
 
     @app.get("/how-it-works", response_class=HTMLResponse, include_in_schema=False)
@@ -376,7 +444,7 @@ def create_web_app(
         return render(request, "how.html", show=showcase(public_base(request)))
 
     @app.get("/registry", response_class=HTMLResponse, include_in_schema=False)
-    def registry_page(request: Request, q: str = ""):
+    def registry_page(request: Request, q: str = "", landing: bool = False):
         principal = session_principal(request) or PUBLIC
         q = q.strip()
         if q:
@@ -427,7 +495,9 @@ def create_web_app(
         category = filters.get("productCategory", "")
         return render(request, "registry.html", q=q, not_found=bool(q), filters=filters, kind=kind,
                       manufacturer=manufacturer or "", results=results, category=category,
-                      categories=BROWSE_CATEGORIES, facet_fields=searchable)
+                      categories=BROWSE_CATEGORIES, facet_fields=searchable,
+                      landing=landing and not q and not filters and not manufacturer,
+                      counts=counts_now(), show=showcase(public_base(request)) if landing else None)
 
     @app.get("/id/{adid}/v/{version}", response_class=HTMLResponse, include_in_schema=False)
     def old_version(request: Request, adid: str, version: int):
@@ -456,8 +526,9 @@ def create_web_app(
 
     # ------------------------------------------------------------------ accounts
     @app.get("/login", response_class=HTMLResponse, include_in_schema=False)
-    def login_page(request: Request, next: str = "/portal"):
-        return render(request, "login.html", next=safe_next(next))
+    def login_page(request: Request, next: str = "/portal", as_: str = Query("", alias="as")):
+        role = as_ if as_ in ("manufacturer", "authority", "operator") else ""
+        return render(request, "login.html", next=safe_next(next), as_role=role)
 
     @app.post("/login", include_in_schema=False)
     async def login(request: Request):
@@ -489,7 +560,7 @@ def create_web_app(
         await form_checked(request)
         audit.log(str(request.session.get("user", "")), "logout", client=client_of(request))
         request.session.clear()
-        return RedirectResponse("/", status_code=303)
+        return RedirectResponse(site_url("/") if split else "/", status_code=303)
 
     @app.get("/signup", response_class=HTMLResponse, include_in_schema=False)
     def signup_page(request: Request):

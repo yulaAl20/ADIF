@@ -97,15 +97,15 @@
         {% if can_edit %}
         <div class="panel">
           <h2 style="font-size:1.1rem">Manage</h2>
-          <p class="row-actions"><a class="btn btn-line btn-s" href="/portal/edit/{{ record.adid }}">Edit details</a></p>
+          <p class="row-actions"><a class="btn btn-line btn-s" href="{{ app_url('/portal/edit/' ~ record.adid) }}">Edit details</a></p>
           <p class="small muted">Edits are saved as a new revision. The ADID stays the same.</p>
-          <form method="post" action="/portal/status/{{ record.adid }}" data-confirm="Mark this record as replaced? Its address will keep working and point people to the replacement.">
+          <form method="post" action="{{ app_url('/portal/status/' ~ record.adid) }}" data-confirm="Mark this record as replaced? Its address will keep working and point people to the replacement.">
             <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="action" value="deprecated">
             <label for="rb">Replaced by <span class="hint">(optional ADID)</span></label>
             <input type="text" id="rb" name="replaced_by" placeholder="ADID address or UUID of the replacement">
             <button class="btn btn-quiet btn-s" style="margin-top:10px">Mark as replaced</button>
           </form>
-          <form method="post" action="/portal/status/{{ record.adid }}" style="margin-top:14px" data-confirm="Withdraw this record? Use this only for a registration made in error. The ADID is retired and is not reassigned.">
+          <form method="post" action="{{ app_url('/portal/status/' ~ record.adid) }}" style="margin-top:14px" data-confirm="Withdraw this record? Use this only for a registration made in error. The ADID is retired and is not reassigned.">
             <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="action" value="withdrawn">
             <button class="btn btn-danger btn-s">Withdraw (registered in error)</button>
           </form>

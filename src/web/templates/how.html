@@ -65,7 +65,7 @@
           <li data-icon="{{ ic[icon] }}" data-short="{{ short }}" tabindex="0"><b>{{ title }}</b><span>{{ text }}</span></li>
           {% endfor %}
         </ol>
-        {% if key == 'maker' %}<div class="row-actions"><a class="btn btn-thread" href="{% if user %}/portal/upload{% else %}/signup{% endif %}">{% if user %}Upload a file{% else %}Request an account{% endif %}</a></div>
+        {% if key == 'maker' %}<div class="row-actions"><a class="btn btn-thread" href="{{ app_url('/portal/upload' if user else '/signup') }}">{% if user %}Upload a file{% else %}Request an account{% endif %}</a></div>
         {% elif key == 'shopper' and show %}<div class="row-actions"><a class="btn btn-thread" href="{{ show.variants[1].path if show.variants|length > 1 else show.family.path }}">Open an example passport</a></div>
         {% endif %}
       </div>

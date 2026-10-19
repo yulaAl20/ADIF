@@ -7,7 +7,7 @@
 <section class="strip">
   <div class="wrap">
     <span class="mono">Look up a product by its ADID, its barcode or its style code</span>
-    <form class="lookup" action="/registry" method="get" role="search">
+    <form class="lookup" action="/" method="get" role="search">
       <label class="sr-only" for="strip-q">ADID, barcode or style code</label>
       <input id="strip-q" name="q" placeholder="4791000000027 or lankathreads/cb-tee-01/ocean-blue_m">
       <button class="btn btn-thread" type="submit">Look up</button>
@@ -21,8 +21,8 @@
       <h1>A structured, vendor-neutral address for every apparel product.</h1>
       <p class="lead">ADIF turns a factory's existing product spreadsheet into Digital Product Passport records. Each garment design, each colour and size, and each individual item gets an Apparel DPP Identity (ADID) that opens its passport.</p>
       <div class="actions">
-        <a class="btn btn-thread" href="/registry">Browse the registry</a>
-        <a class="btn btn-line" href="{% if user %}/portal{% else %}/login?next=/portal{% endif %}">Register your products</a>
+        <a class="btn btn-thread" href="/">Browse the registry</a>
+        <a class="btn btn-line" href="{{ app_url('/portal' if user else '/welcome') }}">Register your products</a>
       </div>
       <p class="small muted" style="margin-top:22px">A research prototype. It is not a legally designated DPP service or authority, and it does not imply regulatory compliance.</p>
     </div>
@@ -172,8 +172,8 @@
           <p>Upload it, check how its columns were matched to passport fields, then register. Each row receives its ADIDs and a passport record.</p>
         </div>
         <div class="row-actions">
-          <a class="btn btn-thread" href="{% if user %}/portal/upload{% else %}/signup{% endif %}">{% if user %}Upload a file{% else %}Request an account{% endif %}</a>
-          {% if not user %}<a class="btn btn-line" href="/login?next=/portal">Sign in</a>{% endif %}
+          <a class="btn btn-thread" href="{{ app_url('/portal/upload' if user else '/signup') }}">{% if user %}Upload a file{% else %}Request an account{% endif %}</a>
+          {% if not user %}<a class="btn btn-line" href="{{ app_url('/login?as=manufacturer') }}">Sign in</a>{% endif %}
         </div>
       </aside>
       <article>

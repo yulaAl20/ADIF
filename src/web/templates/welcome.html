@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Sign in or join{% endblock %}
+{% block main %}
+<section class="page welcome">
+  <div class="wrap">
+    <div class="welcome-head">
+      <h1>Who are you signing in as?</h1>
+      <p class="lead muted">Accounts are for the organisations that put products in the registry or check them. To look a product up, you don't need one: <a href="{{ site_url('/') }}">search the registry</a>.</p>
+    </div>
+    <div class="who-grid">
+      <article class="who-card who-maker">
+        <svg viewBox="-14 -14 28 28" aria-hidden="true"><path d="M-9 -2l5 -5h8l5 5-4 3v9h-10v-9z"/></svg>
+        <h2>Manufacturer or exporter</h2>
+        <p>Upload the product sheet you already keep, check the matches and register your garments. Each one gets its ADID and passport.</p>
+        <div class="row-actions">
+          <a class="btn btn-thread" href="/login?as=manufacturer">Sign in</a>
+          <a class="btn btn-line" href="/signup">Request an account</a>
+        </div>
+        <p class="small muted">New companies are approved by the registry operator before they can register.</p>
+      </article>
+      <article class="who-card who-authority">
+        <svg viewBox="-14 -14 28 28" aria-hidden="true"><path d="M0 -10l9 4v5c0 6 -4 9 -9 11c-5 -2 -9 -5 -9 -11v-5zM-4 0l3 3 5 -6"/></svg>
+        <h2>Customs or market authority</h2>
+        <p>See the restricted supply-chain and production sections of any passport, and list everything from one batch for a recall.</p>
+        <div class="row-actions">
+          <a class="btn btn-thread" href="/login?as=authority">Sign in</a>
+        </div>
+        <p class="small muted">Authority accounts are created by the registry operator.</p>
+      </article>
+      <article class="who-card who-operator">
+        <svg viewBox="-14 -14 28 28" aria-hidden="true"><path d="M-9 -8h18v12h-18zM-4 9h8M0 4v5M-5 -3h4M-5 0h8"/></svg>
+        <h2>Registry operator</h2>
+        <p>Approve new manufacturers, create authority accounts, read the access log and check the integrity of the evaluated research files.</p>
+        <div class="row-actions">
+          <a class="btn btn-thread" href="/login?as=operator">Sign in</a>
+        </div>
+      </article>
+    </div>
+    <p class="welcome-foot small muted">This is the account side of ADIF. Product passports and the public registry stay at <a href="{{ site_url('/') }}">{{ site_url('/').replace('https://', '').rstrip('/') or 'the registry' }}</a>. {{ counts.family }} designs from {{ counts.manufacturers }} manufacturers are registered so far.</p>
+  </div>
+</section>
+{% endblock %}
