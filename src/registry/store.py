@@ -44,6 +44,8 @@ import re
 import secrets
 import sqlite3
 import threading
+import time
+import os
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -229,6 +231,15 @@ class RegistryStore:
         self._conn.executescript(_SCHEMA)
         self._lock = threading.RLock()
         self._depth = 0
+        # Read cache, on only for the online database. A page can issue hundreds of small
+        # reads; across a network each one costs a round trip, so repeated reads are served
+        # from memory. Any write through this store clears it, and entries expire after a few
+        # seconds so writes made by another process (the start-up seeding) still show up.
+        # Off for SQLite, where reads are local and tests edit the file directly.
+        from src.dbconn import using_postgres
+        self._cache: dict[tuple, tuple[float, list[tuple]]] = {}
+        self._cache_ttl = float(os.environ.get("ADIF_READ_CACHE_SECONDS", "120")) if using_postgres(self.db_path) else 0.0
+        self._prefilled_at = 0.0
 
     # ------------------------------------------------------------------ infra
     @contextmanager
@@ -245,18 +256,83 @@ class RegistryStore:
                 self._depth -= 1
                 if outer:
                     self._conn.execute("ROLLBACK")
+                    self._cache.clear()
                 raise
             else:
                 self._depth -= 1
                 if outer:
                     self._conn.execute("COMMIT")
+                    self._cache.clear()
 
     def close(self) -> None:
         self._conn.close()
 
     def _q(self, sql: str, params: tuple = ()) -> list[tuple]:
         with self._lock:
-            return self._conn.execute(sql, params).fetchall()
+            if self._cache_ttl <= 0 or self._depth:
+                return self._conn.execute(sql, params).fetchall()
+            now = time.monotonic()
+            if not self._cache or now - self._prefilled_at > self._cache_ttl:
+                self._cache.clear()
+                self._prefill(now)
+            key = (sql, tuple(params))
+            hit = self._cache.get(key)
+            if hit is not None and now - hit[0] < self._cache_ttl:
+                return hit[1]
+            rows = self._conn.execute(sql, params).fetchall()
+            if len(self._cache) > 200_000:
+                self._cache.clear()
+            self._cache[key] = (now, rows)
+            return rows
+
+    def _prefill(self, now: float) -> None:
+        """Load entities, identifiers and relations in three queries instead of hundreds.
+
+        The keys are the exact reads that :meth:`get`, :meth:`related`, :meth:`exists` and
+        the metadata inheritance issue, so those calls are then answered from memory.
+        Skipped for very large registries, where per-record reads are cheaper.
+        """
+        self._prefilled_at = now
+        if self._conn.execute("SELECT COUNT(*) FROM entities").fetchone()[0] > 50_000:
+            return
+        put = lambda sql, params, rows: self._cache.__setitem__((sql, params), (now, rows))
+        entities = self._conn.execute("SELECT * FROM entities").fetchall()
+        alt: dict[str, list[tuple]] = {}
+        for scheme, value, adid, created in self._conn.execute(
+                "SELECT scheme, value, adid, created_at FROM alt_ids ORDER BY created_at, value").fetchall():
+            alt.setdefault(adid, []).append((scheme, value))
+        rels = self._conn.execute(
+            "SELECT subject, predicate, object FROM relations ORDER BY created_at").fetchall()
+        out: dict[str, list[tuple]] = {}
+        into: dict[str, list[tuple]] = {}
+        for subject, predicate, obj in rels:
+            out.setdefault(subject, []).append((predicate, obj))
+            into.setdefault(obj, []).append((predicate, subject))
+        for row in entities:
+            adid = row[0]
+            put("SELECT * FROM entities WHERE adid=?", (adid,), [tuple(row)])
+            put("SELECT 1 FROM entities WHERE adid=?", (adid,), [(1,)])
+            put("SELECT metadata FROM entities WHERE adid=?", (adid,), [(row[5],)])
+            put("SELECT scheme, value FROM alt_ids WHERE adid=? ORDER BY created_at, value", (adid,), alt.get(adid, []))
+            mine = out.get(adid, [])
+            parents = [(o,) for p, o in mine if p in ("instanceOf", "variantOf")][:1]
+            put("SELECT object FROM relations WHERE subject=? AND predicate IN ('instanceOf','variantOf') LIMIT 1",
+                (adid,), parents)
+            for direction, pairs, sql in (
+                ("out", mine, "SELECT predicate, object FROM relations WHERE subject=?"),
+                ("in", into.get(adid, []), "SELECT predicate, subject FROM relations WHERE object=?"),
+            ):
+                put(sql + " ORDER BY created_at", (adid,), list(pairs))
+                for predicate in PREDICATES:
+                    put(sql + " AND predicate=? ORDER BY created_at", (adid, predicate),
+                        [pr for pr in pairs if pr[0] == predicate])
+
+    def _one(self, c, sql: str, params: tuple = ()) -> tuple | None:
+        """First row of a read; cached when outside a transaction."""
+        if c is self._conn and not self._depth:
+            rows = self._q(sql, params)
+            return rows[0] if rows else None
+        return c.execute(sql, params).fetchone()
 
     # -------------------------------------------------------------- registrars
     def add_registrar(self, registrar_id: str, name: str, role: Role | str = Role.REGISTRANT) -> str:
@@ -376,14 +452,14 @@ class RegistryStore:
         current, seen = adid, set()
         while current and current not in seen:
             seen.add(current)
-            row = c.execute("SELECT metadata FROM entities WHERE adid=?", (current,)).fetchone()
+            row = self._one(c, "SELECT metadata FROM entities WHERE adid=?", (current,))
             if row is None:
                 break
             chain.append(json.loads(row[0]))
-            up = c.execute(
-                "SELECT object FROM relations WHERE subject=? AND predicate IN ('instanceOf','variantOf') LIMIT 1",
+            up = self._one(
+                c, "SELECT object FROM relations WHERE subject=? AND predicate IN ('instanceOf','variantOf') LIMIT 1",
                 (current,),
-            ).fetchone()
+            )
             current = up[0] if up else None
         merged: dict[str, Any] = {}
         for metadata in reversed(chain):

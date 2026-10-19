@@ -331,6 +331,13 @@ def create_web_app(
                 return RedirectResponse(f"https://{public_host}{path}{query}", status_code=307)
         return await call_next(request)
     app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
+    from starlette.middleware.gzip import GZipMiddleware
+    app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+    @app.get("/healthz", include_in_schema=False)
+    def healthz():
+        """Cheap keep-awake address for an uptime monitor; touches no database."""
+        return {"ok": True}
 
     @app.middleware("http")
     async def json_download(request: Request, call_next):
@@ -362,7 +369,25 @@ def create_web_app(
             out[kind] = ids[0] if ids else None
         return out
 
+    memo: dict[str, tuple[float, Any]] = {}
+
+    def remembered(key: str, seconds: float, compute: Callable[[], Any]) -> Any:
+        """Keep a slow, rarely changing page part (counts, the QR codes) for a short while."""
+        hit = memo.get(key)
+        now = time.monotonic()
+        if hit is not None and now - hit[0] < seconds:
+            return hit[1]
+        value = compute()
+        memo[key] = (now, value)
+        return value
+
     def showcase(base_url: str) -> dict[str, Any] | None:
+        value = remembered("showcase:" + base_url, 120, lambda: _showcase(base_url))
+        if value is None:
+            memo.pop("showcase:" + base_url, None)  # still seeding: look again next time
+        return value
+
+    def _showcase(base_url: str) -> dict[str, Any] | None:
         """The worked example on the home page: one registered design and its variants."""
         fams = node.store.search({"productFamily": SHOWCASE_FAMILY}, kinds=["family"], limit=1)
         if not fams:
@@ -416,9 +441,11 @@ def create_web_app(
         return base
 
     def counts_now() -> dict[str, int]:
-        counts = {k: node.store.count(k) for k in ("family", "variant", "instance")}
-        counts["manufacturers"] = len(node.store.registrars_with_entities())
-        return counts
+        def compute() -> dict[str, int]:
+            counts = {k: node.store.count(k) for k in ("family", "variant", "instance")}
+            counts["manufacturers"] = len(node.store.registrars_with_entities())
+            return counts
+        return remembered("counts", 30, compute)
 
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)
     def home(request: Request, q: str = ""):
@@ -947,6 +974,7 @@ def build() -> FastAPI:
                 from scripts.seed_demo import main as seed_main
                 # Never the published default password on a reachable server.
                 seed_main(["--password", os.environ.get("ADIF_DEMO_PASSWORD") or secrets.token_urlsafe(18)])
+                node.store._cache.clear()  # the seeding wrote through another connection
             except Exception as exc:  # never take the site down over demo data
                 print(f"[adif] demo seeding failed: {exc!r}", flush=True)
 
