@@ -232,3 +232,77 @@ def test_two_host_layout_sends_accounts_to_the_app_host(monkeypatch):
     r = account.get("/registry?kind=variant", headers=HTML, follow_redirects=False)
     assert r.status_code == 307 and r.headers["location"] == "https://adif.my/registry?kind=variant"
     assert account.get("/login?as=authority", headers=HTML).status_code == 200
+
+
+@pytest.mark.parametrize("public_setting", ["www.adif.my", "adif.my"])
+def test_app_host_signup_and_shared_sign_in(monkeypatch, public_setting):
+    """Production layout: Render serves www.adif.my (adif.my redirects to it) and app.adif.my.
+
+    Signing up happens on app.adif.my; one sign-in then works on both hosts, and a form on the
+    registry host that posts to the app host (sign out) is accepted. The app must never
+    redirect www.adif.my to adif.my itself, or it loops with Render's own redirect.
+    """
+    monkeypatch.setenv("ADIF_PUBLIC_HOST", public_setting)
+    monkeypatch.setenv("ADIF_APP_HOST", "app.adif.my")
+    monkeypatch.delenv("ADIF_COOKIE_DOMAIN", raising=False)
+    node = RegistryNode("lk-1", RegistryStore(":memory:"), RootIndex(":memory:"), AccessPolicy.load())
+    accounts = AccountStore(":memory:")
+    app = create_web_app(node, accounts, TemplateLibrary(":memory:"), secret_key="t")
+    accounts.create("op@x.org", PW, "Op", "Registry operator", Role.OPERATOR, "active", "operator")
+    c = TestClient(app)
+    www, appx = "https://www.adif.my", "https://app.adif.my"
+
+    # 1. The public registry answers on www without bouncing to the bare domain.
+    r = c.get(www + "/", headers=HTML, follow_redirects=False)
+    assert r.status_code == 200 and "https://app.adif.my/welcome" in r.text
+    # 2. Account pages on either public host go to the app host.
+    for host in (www, "https://adif.my"):
+        r = c.get(host + "/signup", headers=HTML, follow_redirects=False)
+        assert r.status_code == 307 and r.headers["location"] == appx + "/signup"
+    # 3. Sign up on the app host.
+    page = c.get(appx + "/signup", headers=HTML)
+    assert page.status_code == 200
+    token = re.search(r'name="csrf" value="([^"]+)"', page.text).group(1)
+    r = c.post(appx + "/signup", headers=HTML, data={
+        "csrf": token, "organisation": "Lanka Threads", "display_name": "Ayesha",
+        "username": "ayesha@lankathreads.lk", "password": PW, "password2": PW})
+    assert r.status_code == 200 and "lankathreads.lk" in r.text
+    assert accounts.get("ayesha@lankathreads.lk").status == "pending"
+    # 4. The operator approves it on the app host.
+    token = re.search(r'name="csrf" value="([^"]+)"', c.get(appx + "/login", headers=HTML).text).group(1)
+    r = c.post(appx + "/login", headers=HTML, follow_redirects=False,
+               data={"csrf": token, "username": "op@x.org", "password": PW, "next": "/admin"})
+    assert r.status_code == 303
+    assert "domain=.adif.my" in r.headers["set-cookie"].lower() and "secure" in r.headers["set-cookie"].lower()
+    admin = c.get(appx + "/admin", headers=HTML)
+    assert "Lanka Threads" in admin.text
+    token = re.search(r'name="csrf" value="([^"]+)"', admin.text).group(1)
+    r = c.post(appx + "/admin/accounts/ayesha@lankathreads.lk/approve", headers=HTML,
+               data={"csrf": token}, follow_redirects=False)
+    assert r.status_code == 303 and accounts.get("ayesha@lankathreads.lk").status == "active"
+    # 5. The operator's sign-in is visible on the public host too, and signing out there works.
+    front = c.get(www + "/", headers=HTML)
+    assert "Sign out" in front.text
+    token = re.search(r'name="csrf" value="([^"]+)"', front.text).group(1)
+    r = c.post(appx + "/logout", headers=HTML, data={"csrf": token}, follow_redirects=False)
+    assert r.status_code == 303
+    # 6. The new manufacturer can now sign in on the app host and reach the portal.
+    token = re.search(r'name="csrf" value="([^"]+)"', c.get(appx + "/login", headers=HTML).text).group(1)
+    r = c.post(appx + "/login", headers=HTML, follow_redirects=False,
+               data={"csrf": token, "username": "ayesha@lankathreads.lk", "password": PW, "next": "/portal"})
+    assert r.status_code == 303
+    assert c.get(appx + "/portal", headers=HTML).status_code == 200
+
+
+def test_bare_style_code_finds_the_design(site):
+    """Typing a style code without the manufacturer prefix still finds the design."""
+    app, node, *_ = site
+    c = TestClient(app)
+    login(c, "me@demoknit.org")
+    upload_and_register(c)
+    anon = TestClient(app)
+    r = anon.get("/registry?q=TS-1000", headers=HTML, follow_redirects=False)
+    assert r.status_code == 303 and r.headers["location"].startswith("/adid/")
+    assert anon.get(r.headers["location"], headers=HTML).status_code == 200
+    r = anon.get("/registry?q=NO-SUCH-STYLE", headers=HTML)
+    assert r.status_code == 200 and "Nothing is registered" in r.text

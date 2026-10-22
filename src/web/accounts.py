@@ -24,7 +24,7 @@ from src.dbconn import connect
 from src.identity.adid import AdidError, slugify
 from src.registry.policy import Principal, Role
 
-__all__ = ["Account", "AccountError", "AccountStore"]
+__all__ = ["Account", "AccountError", "AccountNotActive", "AccountStore"]
 
 ITERATIONS = 240_000
 
@@ -47,6 +47,13 @@ CREATE TABLE IF NOT EXISTS accounts (
 
 class AccountError(Exception):
     """An account operation was refused, with a reason a person can act on."""
+
+
+class AccountNotActive(AccountError):
+    """The password was right, but the account is pending, suspended or rejected.
+
+    Not a guessing attempt, so the sign-in throttle does not count it.
+    """
 
 
 @dataclass(frozen=True)
@@ -145,9 +152,9 @@ class AccountStore:
             raise AccountError("That username and password do not match an account.")
         account = self._row(rows[0])
         if account.status == "pending":
-            raise AccountError("Your account is waiting for the registry operator to approve it.")
+            raise AccountNotActive("Your account is waiting for the registry operator to approve it.")
         if account.status != "active":
-            raise AccountError("This account is suspended. Contact the registry operator.")
+            raise AccountNotActive("This account is suspended. Contact the registry operator.")
         return account
 
     def set_status(self, username: str, status: str, actor: str) -> None:
@@ -157,6 +164,16 @@ class AccountStore:
             "UPDATE accounts SET status=?, approved_by=?, approved_at=? WHERE username=?",
             (status, actor, _now(), username),
         )
+
+    def set_password(self, username: str, password: str) -> None:
+        """Replace an account's password (operator tooling: ``scripts.reset_password``)."""
+        if len(password) < 10:
+            raise AccountError("Use a password of at least 10 characters.")
+        if self.get(username) is None:
+            raise AccountError(f"No account named '{username}'.")
+        salt = secrets.token_hex(16)
+        self._q("UPDATE accounts SET salt=?, pw_hash=? WHERE username=?",
+                (salt, _hash(password, salt), username.strip().lower()))
 
     def pending(self) -> list[Account]:
         return [self._row(r) for r in self._q("SELECT * FROM accounts WHERE status='pending' ORDER BY created_at")]

@@ -53,7 +53,7 @@ from src.registry.policy import PUBLIC, Principal, Role
 from src.registry.registration import register_rows, rows_from_mapping
 from src.registry.store import FACET_FIELDS, RegistryError
 from src.registry.views import AccessDenied, NotFound, label, lot_members, neighbourhood, record_view, summary
-from src.web.accounts import Account, AccountError, AccountStore
+from src.web.accounts import Account, AccountError, AccountNotActive, AccountStore
 from src.web.library import TemplateLibrary, TemplateLibraryError
 from src.web.safeguards import UPLOAD_TTL_SECONDS, AuditLog, LoginThrottle, max_upload_bytes, safe_next
 
@@ -76,6 +76,37 @@ PUBLIC_PREFIXES = ("/registry", "/how-it-works", "/about", "/adid/", "/01/")
 
 def _env_host(name: str) -> str:
     return os.environ.get(name, "").strip().lower().removeprefix("https://").removeprefix("http://").strip("/")
+
+
+def _host_aliases(host: str) -> set[str]:
+    """``adif.my`` and ``www.adif.my`` are the same public site, whichever one is configured.
+
+    The hosting platform decides which of the two is primary and redirects the
+    other one (Render redirects ``adif.my`` to ``www.adif.my`` when ``www`` was
+    added first). The app must not redirect between them as well: doing so in
+    the opposite direction produced an endless redirect loop.
+    """
+    if not host:
+        return set()
+    bare = host.removeprefix("www.")
+    return {bare, "www." + bare}
+
+
+def _cookie_domain(public_host: str, app_host: str) -> str | None:
+    """The cookie domain that lets one sign-in work on both the registry and the app host.
+
+    ``ADIF_COOKIE_DOMAIN`` wins when set. Otherwise, with ``www.adif.my`` and
+    ``app.adif.my`` it is ``.adif.my``. Without a shared domain, the CSRF token
+    issued on one host is unknown on the other, so every form that crosses
+    hosts (sign out, edit, withdraw) fails with "This form expired".
+    """
+    explicit = os.environ.get("ADIF_COOKIE_DOMAIN", "").strip()
+    if explicit:
+        return explicit
+    bare = public_host.removeprefix("www.")
+    if bare and app_host and app_host.endswith("." + bare):
+        return "." + bare
+    return None
 
 
 #: Category shortcuts on the registry page.
@@ -186,6 +217,10 @@ def create_web_app(
     uploads: dict[str, PortalUpload] = {}
     audit = audit or AuditLog(":memory:")
     throttle = login_throttle or LoginThrottle()
+    # Per address the limit is looser than per username: behind a hosting proxy, or on
+    # a shared network (a lecture room), many people can share one address, and five
+    # typing mistakes between them must not lock everyone out for 15 minutes.
+    address_throttle = LoginThrottle(max_failures=max(20, throttle.max_failures), window_seconds=throttle.window)
     upload_limit = max_upload_bytes()
 
     def client_of(request: Request) -> str:
@@ -194,6 +229,7 @@ def create_web_app(
     public_host = _env_host("ADIF_PUBLIC_HOST")
     app_host = _env_host("ADIF_APP_HOST")
     split = bool(public_host and app_host)
+    public_hosts = _host_aliases(public_host) - {app_host}
 
     def host_of(request: Request) -> str:
         return (request.headers.get("host") or "").split(":")[0].lower()
@@ -309,22 +345,26 @@ def create_web_app(
 
     app = create_app(node, html_renderer=render_entity, session_principal=session_principal)
     app.title = "ADIF — Apparel DPP Interoperability Framework (research prototype)"
-    # A cookie domain such as ".adif.my" keeps people signed in on both adif.my and app.adif.my,
-    # so an authority who signs in on the app still sees restricted sections on product pages.
+    # A cookie domain such as ".adif.my" keeps people signed in on both www.adif.my and
+    # app.adif.my, so an authority who signs in on the app still sees restricted sections
+    # on product pages. It is derived automatically when the two-host layout is on.
+    # Both hosts are HTTPS-only in that layout, so the cookie is marked Secure there.
     app.add_middleware(SessionMiddleware, secret_key=secret_key, session_cookie="adir_session",
-                       max_age=8 * 3600, same_site="lax", https_only=secure_cookies,
-                       domain=os.environ.get("ADIF_COOKIE_DOMAIN", "").strip() or None)
+                       max_age=8 * 3600, same_site="lax", https_only=secure_cookies or split,
+                       domain=_cookie_domain(public_host, app_host) if split else
+                       (os.environ.get("ADIF_COOKIE_DOMAIN", "").strip() or None))
 
     @app.middleware("http")
     async def host_routing(request: Request, call_next):
-        """Send account pages to the app host and registry pages to the public host."""
+        """Send account pages to the app host and registry pages to the public host.
+
+        No www <-> bare-domain redirect here: the hosting platform already does it.
+        """
         if split:
             host, path = host_of(request), request.url.path
             query = ("?" + request.url.query) if request.url.query else ""
-            if host in (public_host, "www." + public_host) and path.startswith(ACCOUNT_PREFIXES):
+            if host in public_hosts and path.startswith(ACCOUNT_PREFIXES):
                 return RedirectResponse(f"https://{app_host}{path}{query}", status_code=307)
-            if host == "www." + public_host:
-                return RedirectResponse(f"https://{public_host}{path}{query}", status_code=308)
             wants_html = "text/html" in (request.headers.get("accept") or "")
             if (host == app_host and request.method == "GET" and wants_html
                     and path.startswith(PUBLIC_PREFIXES)):
@@ -486,6 +526,18 @@ def create_web_app(
                     target = node.store.find("alias", q.lower().strip("/").removeprefix("alias/"))
             if target:
                 return RedirectResponse(href(target), status_code=303)
+            # A bare style code ("CB-TEE-01") without the manufacturer prefix: one
+            # match opens that design, several (two manufacturers using the same
+            # code) list them all, so a style code is never silently resolved to
+            # the wrong manufacturer.
+            try:
+                designs = node.store.search({"productFamily": q}, kinds=["family"], limit=2)
+            except RegistryError:
+                designs = []
+            if len(designs) == 1:
+                return RedirectResponse(href(designs[0]), status_code=303)
+            if designs:
+                return RedirectResponse(f"/registry?productFamily={quote(q)}", status_code=303)
         searchable = [f for f in FACET_FIELDS if f != "gtin" and node.policy.is_public(f)]
         filters = {f: request.query_params[f] for f in searchable if request.query_params.get(f, "").strip()}
         manufacturer = request.query_params.get("manufacturer", "").strip() or None
@@ -562,8 +614,8 @@ def create_web_app(
         form = await form_checked(request)
         nxt = safe_next(str(form.get("next") or "/portal"))
         username = str(form.get("username", "")).strip().lower()
-        keys = (f"user:{username}", f"client:{client_of(request)}")
-        wait = throttle.blocked(*keys)
+        user_key, client_key = f"user:{username}", f"client:{client_of(request)}"
+        wait = max(throttle.blocked(user_key), address_throttle.blocked(client_key))
         if wait:
             audit.log(username, "login", outcome="throttled", client=client_of(request))
             return render(request, "login.html", status_code=429, next=nxt, username=username,
@@ -571,11 +623,16 @@ def create_web_app(
         try:
             account = accounts.authenticate(username, str(form.get("password", "")))
         except AccountError as exc:
-            throttle.failed(*keys)
-            audit.log(username, "login", outcome="failed", client=client_of(request))
+            not_active = isinstance(exc, AccountNotActive)
+            if not not_active:  # a right password on a pending account is not password guessing
+                throttle.failed(user_key)
+                address_throttle.failed(client_key)
+            audit.log(username, "login", outcome="not_active" if not_active else "failed",
+                      client=client_of(request))
             return render(request, "login.html", status_code=401, error=str(exc), next=nxt,
                           username=form.get("username", ""))
-        throttle.succeeded(*keys)
+        throttle.succeeded(user_key)
+        address_throttle.succeeded(client_key)
         audit.log(account.username, "login", client=client_of(request))
         request.session.clear()
         request.session["user"] = account.username

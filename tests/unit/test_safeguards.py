@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import time
 
 import pytest
@@ -86,3 +87,29 @@ def test_throttle_window_resets_after_success():
     assert t.blocked("k") > 0
     t.succeeded("k")
     assert t.blocked("k") == 0
+
+
+def test_pending_account_sign_in_is_not_counted_as_guessing(site):
+    """Showing that a pending account cannot sign in must not lock the room out."""
+    app, _, accounts, _ = site
+    from src.registry.policy import Role as _Role
+    accounts.create("waiting@pending.org", "pending-pass-123", "W", "Pending Org", _Role.REGISTRANT, "pending")
+    c = TestClient(app)
+    for _ in range(8):
+        token = re.search(r'name="csrf" value="([^"]+)"', c.get("/login", headers=HTML).text).group(1)
+        r = c.post("/login", data={"csrf": token, "username": "waiting@pending.org",
+                                   "password": "pending-pass-123", "next": "/portal"}, headers=HTML)
+        assert r.status_code == 401 and "waiting for the registry operator" in r.text
+
+
+def test_typing_mistakes_by_several_people_do_not_lock_out_the_room(site):
+    """Many people behind one address: a few wrong passwords must not block everyone."""
+    app, *_ = site
+    c = TestClient(app)
+    for user in ("a@x.org", "b@x.org", "c@x.org", "d@x.org", "e@x.org", "f@x.org"):
+        r = c.post("/login", data={"csrf": csrf_of(c), "username": user, "password": "wrong"},
+                   headers=HTML, follow_redirects=False)
+        assert r.status_code == 401
+    r = c.post("/login", data={"csrf": csrf_of(c), "username": "me@demoknit.org", "password": PW},
+               headers=HTML, follow_redirects=False)
+    assert r.status_code == 303
